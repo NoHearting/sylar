@@ -37,8 +37,6 @@ cstring
 -
 stdarg.h
 -
-map
--
 singleton.h
 /home/zsj/workspace/sylar/sylar/singleton.h
 

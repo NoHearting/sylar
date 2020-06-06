@@ -48,6 +48,13 @@
         "ctime": "cpp",
         "ratio": "cpp",
         "thread": "cpp",
-        "cinttypes": "cpp"
-    }
+        "cinttypes": "cpp",
+        "strstream": "cpp",
+        "complex": "cpp",
+        "iomanip": "cpp",
+        "cfenv": "cpp",
+        "set": "cpp",
+        "unordered_set": "cpp"
+    },
+    "cmake.configureOnOpen": false
 }

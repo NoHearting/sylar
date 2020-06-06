@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-04 20:39:08
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-05 19:51:06
+ * @LastEditTime: 2020-06-06 16:37:49
  */ 
 #ifndef __SYLAR_LOG_H__
 #define __SYLAR_LOG_H__
@@ -24,7 +24,6 @@
 #include<time.h>
 #include<cstring>
 #include<stdarg.h>
-#include<map>
 
 #include"singleton.h"
 
@@ -52,7 +51,8 @@
 #define SYLAR_LOG_FMT_ERROR(logger,fmt,...) SYLAR_LOG_FMT_LEVEL(logger,sylar::LogLevel::ERROR,fmt,__VA_ARGS__)
 #define SYLAR_LOG_FMT_FATAL(logger,fmt,...) SYLAR_LOG_FMT_LEVEL(logger,sylar::LogLevel::FATAL,fmt,__VA_ARGS__)
 
-
+//获取一个默认的日志器
+#define SYLAR_LOG_ROOT() sylar::LoggerMgr::GetInstance().getRoot()
 
 namespace sylar{
 
@@ -360,6 +360,7 @@ public:
     Logger::ptr getLogger(const std::string & name);
 
     void init();
+    Logger::ptr getRoot() const{return m_root;}
 private:
     std::map<std::string,Logger::ptr> m_loggers;
     Logger::ptr m_root;

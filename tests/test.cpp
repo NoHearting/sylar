@@ -4,13 +4,14 @@
  * @Author: zsj
  * @Date: 2020-06-05 14:59:11
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-05 19:59:06
+ * @LastEditTime: 2020-06-07 16:13:16
  */ 
 
 #include<iostream>
 #include"../sylar/log.h"
 #include"../sylar/util.h"
 #include"../sylar/singleton.h"
+#include"../sylar/config.h"
 
 
 int main(int argc,char * argv[])
@@ -38,7 +39,7 @@ int main(int argc,char * argv[])
     SYLAR_LOG_FMT_ERROR(logger,"test macro fmt warn %s","xx");
     SYLAR_LOG_ERROR(logger)<<"test macro error";
 
-    auto l = sylar::LoggerMgr::GetInstance().getLogger("XX");
+    auto l = SYLAR_LOG_NAME("XX");
     SYLAR_LOG_INFO(l)<<"XXX";
     
 }

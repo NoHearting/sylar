@@ -27,6 +27,8 @@ list
 -
 utility
 -
+functional
+-
 yaml-cpp/yaml.h
 -
 log.h
@@ -57,6 +59,8 @@ utility
 -
 map
 -
+set
+-
 functional
 -
 time.h
@@ -64,6 +68,8 @@ time.h
 cstring
 -
 stdarg.h
+-
+yaml-cpp/yaml.h
 -
 singleton.h
 /home/zsj/workspace/sylar/sylar/singleton.h
@@ -86,6 +92,8 @@ stdint.h
 
 /home/zsj/workspace/sylar/tests/test_config.cpp
 yaml-cpp/yaml.h
+-
+iostream
 -
 ../sylar/config.h
 /home/zsj/workspace/sylar/sylar/config.h

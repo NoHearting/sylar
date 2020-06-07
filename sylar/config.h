@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-05 20:06:46
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-06 23:38:26
+ * @LastEditTime: 2020-06-07 13:02:33
  */ 
 #ifndef SYLAR__CONFIG_H__
 #define SYLAR__CONFIG_H__
@@ -19,6 +19,7 @@
 #include<vector>
 #include<list>
 #include<utility>
+#include<functional>
 #include<yaml-cpp/yaml.h>
 
 #include"log.h"
@@ -285,6 +286,8 @@ template<class T,class FromStr = LexicalCast<std::string,T>
 class ConfigVar : public ConfigVarBase{
 public:
     typedef std::shared_ptr<ConfigVar> ptr;
+    typedef std::function<void (const T & old_value,const T & new_value)> on_change_cb;
+
     ConfigVar(const std::string & name
             ,const T & default_value
             ,const std::string&description = "")
@@ -326,11 +329,37 @@ public:
 
     
     const T getValue()const {return m_val;}
-    void setValue(const T & val){m_val = val;} 
+    void setValue(const T & val){
+        if(val == m_val){
+            return;
+        }
+        for(auto & item : m_cbs){
+            item.second(m_val,val);
+        }
+        m_val = val;
+    } 
 
     std::string getTypeName()const override{return typeid(T).name();}
+
+    void addListener(uint64_t key,on_change_cb cb){
+        m_cbs[key] = cb;
+    }
+
+    void delListener(uint64_t key){
+        m_cbs.erase(m_cbs.find(key));
+    }
+
+    on_change_cb getListener(uint64_t key){
+        auto it = m_cbs.find(key);
+        return it = m_cbs.end() ? nullptr : it->second;
+    }
+
+    void clearListener(){
+        m_cbs.clear();
+    }
 private:
     T m_val;  //配置变量的值
+    std::map<uint64_t,on_change_cb> m_cbs;  //变更回调函数组，便于添加和删除回调函数
 };
 
 class Config{
@@ -346,8 +375,8 @@ public:
     static typename ConfigVar<T>::ptr Lookup(const std::string & name,
             const T & default_value,const std::string & description = ""){
         
-        auto it = s_datas.find(name);
-        if(it != s_datas.end()){
+        auto it = GetDatas().find(name);
+        if(it != GetDatas().end()){
             auto tmp = std::dynamic_pointer_cast<ConfigVar<T>>(it->second);
             if(tmp){
                 SYLAR_LOG_INFO(SYLAR_LOG_ROOT())<< "Lookup name="<<name<<" exists";
@@ -366,7 +395,7 @@ public:
             throw std::invalid_argument(name);
         }
         typename ConfigVar<T>::ptr v(new ConfigVar<T>(name,default_value,description));
-        s_datas[name] = v;
+        GetDatas()[name] = v;
         return v;
     }
 
@@ -375,8 +404,8 @@ public:
      */ 
     template<class T>
     static typename ConfigVar<T>::ptr Lookup(const std::string & name){
-        auto it = s_datas.find(name);
-        if(it == s_datas.end()){
+        auto it = GetDatas().find(name);
+        if(it == GetDatas().end()){
             return nullptr;
         }
         return std::dynamic_pointer_cast<ConfigVar<T>>(it->second);
@@ -390,8 +419,13 @@ public:
     static ConfigVarBase::ptr LookupBase(const std::string & name);
 private:
 
-    //当前系统中所有的配置项
-    static ConfigVarMap s_datas;
+    
+
+    //获取当前系统中所有的配置项
+    static ConfigVarMap & GetDatas(){
+        static ConfigVarMap s_datas;
+        return s_datas;
+    }
 };
 
 }

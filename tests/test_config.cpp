@@ -4,12 +4,14 @@
  * @Author: zsj
  * @Date: 2020-06-06 14:18:03
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-06 23:28:36
+ * @LastEditTime: 2020-06-07 19:47:05
  */ 
 #include<yaml-cpp/yaml.h>
+#include<iostream>
 #include"../sylar/config.h"
 #include"../sylar/log.h"
 
+#if 0
 
 sylar::ConfigVar<int>::ptr g_int_value_config = 
     sylar::Config::Lookup("system.port",(int)8080,"system port");
@@ -66,7 +68,7 @@ void print_yaml(const YAML::Node & node,int level){
 }
 
 void test_yaml(){
-    YAML::Node root = YAML::LoadFile("/home/zsj/workspace/sylar/bin/conf/log.yml");
+    YAML::Node root = YAML::LoadFile("/home/zsj/workspace/sylar/bin/conf/test.yml");
     print_yaml(root,0);
     // SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) << root;
 }
@@ -107,7 +109,7 @@ void test_config(){
 
 
 
-    YAML::Node root = YAML::LoadFile("/home/zsj/workspace/sylar/bin/conf/log.yml");
+    YAML::Node root = YAML::LoadFile("/home/zsj/workspace/sylar/bin/conf/test.yml");
     sylar::Config::LoadFromYaml(root);
 
     std::cout<<std::endl;
@@ -124,6 +126,7 @@ void test_config(){
 
 }
 
+#endif
 
 class Person{
 public:
@@ -134,6 +137,12 @@ public:
     std::string m_name = "default";
     int m_age = 0;
     bool m_sex = 0;
+
+    bool operator==(const Person & oth) const{
+        return m_name == oth.m_name &&
+               m_age == oth.m_age &&
+               m_sex == oth.m_sex;
+    }
 
     std::string toString()const{
         std::stringstream ss;
@@ -161,7 +170,7 @@ public:
             p.m_age = node["age"].as<int>();
             p.m_sex = node["sex"].as<bool>();
         }catch(std::exception & e){
-            SYLAR_LOG_ERROR(SYLAR_LOG_ROOT()) << "yaml data convert failed!";
+            SYLAR_LOG_ERROR(SYLAR_LOG_ROOT()) << "yaml data  format error!";
             throw e;
         }
         
@@ -212,7 +221,11 @@ void test_class(){
     XX_PM(g_person_map,map,before);
     SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) <<" before: " << g_person_vec_map->toString();
 
-    YAML::Node root = YAML::LoadFile("/home/zsj/workspace/sylar/bin/conf/log.yml");
+    g_person->addListener(10,[](const Person & old_value,const Person & new_value){
+        SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) << "value change: "<< old_value.toString() <<" to "<<new_value.toString();
+    });
+
+    YAML::Node root = YAML::LoadFile("/home/zsj/workspace/sylar/bin/conf/test.yml");
     sylar::Config::LoadFromYaml(root);
 
     
@@ -224,11 +237,21 @@ void test_class(){
 
 }
 
+void test_log(){
+    SYLAR_LOG_INFO(SYLAR_LOG_NAME("system"))<<"hello config";
+    // std::cout<<sylar::LoggerMgr::GetInstance()->toYamlString()<<std::endl;
+    YAML::Node root = YAML::LoadFile("/home/zsj/workspace/sylar/bin/conf/log.yml");
+    sylar::Config::LoadFromYaml(root);
+    // std::cout<<sylar::LoggerMgr::GetInstance()->toYamlString()<<std::endl;
+    SYLAR_LOG_INFO(SYLAR_LOG_NAME("system"))<<"hello config";
+}
+
 int main(int argc,char * argv[])
 {
     
 
     // test_yaml();
     // test_config();
-    test_class();
+    // test_class();
+    test_log();
 }

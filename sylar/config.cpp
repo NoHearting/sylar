@@ -4,14 +4,14 @@
  * @Author: zsj
  * @Date: 2020-06-06 14:23:07
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-06 22:49:08
+ * @LastEditTime: 2020-06-07 16:14:51
  */ 
 #include"config.h"
 
 namespace sylar{
 
 
-Config::ConfigVarMap Config::s_datas;
+// Config::ConfigVarMap Config::s_datas;
 
 static void ListAllMember(const std::string & prefix,
                           const YAML::Node & node,
@@ -55,9 +55,9 @@ void Config::LoadFromYaml(const YAML::Node & root)
 
 ConfigVarBase::ptr Config::LookupBase(const std::string & name)
 {
-    auto it = s_datas.find(name);
-    if(it != s_datas.end()){
-        return s_datas[name];
+    auto it = GetDatas().find(name);
+    if(it != GetDatas().end()){
+        return GetDatas()[name];
     }
     return nullptr;
 }

@@ -1,10 +1,25 @@
 /*
  * @Descripttion: 
+ * - 日志系统注释见[log.h]
+ * - 配置系统的整合信息。配置系统主要组件：
+ *      - 日志输出器定义（LogAppenderDefine）
+ *      - 日志器定义（LogDefine）
+ *      - 转化器（将yaml配置转化为日志器定义/日志输出器定义）,用于配置的序列化和反序列化
+ *          - LexicalCast<std::string,std::set<LogDefine> >, string to set<LogDefine>
+ *          - LexicalCast<std::set<LogDefine>,std::string >, set<LogDefine> to string
+ *      - 日志初始化器（LogIniter）
+ *  - 配置系统生效的逻辑：
+ *      - 可以进行一些配置的初始化（即默认配置）
+ *      - 然后读取配置文件中的配置，将文件中的配置项全部读取保存
+ *          - 会使用LexicalCast<std::string,std::set<LogDefine> >将配置读取并转化为set数据结构
+ *      - 将保存的配置项和现有配置进行对比，
+ *          - 如果有则覆盖默认配置，即修改日志配置（主要是修改日志器Logger）
+ *          - 如果没有默认配置，则会创建配置项对应的数据结构，即创建日志配置（主要是创建日志器Logger）
  * @version: 
  * @Author: zsj
  * @Date: 2020-06-04 22:47:54
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-07 20:03:47
+ * @LastEditTime: 2020-06-07 22:38:22
  */ 
 #include"log.h"
 #include"config.h"
@@ -298,18 +313,6 @@ void LogFormatter::init(){
     if(!nstr.empty()){
         vec.push_back(std::make_tuple(nstr,"",0));
     }
-
-    /**
-     * %m  -- 日志消息
-     * %p  -- 日志级别
-     * %r  -- 启动后的毫秒数
-     * %c  -- 日志名称
-     * %t  -- 线程id
-     * %n  -- 回车换行
-     * %d  -- 时间格式
-     * %f  -- 文件名
-     * %l  -- 行号
-     */
     static std::map<std::string,std::function<FormatItem::ptr(const std::string & str)> > s_format_items = {
 
 #define XX(str,C) \
@@ -370,6 +373,26 @@ Logger::ptr LoggerManager::getLogger(const std::string & name)
     }
 }
 
+void LoggerManager::init(){
+    
+}
+
+
+
+std::string LoggerManager::toYamlString(){
+    YAML::Node node;
+    for(auto & i : m_loggers){
+        node.push_back(YAML::Load(i.second->toYamlString()));
+    }
+    std::stringstream ss;
+    ss << node;
+    return ss.str();
+}
+
+
+/**
+ * @brief 日志输出器定义类，用于yaml字符串和日志输出类的序列化和反序列化 
+ */ 
 struct  LogAppenderDefine{
     int type = 0; // 1 File ,2 Stdout
     LogLevel::Level level = LogLevel::UNKNOW;
@@ -385,6 +408,9 @@ struct  LogAppenderDefine{
 
 };
 
+/**
+ * @brief 日志器定义，用于yaml字符串和日志器的序列和反序列话
+ */ 
 struct LogDefine {
     std::string name;
     LogLevel::Level level = LogLevel::UNKNOW;
@@ -404,6 +430,10 @@ struct LogDefine {
 };
 
 
+/**
+ * @brief LexicalCast类的一个偏特化
+ * - std::string to std::set<LogDefine>
+ */ 
 template<>
 class LexicalCast<std::string,std::set<LogDefine> >{
 public:
@@ -417,9 +447,7 @@ public:
                 continue;
             }
             LogDefine ld;
-        //    if(n["name"].IsScalar()){
 
-        //    }
             ld.name = n["name"].as<std::string>();
             ld.level = LogLevel::FromString((n["level"].IsDefined() ? n["level"].as<std::string>() : ""));
             if(n["formatter"].IsDefined()){
@@ -463,7 +491,10 @@ public:
     }
 };
 
-// person to string
+/**
+ * @brief LexicalCast类的一个偏特化
+ *  - std::set<LogDefine> to std::string
+ */ 
 template<>
 class LexicalCast<std::set<LogDefine>,std::string>{
 public:
@@ -509,6 +540,11 @@ public:
 sylar::ConfigVar<std::set<LogDefine> >::ptr g_log_defines = 
     sylar::Config::Lookup("logs",std::set<LogDefine>(),"log config");
 
+
+/**
+ * @brief 日志初始化类。
+ *  - 添加一个监听器，用于监听默认配置是否改变，若改变则更新配置并更新日志器
+ */ 
 struct LogIniter{
     LogIniter(){
 
@@ -577,23 +613,9 @@ struct LogIniter{
     }
 };
 
+//用于在main函数之前进行初始化
 static LogIniter __log_init;
 
-void LoggerManager::init(){
-    
-}
-
-
-
-std::string LoggerManager::toYamlString(){
-    YAML::Node node;
-    for(auto & i : m_loggers){
-        node.push_back(YAML::Load(i.second->toYamlString()));
-    }
-    std::stringstream ss;
-    ss << node;
-    return ss.str();
-}
 
 
 

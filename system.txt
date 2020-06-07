@@ -4,3 +4,4 @@
 2020-06-07 20:01:00	[INFO]	hello config
 2020-06-07 20:02:14	[INFO]	hello config
 2020-06-07 20:04:00	[INFO]	hello config
+2020-06-07 20:54:23	[FATAL]	hello config

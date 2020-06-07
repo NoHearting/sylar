@@ -7,7 +7,7 @@ logs:
         file: root.txt
       - type: StdoutLogAppender
   - name: system
-    level: debug
+    level: error
     formatter: "%d%T%m%n"
     appenders:
       - type: FileLogAppender

@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-06 14:18:03
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-07 19:47:05
+ * @LastEditTime: 2020-06-07 20:55:20
  */ 
 #include<yaml-cpp/yaml.h>
 #include<iostream>
@@ -239,11 +239,14 @@ void test_class(){
 
 void test_log(){
     SYLAR_LOG_INFO(SYLAR_LOG_NAME("system"))<<"hello config";
+    // std::cout<<sylar::LogLevel::toString(SYLAR_LOG_NAME("system")->getLevel())<<std::endl;
     // std::cout<<sylar::LoggerMgr::GetInstance()->toYamlString()<<std::endl;
     YAML::Node root = YAML::LoadFile("/home/zsj/workspace/sylar/bin/conf/log.yml");
     sylar::Config::LoadFromYaml(root);
     // std::cout<<sylar::LoggerMgr::GetInstance()->toYamlString()<<std::endl;
+    // std::cout<<sylar::LogLevel::toString(SYLAR_LOG_NAME("system")->getLevel())<<std::endl;
     SYLAR_LOG_INFO(SYLAR_LOG_NAME("system"))<<"hello config";
+    // SYLAR_LOG_FATAL(SYLAR_LOG_NAME("system"))<<"hello config";
 }
 
 int main(int argc,char * argv[])

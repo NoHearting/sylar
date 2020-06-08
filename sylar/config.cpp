@@ -4,15 +4,17 @@
  * @Author: zsj
  * @Date: 2020-06-06 14:23:07
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-07 16:14:51
+ * @LastEditTime: 2020-06-08 10:23:02
  */ 
 #include"config.h"
 
 namespace sylar{
 
 
-// Config::ConfigVarMap Config::s_datas;
 
+/**
+ * @brief 递归读取配置文件中的配置到一个list中
+ */ 
 static void ListAllMember(const std::string & prefix,
                           const YAML::Node & node,
                           std::list<std::pair<std::string,const YAML::Node> > & output){

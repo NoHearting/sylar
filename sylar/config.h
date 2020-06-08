@@ -1,10 +1,19 @@
 /*
  * @Descripttion: 
+ * - 定义配置系统，其主要组件有：
+ *      - 配置变量（ConfigVar），代表一个配置量
+ *      - 配置器（Config），记录了所有配置变量
+ *      - 转换器（LexicalCast），及其对不同数据结构的偏特化版本
+ * - 配置系统主要工作逻辑：
+ *      - 可以利用配置器（Config）进行一些默认/约定配置
+ *      - 然后使用配置器（Config）进行配置文件的读取，读取所有的配置变量（ConfigVar）
+ *      - 在设置配置变量的时候会触发转化器（LexicalCast），将配置文件中的字符串序列化为当前配置变量的类型
+ *      - 当配置文件配置和默认配置不一样时，会触发添加的监听事件，对配置进行修改
  * @version: 
  * @Author: zsj
  * @Date: 2020-06-05 20:06:46
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-07 13:02:33
+ * @LastEditTime: 2020-06-08 10:33:24
  */ 
 #ifndef SYLAR__CONFIG_H__
 #define SYLAR__CONFIG_H__
@@ -30,12 +39,17 @@
 
 namespace sylar{
 
+/**
+ * @brief 配置变量基类，定义了基础配置变量的名字和描述，
+ *      - 提供配置变量字符串到数据结构的序列化和反序列化接口
+ */ 
 class ConfigVarBase{
 public:
     typedef std::shared_ptr<ConfigVarBase> ptr;
     ConfigVarBase(const std::string & name,const std::string & description = "")
         :m_name(name),m_description(description)
     {
+        //配置变量名称大小写不敏感
         std::transform(m_name.begin(),m_name.end(),m_name.begin(),::tolower);
     }
     virtual ~ConfigVarBase(){}
@@ -55,6 +69,17 @@ protected:
 
 //--------------------------------------------------------------------------------------------
 //--------------------------------------     自定义转化类     ----------------------------------
+//--  * 定义了一系列的转化器类，用于配置变量字符串和内部数据结构的序列化和反序列化
+//--  * 定义了一个模板类LexicalCast，将F类型转化为T类型，但只能用于普通对象的转换
+//--  * 添加定义了不同数据结构的转化器——对于基本转化器的偏特化，支持偏特化的数据结构有：
+//--        + vector
+//--        + list
+//--        + set
+//--        + unordered_set
+//--        + map
+//--        + unordered_map
+//--  * 支持自定义转化器用于序列化自定义类，但是必须编写自己的偏特化转化器，然后重载operator()
+//--    * 使用的operator()进行转换
 //--------------------------------------------------------------------------------------------
 
 /**
@@ -279,7 +304,11 @@ public:
 
 
 /**
- * @brief 配置变量实现类
+ * @brief 配置变量实现类，继承于ConfigVarBase类
+ *  - 含有三个模板参数：
+ *      - T：配置变量的类型
+ *      - FromStr：转换器，从配置文件中的字符串转化为当前配置类型T
+ *      - ToStr: 转换器，从当前配置类型转化为配置文件中的字符串
  */ 
 template<class T,class FromStr = LexicalCast<std::string,T>
                 ,class ToStr = LexicalCast<T,std::string>>
@@ -296,7 +325,7 @@ public:
     }
 
     /**
-     * @brief 将配置变量的值转化为字符串并且返回
+     * @brief 将配置变量的值转化为yaml格式字符串并且返回
      * @return 配置变量的值的字符串
      */ 
     std::string toString()override{
@@ -311,7 +340,7 @@ public:
     }
 
     /**
-     * @brief 设置配置变量的值，该值由val转换而来
+     * @brief 设置配置变量的值，该值由val（yaml字符串）转换而来
      * 
      * @param val 字符串的值，转换后用于设置配置变量的值
      * @return 成功返回true，异常返回false
@@ -329,6 +358,11 @@ public:
 
     
     const T getValue()const {return m_val;}
+
+    /**
+     * @brief 设置配置变量的值，
+     *      - 如果检测到值有变化则调用当前配置变量上注册的回调函数进行处理
+     */ 
     void setValue(const T & val){
         if(val == m_val){
             return;
@@ -359,9 +393,14 @@ public:
     }
 private:
     T m_val;  //配置变量的值
-    std::map<uint64_t,on_change_cb> m_cbs;  //变更回调函数组，便于添加和删除回调函数
+    std::map<uint64_t,on_change_cb> m_cbs;  //变更回调函数组，用于监听配置变量是否有变化
 };
 
+
+/**
+ * @brief 配置类
+ *  - 
+ */ 
 class Config{
 public:
     typedef std::shared_ptr<Config> ptr;
@@ -411,6 +450,11 @@ public:
         return std::dynamic_pointer_cast<ConfigVar<T>>(it->second);
     }
 
+    /**
+     * @brief 从配置文件加载配置,
+     *  - 读取配置文件所有的配置到一个数据结构，
+     *  - 然后判断配置文件中配置和当前约定配置是否有不同，有则更新约定配置
+     */ 
     static void LoadFromYaml(const YAML::Node & root);
 
     /**
@@ -421,7 +465,10 @@ private:
 
     
 
-    //获取当前系统中所有的配置项
+    /**
+     * @brief 获取当前系统中所有的配置项
+     *  - 所有的配置项容器为一个静态局部变量，使用本函数获取是为了初始化早于使用这个容器的方法
+     */ 
     static ConfigVarMap & GetDatas(){
         static ConfigVarMap s_datas;
         return s_datas;

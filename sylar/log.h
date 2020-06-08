@@ -540,6 +540,11 @@ class LoggerManager
 {
 public:
     LoggerManager();
+
+    /**
+     * @brief 根据名字获取一个日志器（logger）
+     *  - 如果有则取出，如果没有则新建并返回
+     */ 
     Logger::ptr getLogger(const std::string & name);
 
     void init();

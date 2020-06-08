@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-08 11:18:54
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-08 16:44:04
+ * @LastEditTime: 2020-06-08 18:40:55
  */ 
 
 #include "../sylar/sylar.h"
@@ -64,4 +64,11 @@ int main(int argc,char * argv[])
     }
     SYLAR_LOG_INFO(g_logger) << "thread test end";
     SYLAR_LOG_INFO(g_logger) << count;
+
+    sylar::Config::Visit([](sylar::ConfigVarBase::ptr var){
+        SYLAR_LOG_INFO(g_logger) << "name="<<var->getName()
+            <<" description="<<var->getDescription()
+            <<" typename="<<var->getTypeName()
+            <<" value=" << var->toString();
+    });
 }

@@ -19,7 +19,7 @@
  * @Author: zsj
  * @Date: 2020-06-04 22:47:54
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-08 17:22:31
+ * @LastEditTime: 2020-06-08 18:36:04
  */ 
 #include"log.h"
 #include"config.h"
@@ -565,7 +565,7 @@ sylar::ConfigVar<std::set<LogDefine> >::ptr g_log_defines =
 struct LogIniter{
     LogIniter(){
 
-        g_log_defines->addListener(0xF1E231,[](const std::set<LogDefine> & old_value,
+        g_log_defines->addListener([](const std::set<LogDefine> & old_value,
                 const std::set<LogDefine> & new_value)
         {
             SYLAR_LOG_INFO(SYLAR_LOG_NAME("system")) << "on_logger_conf_changed";

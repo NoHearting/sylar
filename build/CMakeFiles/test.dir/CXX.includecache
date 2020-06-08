@@ -35,6 +35,8 @@ log.h
 /home/zsj/workspace/sylar/sylar/log.h
 util.h
 /home/zsj/workspace/sylar/sylar/util.h
+thread.h
+/home/zsj/workspace/sylar/sylar/thread.h
 
 /home/zsj/workspace/sylar/sylar/log.h
 string

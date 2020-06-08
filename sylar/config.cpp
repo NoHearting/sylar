@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-06 14:23:07
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-08 10:23:02
+ * @LastEditTime: 2020-06-08 18:34:05
  */ 
 #include"config.h"
 
@@ -57,6 +57,7 @@ void Config::LoadFromYaml(const YAML::Node & root)
 
 ConfigVarBase::ptr Config::LookupBase(const std::string & name)
 {
+    RWMutexType::ReadLock lock(GetMutex());
     auto it = GetDatas().find(name);
     if(it != GetDatas().end()){
         return GetDatas()[name];
@@ -64,4 +65,11 @@ ConfigVarBase::ptr Config::LookupBase(const std::string & name)
     return nullptr;
 }
 
+void Config::Visit(std::function<void(ConfigVarBase::ptr)> cb){
+    RWMutexType::ReadLock lock(GetMutex());
+    ConfigVarMap & m =  GetDatas();
+    for(auto & item : m){
+        cb(item.second);
+    }
+}
 }

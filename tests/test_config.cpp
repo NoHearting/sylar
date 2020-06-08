@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-06 14:18:03
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-07 20:55:20
+ * @LastEditTime: 2020-06-08 18:42:06
  */ 
 #include<yaml-cpp/yaml.h>
 #include<iostream>
@@ -221,7 +221,7 @@ void test_class(){
     XX_PM(g_person_map,map,before);
     SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) <<" before: " << g_person_vec_map->toString();
 
-    g_person->addListener(10,[](const Person & old_value,const Person & new_value){
+    g_person->addListener([](const Person & old_value,const Person & new_value){
         SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) << "value change: "<< old_value.toString() <<" to "<<new_value.toString();
     });
 
@@ -257,4 +257,10 @@ int main(int argc,char * argv[])
     // test_config();
     // test_class();
     test_log();
+    sylar::Config::Visit([](sylar::ConfigVarBase::ptr var){
+        SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) << "name="<<var->getName()
+            <<" description="<<var->getDescription()
+            <<" typename="<<var->getTypeName()
+            <<" value=" << var->toString();
+    });
 }

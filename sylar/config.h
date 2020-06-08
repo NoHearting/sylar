@@ -13,7 +13,7 @@
  * @Author: zsj
  * @Date: 2020-06-05 20:06:46
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-08 10:33:24
+ * @LastEditTime: 2020-06-08 18:37:29
  */ 
 #ifndef SYLAR__CONFIG_H__
 #define SYLAR__CONFIG_H__
@@ -33,6 +33,7 @@
 
 #include"log.h"
 #include"util.h"
+#include"thread.h"
 
 
 
@@ -314,6 +315,7 @@ template<class T,class FromStr = LexicalCast<std::string,T>
                 ,class ToStr = LexicalCast<T,std::string>>
 class ConfigVar : public ConfigVarBase{
 public:
+    typedef RWMutex RWMutexType;
     typedef std::shared_ptr<ConfigVar> ptr;
     typedef std::function<void (const T & old_value,const T & new_value)> on_change_cb;
 
@@ -331,6 +333,7 @@ public:
     std::string toString()override{
         try{
             // return boost::lexical_cast<std::string>(m_val);
+            RWMutexType::ReadLock lock(m_mutex);
             return ToStr()(m_val);
         }catch(std::exception & e){
             SYLAR_LOG_ERROR(SYLAR_LOG_ROOT())<<"ConfigVar::toString exception"
@@ -357,41 +360,57 @@ public:
     }
 
     
-    const T getValue()const {return m_val;}
+    const T getValue() {
+        RWMutexType::ReadLock lock(m_mutex);
+        return m_val;
+    }
 
     /**
      * @brief 设置配置变量的值，
      *      - 如果检测到值有变化则调用当前配置变量上注册的回调函数进行处理
      */ 
     void setValue(const T & val){
-        if(val == m_val){
-            return;
+        {
+            RWMutexType::ReadLock lock(m_mutex);
+            if(val == m_val){
+                return;
+            }
+            for(auto & item : m_cbs){
+                item.second(m_val,val);
+            }
         }
-        for(auto & item : m_cbs){
-            item.second(m_val,val);
-        }
+        RWMutexType::WriteLock lock(m_mutex);
         m_val = val;
     } 
 
     std::string getTypeName()const override{return typeid(T).name();}
 
-    void addListener(uint64_t key,on_change_cb cb){
-        m_cbs[key] = cb;
+    uint64_t addListener(on_change_cb cb){
+        static uint64_t s_fun_id = 0;
+        RWMutexType::WriteLock lock(m_mutex);
+        ++s_fun_id;
+        m_cbs[s_fun_id] = cb;
+        return s_fun_id;
     }
 
     void delListener(uint64_t key){
+        RWMutexType::WriteLock lock(m_mutex);
         m_cbs.erase(m_cbs.find(key));
     }
 
     on_change_cb getListener(uint64_t key){
+        RWMutexType::ReadLock lock(m_mutex);
         auto it = m_cbs.find(key);
         return it = m_cbs.end() ? nullptr : it->second;
     }
 
     void clearListener(){
+        RWMutexType::WriteLock lock(m_mutex);
         m_cbs.clear();
     }
 private:
+
+    RWMutexType m_mutex;
     T m_val;  //配置变量的值
     std::map<uint64_t,on_change_cb> m_cbs;  //变更回调函数组，用于监听配置变量是否有变化
 };
@@ -405,7 +424,7 @@ class Config{
 public:
     typedef std::shared_ptr<Config> ptr;
     typedef std::map<std::string,ConfigVarBase::ptr> ConfigVarMap;
-
+    typedef RWMutex RWMutexType;
 
     /**
      * @brief 查找当前容器有无此配置变量，有就直接使用，没有就创建
@@ -414,6 +433,7 @@ public:
     static typename ConfigVar<T>::ptr Lookup(const std::string & name,
             const T & default_value,const std::string & description = ""){
         
+        RWMutexType::WriteLock lock(GetMutex());
         auto it = GetDatas().find(name);
         if(it != GetDatas().end()){
             auto tmp = std::dynamic_pointer_cast<ConfigVar<T>>(it->second);
@@ -443,6 +463,7 @@ public:
      */ 
     template<class T>
     static typename ConfigVar<T>::ptr Lookup(const std::string & name){
+        RWMutexType::ReadLock lock(GetMutex());
         auto it = GetDatas().find(name);
         if(it == GetDatas().end()){
             return nullptr;
@@ -461,6 +482,9 @@ public:
      * @brief 查找当前命名的项，有则返回
      */ 
     static ConfigVarBase::ptr LookupBase(const std::string & name);
+
+
+    static void Visit(std::function<void(ConfigVarBase::ptr)> cb);
 private:
 
     
@@ -472,6 +496,11 @@ private:
     static ConfigVarMap & GetDatas(){
         static ConfigVarMap s_datas;
         return s_datas;
+    }
+
+    static RWMutexType & GetMutex(){
+        static RWMutexType s_mutex;
+        return s_mutex;
     }
 };
 

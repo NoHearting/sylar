@@ -4,8 +4,9 @@
  * @Author: zsj
  * @Date: 2020-06-06 23:45:02
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-07 23:32:03
+ * @LastEditTime: 2020-06-08 10:44:07
 --> 
+
 # sylar(C++高性能服务器框架)
 ## 主要模块
 
@@ -85,4 +86,29 @@ logs:
 
 ### <span id="config">配置模块</span>
 #### 1、简介
+- 采用约定优于配置的思想，定义即可用，不需要单独去解析
+- 支持变更通知功能，使用yaml文件作为配置文件格式
+- 支持级别格式的数据类型
+- 支持STL容器（set、map、list、vector等等）
+- 支持自定义格式的支持（需要实现序列化和反序列容器）
 #### 2、组件
+- 配置变量，代表一个配置量
+- 配置器，记录了所有配置变量
+- 转换器/序列化器，及其对不同数据结构的偏特化版本
+
+#### 3、使用
+##### 约定/默认配置
+```cpp
+//添加一个约定配置
+static sylar::ConfigVar<int>::ptr g_tcp_connect_timeout =
+	sylar::Config::Lookup("tcp.connect.timeout", 5000, "tcp connect timeout");
+
+```
+
+##### 配置文件配置
+```yaml
+tcp:
+    connect:
+            timeout: 10000
+```
+配置文件的配置会修改默认配置

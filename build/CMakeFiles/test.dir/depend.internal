@@ -5,6 +5,7 @@ CMakeFiles/test.dir/tests/test.cpp.o
  /home/zsj/workspace/sylar/sylar/config.h
  /home/zsj/workspace/sylar/sylar/log.h
  /home/zsj/workspace/sylar/sylar/singleton.h
+ /home/zsj/workspace/sylar/sylar/thread.h
  /home/zsj/workspace/sylar/sylar/util.h
  /home/zsj/workspace/sylar/tests/test.cpp
  /usr/local/include/boost/array.hpp

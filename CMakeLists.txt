@@ -11,13 +11,11 @@ include_directories(.)
 include_directories(/usr/local/include)
 link_directories(/usr/local/lib)
 
-find_library(YAMLCPP yaml-cpp)
-message("***", ${YAMLCPP})
-
 set(LIB_SRC
 	sylar/log.cpp
     sylar/util.cpp
 	sylar/config.cpp
+	sylar/thread.cpp
 	)
 
 add_library(sylar SHARED ${LIB_SRC})
@@ -25,18 +23,38 @@ force_redefine_file_macro_for_sources(sylar) #__FILE__
 # add_library(sylay_static STATIC ${LIB_SRC})
 #SET_TARGET_PROPERTIES (sylar_static PROPERTIES OUTPUT_NAME "sylar")
 
+find_library(YAMLCPP yaml-cpp)
+find_library(PTHREAD pthread)
+
+set(LIBS
+		sylar
+		pthread
+		yaml-cpp)	
+
+message("***", ${LIBS})
+
+
+
+
+
 
 add_executable(test tests/test.cpp)
 add_dependencies(test sylar)
 force_redefine_file_macro_for_sources(test) #__FILE__
-target_link_libraries(test sylar ${YAMLCPP})
+target_link_libraries(test ${LIBS})
 
 
 add_executable(test_config tests/test_config.cpp)
 add_dependencies(test_config sylar)
 force_redefine_file_macro_for_sources(test_config) #__FILE__
 # target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
-target_link_libraries(test_config sylar ${YAMLCPP})
+target_link_libraries(test_config ${LIBS})
+
+add_executable(test_thread tests/test_thread.cpp)
+add_dependencies(test_thread sylar)
+force_redefine_file_macro_for_sources(test_thread) #__FILE__
+# target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
+target_link_libraries(test_thread ${LIBS})
 
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

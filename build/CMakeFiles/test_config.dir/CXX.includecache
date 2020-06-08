@@ -71,11 +71,31 @@ stdarg.h
 -
 yaml-cpp/yaml.h
 -
+thread.h
+/home/zsj/workspace/sylar/sylar/thread.h
 singleton.h
 /home/zsj/workspace/sylar/sylar/singleton.h
 
 /home/zsj/workspace/sylar/sylar/singleton.h
 memory
+-
+
+/home/zsj/workspace/sylar/sylar/thread.h
+pthread.h
+-
+thread
+-
+functional
+-
+memory
+-
+string
+-
+stdint.h
+-
+semaphore.h
+-
+atomic
 -
 
 /home/zsj/workspace/sylar/sylar/util.h

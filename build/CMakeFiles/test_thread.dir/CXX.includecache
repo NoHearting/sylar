@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/zsj/workspace/sylar/sylar/config.cpp
-config.h
-/home/zsj/workspace/sylar/sylar/config.h
-
 /home/zsj/workspace/sylar/sylar/config.h
 memory
 -
@@ -39,12 +35,6 @@ log.h
 /home/zsj/workspace/sylar/sylar/log.h
 util.h
 /home/zsj/workspace/sylar/sylar/util.h
-
-/home/zsj/workspace/sylar/sylar/log.cpp
-log.h
-/home/zsj/workspace/sylar/sylar/log.h
-config.h
-/home/zsj/workspace/sylar/sylar/config.h
 
 /home/zsj/workspace/sylar/sylar/log.h
 string
@@ -90,13 +80,17 @@ singleton.h
 memory
 -
 
-/home/zsj/workspace/sylar/sylar/thread.cpp
-thread.h
-/home/zsj/workspace/sylar/sylar/thread.h
+/home/zsj/workspace/sylar/sylar/sylar.h
+config.h
+/home/zsj/workspace/sylar/sylar/config.h
 log.h
 /home/zsj/workspace/sylar/sylar/log.h
 util.h
 /home/zsj/workspace/sylar/sylar/util.h
+singleton.h
+/home/zsj/workspace/sylar/sylar/singleton.h
+thread.h
+/home/zsj/workspace/sylar/sylar/thread.h
 
 /home/zsj/workspace/sylar/sylar/thread.h
 pthread.h
@@ -116,10 +110,6 @@ semaphore.h
 atomic
 -
 
-/home/zsj/workspace/sylar/sylar/util.cpp
-util.h
-/home/zsj/workspace/sylar/sylar/util.h
-
 /home/zsj/workspace/sylar/sylar/util.h
 pthread.h
 -
@@ -130,6 +120,14 @@ sys/types.h
 sys/syscall.h
 -
 stdint.h
+-
+
+/home/zsj/workspace/sylar/tests/test_thread.cpp
+../sylar/sylar.h
+/home/zsj/workspace/sylar/sylar/sylar.h
+time.h
+-
+iostream
 -
 
 /usr/local/include/boost/array.hpp

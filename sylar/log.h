@@ -50,6 +50,7 @@
 #include<stdarg.h>
 #include<yaml-cpp/yaml.h>
 
+#include"thread.h"
 #include"singleton.h"
 
 
@@ -235,6 +236,7 @@ class LogAppender{
 friend class Logger;
 public:
     typedef std::shared_ptr<LogAppender> ptr;
+    typedef SpinLock MutexType;
     LogAppender(LogLevel::Level level=LogLevel::DEBUG):m_level(level){}
     virtual ~LogAppender(){}
 
@@ -245,10 +247,14 @@ public:
      * @brief 设置日志打印的formatter,如果不设置则使用Logger的formatter
      */ 
     void setFormatter(LogFormatter::ptr val){
+        MutexType::Lock lock(m_mutex);
         m_formatter = val;
         m_hasFormatter = m_formatter ? true : false;
     }
-    LogFormatter::ptr getFormatter()const{return m_formatter;}
+    LogFormatter::ptr getFormatter(){
+        MutexType::Lock lock(m_mutex);
+        return m_formatter;
+    }
 
     LogLevel::Level getLevel()const{return m_level;}
     void setLevel(LogLevel::Level level){m_level = level;}
@@ -262,6 +268,7 @@ protected:
     LogLevel::Level m_level;            //打印的日志需要达到的日志级别
     LogFormatter::ptr m_formatter;      //日志格式化器
     bool m_hasFormatter = false;        //判断是否有日志格式化器，没有则用Logger的日志格式化器
+    MutexType m_mutex;
 };
 
 /**
@@ -282,7 +289,7 @@ friend class LoggerManager;
 
 public:
     typedef std::shared_ptr<Logger> ptr;
-    
+    typedef SpinLock MutexType;
     Logger(const std::string & name = "root");
     void log(LogLevel::Level level,LogEvent::ptr event);
 
@@ -294,7 +301,7 @@ public:
 
     void addAppender(LogAppender::ptr appender);
     void delAppender(LogAppender::ptr appender);
-    void clearAppenders(){m_appenders.clear();}
+    void clearAppenders(){MutexType::Lock lock(m_mutex);m_appenders.clear();}
 
     LogLevel::Level getLevel()const{return m_level;}
     void setLevel(LogLevel::Level level){ m_level = level; }
@@ -302,8 +309,10 @@ public:
     const std::string & getName()const{return m_name;}
 
     void setFormatter(LogFormatter::ptr val){
+        MutexType::Lock lock(m_mutex);
         m_formatter = val;
         for(auto & i : m_appenders){
+            MutexType::Lock ll(i->m_mutex);
             if(!i->m_hasFormatter){
                 i->m_formatter = m_formatter;
             }
@@ -331,6 +340,7 @@ private:
     std::list<LogAppender::ptr> m_appenders;    // 日志输出器
     LogFormatter::ptr m_formatter;
 
+    MutexType m_mutex;
     Logger::ptr m_root;
 };
 
@@ -369,6 +379,8 @@ public:
 private:
     std::string m_filename;         //文件名
     std::ofstream m_filestream;     //文件流
+
+    uint64_t m_lastTime;
 };
 
 
@@ -539,6 +551,8 @@ private:
 class LoggerManager
 {
 public:
+    typedef SpinLock MutexType;
+
     LoggerManager();
 
     /**
@@ -557,6 +571,7 @@ public:
 private:
     std::map<std::string,Logger::ptr> m_loggers;  //存放当前系统中所有的日志器
     Logger::ptr m_root;  //基本的日志器
+    MutexType m_mutex;
 };
 
 typedef sylar::Singleton<LoggerManager> LoggerMgr;

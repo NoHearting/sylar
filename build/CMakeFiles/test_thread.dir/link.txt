@@ -1,0 +1,1 @@
+/usr/bin/g++   -rdynamic -O3 -g -std=c++11 -Wall -Wno-deprecated -Werror 	 -Wno-unused-function -Wno-builtin-macro-redefined  -rdynamic CMakeFiles/test_thread.dir/tests/test_thread.cpp.o  -o ../bin/test_thread  -L/usr/local/lib -Wl,-rpath,/usr/local/lib:/home/zsj/workspace/sylar/lib ../lib/libsylar.so -lpthread -lyaml-cpp 

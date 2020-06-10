@@ -3,7 +3,10 @@
 
 CMakeFiles/test_thread.dir/tests/test_thread.cpp.o
  /home/zsj/workspace/sylar/sylar/config.h
+ /home/zsj/workspace/sylar/sylar/fiber.h
  /home/zsj/workspace/sylar/sylar/log.h
+ /home/zsj/workspace/sylar/sylar/macro.h
+ /home/zsj/workspace/sylar/sylar/scheduler.h
  /home/zsj/workspace/sylar/sylar/singleton.h
  /home/zsj/workspace/sylar/sylar/sylar.h
  /home/zsj/workspace/sylar/sylar/thread.h

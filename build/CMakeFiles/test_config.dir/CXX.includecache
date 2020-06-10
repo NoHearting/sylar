@@ -111,6 +111,10 @@ sys/syscall.h
 -
 stdint.h
 -
+vector
+-
+string
+-
 
 /home/zsj/workspace/sylar/tests/test_config.cpp
 yaml-cpp/yaml.h

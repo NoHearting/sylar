@@ -58,7 +58,7 @@
 #define SYLAR_LOG_LEVEL(logger,level) \
     if(logger->getLevel() <= level) \
         sylar::LogEventWarp(sylar::LogEvent::ptr(new sylar::LogEvent(logger,level,__FILE__,__LINE__,0,sylar::GetThreadId(), \
-            sylar::GetFiberId(),time(0)))).getSS()
+            sylar::GetFiberId(),time(0),sylar::Thread::GetName()))).getSS()
 
 #define SYLAR_LOG_DEBUG(logger) SYLAR_LOG_LEVEL(logger,sylar::LogLevel::DEBUG)
 #define SYLAR_LOG_INFO(logger) SYLAR_LOG_LEVEL(logger,sylar::LogLevel::INFO)
@@ -69,7 +69,7 @@
 #define SYLAR_LOG_FMT_LEVEL(logger,level,fmt,...) \
     if(logger->getLevel() <= level) \
         sylar::LogEventWarp(sylar::LogEvent::ptr(new sylar::LogEvent(logger,level, \
-            __FILE__,__LINE__,0,sylar::GetThreadId(),sylar::GetFiberId(),time(0)))).getEvent()->format(fmt,__VA_ARGS__)
+            __FILE__,__LINE__,0,sylar::GetThreadId(),sylar::GetFiberId(),time(0),sylar::Thread::GetName()))).getEvent()->format(fmt,__VA_ARGS__)
 
 //定义宏用于日志的输出，使用参数列表的方式（类似于printf）
 #define SYLAR_LOG_FMT_DEBUG(logger,fmt,...) SYLAR_LOG_FMT_LEVEL(logger,sylar::LogLevel::DEBUG,fmt,__VA_ARGS__)
@@ -119,7 +119,11 @@ public:
 class LogEvent{
 public:
     typedef std::shared_ptr<LogEvent> ptr;
-    LogEvent(std::shared_ptr<Logger> logger,LogLevel::Level level,const char * file,int32_t line,uint32_t elapse,uint32_t thread_id,uint32_t fiber_id,uint64_t time);
+    LogEvent(std::shared_ptr<Logger> logger,LogLevel::Level level,
+        const char * file,int32_t line,uint32_t elapse,
+        uint32_t thread_id,uint32_t fiber_id,uint64_t time,
+        const std::string & thread_name
+       );
 
     const char * getFile() const {return m_file;}
     int32_t getLine() const {return m_line;}
@@ -127,8 +131,10 @@ public:
     uint32_t getThreadId()const {return m_threadId;}
     uint32_t getFiberId()const {return m_fiberId;}
     uint32_t getTime()const {return m_time;}
+
+    const std::string & getThreadName()const{return m_threadName;}
     std::string getContent()const {return m_ss.str();}
-    std::shared_ptr<Logger> getLogger() {return m_logger;}
+    std::shared_ptr<Logger> getLogger() {return m_logger;} 
     LogLevel::Level getLevel()const{return m_level;}
     std::stringstream & getSS() {return m_ss;}
 
@@ -142,6 +148,7 @@ private:
     uint32_t m_fiberId = 0;         //协程id
     uint64_t m_time;                //时间戳
     std::stringstream m_ss;         //日志的输入流
+    std::string m_threadName;
 
     std::shared_ptr<Logger> m_logger;
     LogLevel::Level m_level;
@@ -183,6 +190,7 @@ private:
  *      - %l  -- 行号
  *      - %T  -- tab
  *      - %F  -- 协程id
+ *      - %N  -- 线程名称
  *      -     -- 普通字符
  */ 
 class LogFormatter{
@@ -405,6 +413,18 @@ public:
     LevelFormatItem(const std::string & str = ""){}   
     void  format(std::ostream & os,std::shared_ptr<Logger> logger,LogLevel::Level level,LogEvent::ptr event) override{
         os<<LogLevel::toString(level);
+    }
+
+};
+
+/**
+ * @brief 格式化【线程名称】的格式化类，用于格式化【线程名称（%）】子项
+ */ 
+class ThreadNameFormatItem : public LogFormatter::FormatItem{
+public:
+    ThreadNameFormatItem(const std::string & str = ""){}   
+    void  format(std::ostream & os,std::shared_ptr<Logger> logger,LogLevel::Level level,LogEvent::ptr event) override{
+        os<<event->getThreadName();
     }
 
 };

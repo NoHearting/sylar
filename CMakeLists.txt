@@ -12,10 +12,13 @@ include_directories(/usr/local/include)
 link_directories(/usr/local/lib)
 
 set(LIB_SRC
-	sylar/log.cpp
-    sylar/util.cpp
 	sylar/config.cpp
+	sylar/fiber.cpp
+	sylar/log.cpp
+	sylar/scheduler.cpp
+    sylar/util.cpp
 	sylar/thread.cpp
+	
 	)
 
 add_library(sylar SHARED ${LIB_SRC})
@@ -56,6 +59,23 @@ force_redefine_file_macro_for_sources(test_thread) #__FILE__
 # target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
 target_link_libraries(test_thread ${LIBS})
 
+add_executable(test_util tests/test_util.cpp)
+add_dependencies(test_util sylar)
+force_redefine_file_macro_for_sources(test_util) #__FILE__
+# target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
+target_link_libraries(test_util ${LIBS})
+
+add_executable(test_fiber tests/test_fiber.cpp)
+add_dependencies(test_fiber sylar)
+force_redefine_file_macro_for_sources(test_fiber) #__FILE__
+# target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
+target_link_libraries(test_fiber ${LIBS})
+
+add_executable(test_scheduler tests/test_scheduler.cpp)
+add_dependencies(test_scheduler sylar)
+force_redefine_file_macro_for_sources(test_scheduler) #__FILE__
+# target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
+target_link_libraries(test_scheduler ${LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

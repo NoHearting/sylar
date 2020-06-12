@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-08 10:50:34
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-08 17:08:03
+ * @LastEditTime: 2020-06-12 20:31:59
  */ 
 #ifndef __SYLAR__THREAD_H__
 #define __SYLAR__THREAD_H__
@@ -18,6 +18,7 @@
 #include<stdint.h>
 #include<semaphore.h>
 #include<atomic>
+#include<iostream>
 
 namespace sylar{
 
@@ -156,7 +157,7 @@ public:
     }
 
     ~ReadScopedLockImpl(){
-        m_mutex.unlock();
+        unlock();
     }
 
     void lock(){
@@ -183,10 +184,11 @@ public:
     WriteScopedLockImpl(T & mutex) : m_mutex(mutex){
         m_mutex.wrlock();
         m_locked = true;
+        
     }
 
     ~WriteScopedLockImpl(){
-        m_mutex.unlock();
+        unlock();
     }
 
     void lock(){

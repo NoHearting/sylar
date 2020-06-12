@@ -4,12 +4,13 @@
  * @Author: zsj
  * @Date: 2020-06-05 17:11:30
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-10 10:14:21
+ * @LastEditTime: 2020-06-12 11:26:49
  */ 
 #include"util.h"
 #include"log.h"
 #include<execinfo.h>
 #include"fiber.h"
+#include<sys/time.h>
 
 namespace sylar{
 
@@ -48,6 +49,18 @@ std::string BacktraceToString(int size,int skip,const std::string & prefix){
         ss << prefix<< bt[i] << std::endl;
     }
     return ss.str();
+}
+
+
+uint64_t GetCurrentMS(){
+    struct timeval tv;
+    gettimeofday(&tv,NULL);
+    return tv.tv_sec * 1000ul + tv.tv_usec / 1000;
+}
+uint64_t GetCurrentUS(){
+    struct timeval tv;
+    gettimeofday(&tv,NULL);
+    return tv.tv_sec * 1000 * 1000ul + tv.tv_usec;
 }
 
 }

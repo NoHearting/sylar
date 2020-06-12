@@ -99,6 +99,8 @@ semaphore.h
 -
 atomic
 -
+iostream
+-
 
 /home/zsj/workspace/sylar/sylar/util.h
 pthread.h

@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-05 17:08:39
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-10 15:28:26
+ * @LastEditTime: 2020-06-12 11:22:58
  */ 
 #ifndef __SYLAR__UTIL_H__
 #define __SYLAR__UTIL_H__
@@ -25,6 +25,11 @@ pid_t GetThreadId();
 uint32_t GetFiberId();
 void Backtrace(std::vector<std::string> & bt,int size = 64,int skip = 1);
 std::string BacktraceToString(int size = 64,int skip = 2,const std::string & prefix = "");
+
+
+//时间
+uint64_t GetCurrentMS();
+uint64_t GetCurrentUS();
 
 }
 

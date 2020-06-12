@@ -6,9 +6,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/zsj/workspace/sylar/sylar/config.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/config.cpp.o"
   "/home/zsj/workspace/sylar/sylar/fiber.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/fiber.cpp.o"
+  "/home/zsj/workspace/sylar/sylar/iomanager.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/iomanager.cpp.o"
   "/home/zsj/workspace/sylar/sylar/log.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/log.cpp.o"
   "/home/zsj/workspace/sylar/sylar/scheduler.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/scheduler.cpp.o"
   "/home/zsj/workspace/sylar/sylar/thread.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/thread.cpp.o"
+  "/home/zsj/workspace/sylar/sylar/timer.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/timer.cpp.o"
   "/home/zsj/workspace/sylar/sylar/util.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/util.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

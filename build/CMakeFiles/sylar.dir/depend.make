@@ -1312,6 +1312,48 @@ CMakeFiles/sylar.dir/sylar/fiber.cpp.o: /usr/local/include/yaml-cpp/stlemitter.h
 CMakeFiles/sylar.dir/sylar/fiber.cpp.o: /usr/local/include/yaml-cpp/traits.h
 CMakeFiles/sylar.dir/sylar/fiber.cpp.o: /usr/local/include/yaml-cpp/yaml.h
 
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: ../sylar/fiber.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: ../sylar/iomanager.cpp
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: ../sylar/iomanager.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: ../sylar/log.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: ../sylar/macro.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: ../sylar/scheduler.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: ../sylar/singleton.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: ../sylar/thread.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: ../sylar/timer.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: ../sylar/util.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/binary.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/dll.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/emitter.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/emitterdef.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/emittermanip.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/emitterstyle.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/exceptions.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/mark.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/convert.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/detail/impl.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/detail/iterator.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/detail/iterator_fwd.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/detail/memory.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/detail/node.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/detail/node_data.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/detail/node_iterator.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/detail/node_ref.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/emit.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/impl.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/iterator.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/node.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/parse.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/ptr.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/node/type.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/noexcept.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/null.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/ostream_wrapper.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/parser.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/stlemitter.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/traits.h
+CMakeFiles/sylar.dir/sylar/iomanager.cpp.o: /usr/local/include/yaml-cpp/yaml.h
+
 CMakeFiles/sylar.dir/sylar/log.cpp.o: ../sylar/config.h
 CMakeFiles/sylar.dir/sylar/log.cpp.o: ../sylar/log.cpp
 CMakeFiles/sylar.dir/sylar/log.cpp.o: ../sylar/log.h
@@ -2042,6 +2084,11 @@ CMakeFiles/sylar.dir/sylar/thread.cpp.o: /usr/local/include/yaml-cpp/parser.h
 CMakeFiles/sylar.dir/sylar/thread.cpp.o: /usr/local/include/yaml-cpp/stlemitter.h
 CMakeFiles/sylar.dir/sylar/thread.cpp.o: /usr/local/include/yaml-cpp/traits.h
 CMakeFiles/sylar.dir/sylar/thread.cpp.o: /usr/local/include/yaml-cpp/yaml.h
+
+CMakeFiles/sylar.dir/sylar/timer.cpp.o: ../sylar/thread.h
+CMakeFiles/sylar.dir/sylar/timer.cpp.o: ../sylar/timer.cpp
+CMakeFiles/sylar.dir/sylar/timer.cpp.o: ../sylar/timer.h
+CMakeFiles/sylar.dir/sylar/timer.cpp.o: ../sylar/util.h
 
 CMakeFiles/sylar.dir/sylar/util.cpp.o: ../sylar/fiber.h
 CMakeFiles/sylar.dir/sylar/util.cpp.o: ../sylar/log.h

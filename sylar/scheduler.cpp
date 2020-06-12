@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-10 13:35:28
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-10 18:36:56
+ * @LastEditTime: 2020-06-12 20:10:52
  */ 
 #include"scheduler.h"
 #include"log.h"
@@ -151,7 +151,7 @@ void Scheduler::run(){
         t_fiber = Fiber::GetThis().get();
     }
 
-    Fiber::ptr  idle_fiber(new Fiber(std::bind(&Scheduler::idle,this)));
+    Fiber::ptr idle_fiber(new Fiber(std::bind(&Scheduler::idle,this)));
     Fiber::ptr cb_fiber;
 
     FiberAndThread ft;
@@ -177,11 +177,12 @@ void Scheduler::run(){
 
                 ft = *it;  
                 // tickle_me = true;
-                m_fibers.erase(it);
+                m_fibers.erase(it++);  //! 按照文件修改
                 ++m_activeThreadCount;
                 is_active = true;
                 break;
             }
+            tickle_me |= it != m_fibers.end();  //! 按照文件添加
         }
         if(tickle_me){
             tickle();

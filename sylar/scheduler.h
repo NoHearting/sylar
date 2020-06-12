@@ -9,7 +9,7 @@
  * @Author: zsj
  * @Date: 2020-06-10 13:13:19
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-10 18:45:37
+ * @LastEditTime: 2020-06-12 16:13:08
  */ 
 #ifndef __SYLAR_SCHEDULER_H__
 #define __SYLAR_SCHEDULER_H__
@@ -55,9 +55,10 @@ public:
     void schedule(InputIterator begin,InputIterator end){
         bool need_tickle = false;
         {
-            MutexType::Lock lock(&m_mutex);
+            MutexType::Lock lock(m_mutex);
             while(begin != end){
-                tickle = scheduleNoLock(&*begin) || need_tickle;
+                need_tickle = scheduleNoLock(&*begin,-1) || need_tickle;
+                ++begin;
             }
         }
         if(need_tickle){
@@ -78,6 +79,8 @@ protected:
     virtual void idle();
 
     void setThis();
+
+    bool hasIdleThread() {return m_idleThreadCount > 0;}
 private:
     template<class FiberOrCb>
     bool scheduleNoLock(FiberOrCb fc,int thread){

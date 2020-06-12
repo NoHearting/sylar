@@ -4,7 +4,7 @@ project(sylar)
 include(cmake/utils.cmake)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
-set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -g -std=c++11 -Wall -Wno-deprecated -Werror \
+set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror \
 	 -Wno-unused-function -Wno-builtin-macro-redefined")
 
 include_directories(.)
@@ -14,10 +14,12 @@ link_directories(/usr/local/lib)
 set(LIB_SRC
 	sylar/config.cpp
 	sylar/fiber.cpp
+	sylar/iomanager.cpp
 	sylar/log.cpp
 	sylar/scheduler.cpp
     sylar/util.cpp
 	sylar/thread.cpp
+	sylar/timer.cpp
 	
 	)
 
@@ -76,6 +78,12 @@ add_dependencies(test_scheduler sylar)
 force_redefine_file_macro_for_sources(test_scheduler) #__FILE__
 # target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
 target_link_libraries(test_scheduler ${LIBS})
+
+add_executable(test_iomanager tests/test_iomanager.cpp)
+add_dependencies(test_iomanager sylar)
+force_redefine_file_macro_for_sources(test_iomanager) #__FILE__
+# target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
+target_link_libraries(test_iomanager ${LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

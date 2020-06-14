@@ -18,6 +18,7 @@ set(LIB_SRC
 	sylar/iomanager.cpp
 	sylar/log.cpp
 	sylar/scheduler.cpp
+	sylar/socket.cpp
     sylar/util.cpp
 	sylar/thread.cpp
 	sylar/timer.cpp
@@ -100,6 +101,11 @@ force_redefine_file_macro_for_sources(test_address) #__FILE__
 # target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
 target_link_libraries(test_address ${LIBS})
 
+add_executable(test_socket tests/test_socket.cpp)
+add_dependencies(test_socket sylar)
+force_redefine_file_macro_for_sources(test_socket) #__FILE__
+# target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
+target_link_libraries(test_socket ${LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

@@ -9,4 +9,5 @@
 /home/zsj/workspace/sylar/build/CMakeFiles/test_config.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_thread.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_util.dir
+/home/zsj/workspace/sylar/build/CMakeFiles/test_socket.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_fiber.dir

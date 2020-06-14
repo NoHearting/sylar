@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-05 17:11:30
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-12 11:26:49
+ * @LastEditTime: 2020-06-14 16:39:55
  */ 
 #include"util.h"
 #include"log.h"
@@ -14,7 +14,7 @@
 
 namespace sylar{
 
-sylar::Logger::ptr g_logger = SYLAR_LOG_NAME("system");
+static sylar::Logger::ptr g_logger = SYLAR_LOG_NAME("system");
 
 pid_t GetThreadId()
 {

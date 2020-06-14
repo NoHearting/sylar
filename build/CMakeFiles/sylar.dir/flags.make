@@ -20,6 +20,8 @@ CXX_INCLUDES = -I/home/zsj/workspace/sylar/. -I/usr/local/include
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/scheduler.cpp.o_DEFINES = __FILE__="sylar/scheduler.cpp"
 
+# Custom defines: CMakeFiles/sylar.dir/sylar/socket.cpp.o_DEFINES = __FILE__="sylar/socket.cpp"
+
 # Custom defines: CMakeFiles/sylar.dir/sylar/util.cpp.o_DEFINES = __FILE__="sylar/util.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/thread.cpp.o_DEFINES = __FILE__="sylar/thread.cpp"

@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-08 18:50:26
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-13 16:09:09
+ * @LastEditTime: 2020-06-14 16:33:05
  */ 
 #ifndef __SYLAR_MACRO_H__
 #define __SYLAR_MACRO_H__
@@ -24,7 +24,7 @@
 #endif
 
 #define SYLAR_ASSERT(x) \
-    if(!(x)){ \
+    if(SYLAR_UNLIKELY(!(x))){ \
         SYLAR_LOG_ERROR(SYLAR_LOG_ROOT()) <<"ASSERTION: " #x \
             << "\nbacktrace:\n" \
             << sylar::BacktraceToString(100,2,"    "); \
@@ -32,7 +32,7 @@
     }
 
 #define SYLAR_ASSERT2(x,w) \
-    if(!(x)){ \
+    if(SYLAR_UNLIKELY(!(x))){ \
         SYLAR_LOG_ERROR(SYLAR_LOG_ROOT()) <<"ASSERTION: " #x \
             << "\n" << w \
             << "\nbacktrace:\n" \

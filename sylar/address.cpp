@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-13 16:49:24
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-14 14:06:23
+ * @LastEditTime: 2020-06-14 17:10:19
  */ 
 
 #include<netdb.h>
@@ -221,7 +221,7 @@ Address::ptr Address::Create(const sockaddr * addr,socklen_t addrlen){
 //IPAddress
 
 
-IPAddress::ptr IPAddress::Create(const char * address,uint32_t port){
+IPAddress::ptr IPAddress::Create(const char * address,uint16_t port){
     addrinfo hints,*results;
     memset(&hints,0,sizeof(addrinfo));
 
@@ -287,7 +287,7 @@ bool Address::operator!=(const Address & rhs) const{
 
 
 // IPv4Address
-IPv4Address::ptr IPv4Address::Create(const char * address,uint32_t port){
+IPv4Address::ptr IPv4Address::Create(const char * address,uint16_t port){
     IPv4Address::ptr rt(new IPv4Address);
     rt->m_addr.sin_port = htons(port);
     int result = inet_pton(AF_INET,address,&rt->m_addr.sin_addr);
@@ -308,7 +308,7 @@ IPv4Address::IPv4Address(sockaddr_in & addr){
 }
 
 
-IPv4Address::IPv4Address(uint32_t address,uint32_t port){
+IPv4Address::IPv4Address(uint32_t address,uint16_t port){
     memset(&m_addr,0,sizeof(m_addr));
     m_addr.sin_family = AF_INET;
     m_addr.sin_port = htons(port);
@@ -319,6 +319,11 @@ IPv4Address::IPv4Address(uint32_t address,uint32_t port){
 const sockaddr * IPv4Address::getAddress()const{
     return (sockaddr*)&m_addr;
 }
+
+sockaddr * IPv4Address::getAddress(){
+    return (sockaddr*)&m_addr;
+}
+
 const socklen_t IPv4Address::getAddressLen() const{
     return sizeof(m_addr);
 }
@@ -360,14 +365,14 @@ IPAddress::ptr IPv4Address::subNetmask(uint32_t prefix_len){
 uint32_t IPv4Address::getPort() const{
     return ntohs(m_addr.sin_addr.s_addr);
 }
-void IPv4Address::setPort(uint32_t v){
+void IPv4Address::setPort(uint16_t v){
     m_addr.sin_port = htons(v);
 }
 
 
 //IPv6Address
 
-IPv6Address::ptr IPv6Address::Create(const char * address,uint32_t port){
+IPv6Address::ptr IPv6Address::Create(const char * address,uint16_t port){
     IPv6Address::ptr rt(new IPv6Address);
     rt->m_addr.sin6_port = htons(port);
     int result = inet_pton(AF_INET6,address,&rt->m_addr.sin6_addr);
@@ -390,7 +395,7 @@ IPv6Address::IPv6Address(const sockaddr_in6 & address){
     m_addr = address;
 }
 
-IPv6Address::IPv6Address(const uint8_t address[16] ,uint32_t port){
+IPv6Address::IPv6Address(const uint8_t address[16] ,uint16_t port){
     memset(&m_addr,0,sizeof(m_addr));
     m_addr.sin6_family = AF_INET6;
     m_addr.sin6_port = htons(port);
@@ -400,6 +405,9 @@ IPv6Address::IPv6Address(const uint8_t address[16] ,uint32_t port){
 const sockaddr * IPv6Address::getAddress()const{
     return (sockaddr*)&m_addr;
 }
+
+
+
 const socklen_t IPv6Address::getAddressLen() const{
     return sizeof(m_addr);
 }
@@ -434,7 +442,7 @@ std::ostream & IPv6Address::insert(std::ostream & os) const{
 uint32_t IPv6Address::getPort() const{
     return ntohs(m_addr.sin6_port);
 }
-void IPv6Address::setPort(uint32_t v){
+void IPv6Address::setPort(uint16_t v){
     m_addr.sin6_port = htons(v);
 }
 
@@ -521,5 +529,7 @@ std::ostream & UnKnownAddress::insert(std::ostream & os) const{
     os << "[UnknowAddress family=" << m_addr.sa_family << "]";
     return os;
 }
+
+
 
 }

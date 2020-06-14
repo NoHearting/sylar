@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-13 16:59:08
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-13 17:07:55
+ * @LastEditTime: 2020-06-14 22:03:52
  */ 
 #pragma once
 
@@ -50,8 +50,8 @@ template<class T>
 T byteswapOnBigEndian(T t){
     return byteswap(t);
 }
-
 #else
+template<class T>
 T byteswapOnLittleEndian(T t){
     return byteswap(t);
 }

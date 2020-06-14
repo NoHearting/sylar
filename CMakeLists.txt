@@ -13,6 +13,7 @@ link_directories(/usr/local/lib)
 
 set(LIB_SRC
 	sylar/address.cpp
+	sylar/bytearray.cpp
 	sylar/config.cpp
 	sylar/fiber.cpp
 	sylar/iomanager.cpp

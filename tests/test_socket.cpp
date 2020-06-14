@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-14 16:40:03
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-14 17:26:08
+ * @LastEditTime: 2020-06-14 17:36:15
  */ 
 #include"../sylar/socket.h"
 #include"../sylar/log.h"
@@ -33,7 +33,7 @@ void test_socket(){
         return;
     }
     else{
-        SYLAR_LOG_INFO(g_logger) <<"connect "<<addr->toString() << "conneted";
+        SYLAR_LOG_INFO(g_logger) <<"connect "<<addr->toString() << " conneted";
     }
 
     const char buff[] = "GET / HTTP/1.0\r\n\r\n";

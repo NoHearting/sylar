@@ -77,6 +77,8 @@ thread.h
 /home/zsj/workspace/sylar/sylar/thread.h
 singleton.h
 /home/zsj/workspace/sylar/sylar/singleton.h
+util.h
+/home/zsj/workspace/sylar/sylar/util.h
 
 /home/zsj/workspace/sylar/sylar/singleton.h
 memory

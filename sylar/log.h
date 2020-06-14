@@ -52,6 +52,7 @@
 
 #include"thread.h"
 #include"singleton.h"
+#include"util.h"
 
 
 //定义宏用于日志的输出，使用流的方式

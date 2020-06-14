@@ -4,7 +4,7 @@ project(sylar)
 include(cmake/utils.cmake)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
-set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror \
+set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -g -std=c++11 -Wall -Wno-deprecated -Werror \
 	 -Wno-unused-function -Wno-builtin-macro-redefined")
 
 include_directories(.)
@@ -12,6 +12,7 @@ include_directories(/usr/local/include)
 link_directories(/usr/local/lib)
 
 set(LIB_SRC
+	sylar/address.cpp
 	sylar/config.cpp
 	sylar/fiber.cpp
 	sylar/iomanager.cpp
@@ -20,7 +21,8 @@ set(LIB_SRC
     sylar/util.cpp
 	sylar/thread.cpp
 	sylar/timer.cpp
-	
+	sylar/hook.cpp
+	sylar/fd_manager.cpp
 	)
 
 add_library(sylar SHARED ${LIB_SRC})
@@ -33,6 +35,7 @@ find_library(PTHREAD pthread)
 
 set(LIBS
 		sylar
+		dl
 		pthread
 		yaml-cpp)	
 
@@ -84,6 +87,19 @@ add_dependencies(test_iomanager sylar)
 force_redefine_file_macro_for_sources(test_iomanager) #__FILE__
 # target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
 target_link_libraries(test_iomanager ${LIBS})
+
+add_executable(test_hook tests/test_hook.cpp)
+add_dependencies(test_hook sylar)
+force_redefine_file_macro_for_sources(test_hook) #__FILE__
+# target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
+target_link_libraries(test_hook ${LIBS})
+
+add_executable(test_address tests/test_address.cpp)
+add_dependencies(test_address sylar)
+force_redefine_file_macro_for_sources(test_address) #__FILE__
+# target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
+target_link_libraries(test_address ${LIBS})
+
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

@@ -4,11 +4,12 @@
  * @Author: zsj
  * @Date: 2020-06-10 13:35:28
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-12 20:10:52
+ * @LastEditTime: 2020-06-14 10:03:47
  */ 
 #include"scheduler.h"
 #include"log.h"
 #include"macro.h"
+#include"hook.h"
 
 namespace sylar{
 static Logger::ptr g_logger = SYLAR_LOG_NAME("system");
@@ -146,6 +147,7 @@ void Scheduler::tickle(){
 void Scheduler::run(){
     // Fiber::GetThis();
     SYLAR_LOG_INFO(g_logger) << "run";
+    set_hook_enable(true);
     setThis();
     if(sylar::GetThreadId() != m_rootThread){
         t_fiber = Fiber::GetThis().get();

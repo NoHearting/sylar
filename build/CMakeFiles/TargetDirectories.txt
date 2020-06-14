@@ -1,5 +1,7 @@
 /home/zsj/workspace/sylar/build/CMakeFiles/rebuild_cache.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/edit_cache.dir
+/home/zsj/workspace/sylar/build/CMakeFiles/test_address.dir
+/home/zsj/workspace/sylar/build/CMakeFiles/test_hook.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_iomanager.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_scheduler.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test.dir

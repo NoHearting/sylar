@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/sylar.dir/sylar/address.cpp.o"
   "CMakeFiles/sylar.dir/sylar/config.cpp.o"
   "CMakeFiles/sylar.dir/sylar/fiber.cpp.o"
   "CMakeFiles/sylar.dir/sylar/iomanager.cpp.o"
@@ -7,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/sylar.dir/sylar/util.cpp.o"
   "CMakeFiles/sylar.dir/sylar/thread.cpp.o"
   "CMakeFiles/sylar.dir/sylar/timer.cpp.o"
+  "CMakeFiles/sylar.dir/sylar/hook.cpp.o"
+  "CMakeFiles/sylar.dir/sylar/fd_manager.cpp.o"
   "../lib/libsylar.pdb"
   "../lib/libsylar.so"
 )

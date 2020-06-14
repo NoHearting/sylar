@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-14 17:55:35
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-14 22:08:58
+ * @LastEditTime: 2020-06-14 23:53:09
  */ 
 #include"bytearray.h"
 #include"log.h"
@@ -61,7 +61,7 @@ ByteArray::~ByteArray(){
 }
 
 bool ByteArray::isLittleEndian()const{
-    return m_endian == SYLAR_BIG_ENDIAN;
+    return m_endian == SYLAR_LITTLE_ENDIAN;
 }
 void ByteArray::setIsLittleEndian(bool val){
     if(val){
@@ -131,15 +131,15 @@ static uint32_t EncodeZigzag64(const int32_t & v){
     }
 }
 
-static int32_t DecodeZigzag32(const int32_t v){
+static int32_t DecodeZigzag32(const uint32_t & v){
     return (v >> 1) ^ -(v & 1);
 }
 
-static int64_t DecodeZigzag64(const int64_t v){
+static int64_t DecodeZigzag64(const uint64_t & v){
     return (v >> 1) ^ -(v & 1);
 }
 
-void ByteArray::writeInt32(int32_t  value){
+void ByteArray::writeInt32(int32_t value){
     writeUint32(EncodeZigzag32(value));
 }
 void ByteArray::writeUint32(uint32_t value){
@@ -250,13 +250,14 @@ int32_t ByteArray::readInt32(){
 }
 uint32_t ByteArray::readUint32(){
     uint32_t result = 0;
-    for(int i = 0;i<32;i+=7){
+    for(int i = 0;i < 32;i+=7){
         uint8_t b = readFuint8();
         if(b < 0x80){
             result |= ((uint32_t)b) << i;
+            break;
         }
         else{
-            result |= (((uint32_t)(b & 0x7F)) << i);
+            result |= (((uint32_t)(b & 0x7f)) << i);
         }
     }
     return result;
@@ -271,6 +272,7 @@ uint64_t ByteArray::readUint64(){
         uint8_t b = readFuint8();
         if(b < 0x80){
             result |= ((uint64_t)b) << i;
+            break;
         }
         else{
             result |= (((uint64_t)(b & 0x7F)) << i);
@@ -376,7 +378,7 @@ void ByteArray::read(void * buf,size_t size){
         throw std::out_of_range("not enough len");
     }
 
-    size_t npos = m_position & m_baseSize;
+    size_t npos = m_position % m_baseSize;
     size_t ncap = m_cur->size - npos;
     size_t bpos = 0;
     while(size > 0){
@@ -406,7 +408,7 @@ void ByteArray::read(void * buf,size_t size,size_t position) const{
         throw std::out_of_range("not enough len");
     }
 
-    size_t npos = position & m_baseSize;
+    size_t npos = position % m_baseSize;
     size_t ncap = m_cur->size - npos;
     size_t bpos = 0;
     Node * cur = m_cur;

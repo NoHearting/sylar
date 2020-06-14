@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-14 17:34:40
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-14 22:02:08
+ * @LastEditTime: 2020-06-14 23:03:38
  */ 
 #pragma once
 
@@ -122,7 +122,7 @@ public:
     //增加容量，不修改position
     uint64_t getWriteBuffers(std::vector<iovec> & buffers,uint64_t len);
 
-
+    size_t getSize()const{return m_size;}
 private:
     void addCapacity(size_t size);
     size_t getCapacity() const {return m_capacity - m_position;}

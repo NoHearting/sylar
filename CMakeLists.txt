@@ -108,5 +108,11 @@ force_redefine_file_macro_for_sources(test_socket) #__FILE__
 # target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
 target_link_libraries(test_socket ${LIBS})
 
+add_executable(test_bytearray tests/test_bytearray.cpp)
+add_dependencies(test_bytearray sylar)
+force_redefine_file_macro_for_sources(test_bytearray) #__FILE__
+# target_link_libraries(test_config sylar -L/usr/local/lib/libyaml-cpp.so -lyaml-cpp)
+target_link_libraries(test_bytearray ${LIBS})
+
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

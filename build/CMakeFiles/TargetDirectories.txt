@@ -7,6 +7,7 @@
 /home/zsj/workspace/sylar/build/CMakeFiles/test.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_config.dir
+/home/zsj/workspace/sylar/build/CMakeFiles/test_bytearray.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_thread.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_util.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_socket.dir

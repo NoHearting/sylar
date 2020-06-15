@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/sylar.dir/sylar/http/http_parser.cpp.o"
+  "CMakeFiles/sylar.dir/sylar/http/http.cpp.o"
+  "CMakeFiles/sylar.dir/sylar/http/http11_parser.rl.cpp.o"
+  "CMakeFiles/sylar.dir/sylar/http/httpclient_parser.rl.cpp.o"
   "CMakeFiles/sylar.dir/sylar/address.cpp.o"
   "CMakeFiles/sylar.dir/sylar/bytearray.cpp.o"
   "CMakeFiles/sylar.dir/sylar/config.cpp.o"

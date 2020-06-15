@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-14 17:55:35
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-14 23:53:09
+ * @LastEditTime: 2020-06-15 11:22:59
  */ 
 #include"bytearray.h"
 #include"log.h"
@@ -404,7 +404,7 @@ void ByteArray::read(void * buf,size_t size){
 }
 
 void ByteArray::read(void * buf,size_t size,size_t position) const{
-    if(size > getReadSize()){
+    if(size > (m_size-position)){
         throw std::out_of_range("not enough len");
     }
 
@@ -427,8 +427,8 @@ void ByteArray::read(void * buf,size_t size,size_t position) const{
             position += ncap;
             bpos += ncap;
             size -= ncap;
-            cur = m_cur->next;
-            ncap = m_cur->size;
+            cur = cur->next;
+            ncap = cur->size;
             npos = 0;
         }
     }
@@ -453,7 +453,7 @@ void ByteArray::setPosition(size_t v){
 bool ByteArray::writeToFile(const std::string & name) const{
     std::ofstream ofs;
     ofs.open(name,std::ios::trunc | std::ios::binary);
-    if(!ofs.is_open()){
+    if(!ofs){
         SYLAR_LOG_ERROR(g_logger) << "writeToFile name="<<name
             <<" error, errno="<<errno<<" errstr="<<strerror(errno);
         return false;
@@ -472,11 +472,12 @@ bool ByteArray::writeToFile(const std::string & name) const{
     }
     return true;
 }
+
 bool ByteArray::readFromFile(const std::string & name){
     std::ifstream ifs;
-    ifs.open(name,std::ios::trunc | std::ios::binary);
-    if(!ifs.is_open()){
-        SYLAR_LOG_ERROR(g_logger) << "readFromFile name="<<name
+    ifs.open(name,std::ios::binary);
+    if(!ifs){
+        SYLAR_LOG_ERROR(g_logger) << "file open failed! readFromFile name="<<name
             <<" error, errno="<<errno<<" errstr="<<strerror(errno);
         return false;
     }
@@ -486,8 +487,10 @@ bool ByteArray::readFromFile(const std::string & name){
         ifs.read(buff.get(),m_baseSize);
         write(buff.get(),ifs.gcount());
     }
+
     return true;
 }
+
 
 
 
@@ -534,6 +537,7 @@ std::string ByteArray::toString() const{
         return str;
     }
     read(&str[0],str.size(),m_position);
+    // SYLAR_LOG_INFO(g_logger) << "to String:"<<str;
     return str;
 }
 std::string ByteArray::toHexString() const{

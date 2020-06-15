@@ -1,4 +1,6 @@
 /home/zsj/workspace/sylar/build/CMakeFiles/rebuild_cache.dir
+/home/zsj/workspace/sylar/build/CMakeFiles/test_http_parser.dir
+/home/zsj/workspace/sylar/build/CMakeFiles/test_http.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/edit_cache.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_address.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_hook.dir

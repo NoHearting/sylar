@@ -8,6 +8,14 @@ CXX_DEFINES = -Dsylar_EXPORTS
 
 CXX_INCLUDES = -I/home/zsj/workspace/sylar/. -I/usr/local/include 
 
+# Custom defines: CMakeFiles/sylar.dir/sylar/http/http_parser.cpp.o_DEFINES = __FILE__="sylar/http/http_parser.cpp"
+
+# Custom defines: CMakeFiles/sylar.dir/sylar/http/http.cpp.o_DEFINES = __FILE__="sylar/http/http.cpp"
+
+# Custom defines: CMakeFiles/sylar.dir/sylar/http/http11_parser.rl.cpp.o_DEFINES = __FILE__="sylar/http/http11_parser.rl.cpp"
+
+# Custom defines: CMakeFiles/sylar.dir/sylar/http/httpclient_parser.rl.cpp.o_DEFINES = __FILE__="sylar/http/httpclient_parser.rl.cpp"
+
 # Custom defines: CMakeFiles/sylar.dir/sylar/address.cpp.o_DEFINES = __FILE__="sylar/address.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/bytearray.cpp.o_DEFINES = __FILE__="sylar/bytearray.cpp"

@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-13 16:49:24
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-14 17:10:19
+ * @LastEditTime: 2020-06-16 11:23:05
  */ 
 
 #include<netdb.h>
@@ -255,7 +255,7 @@ int Address::getFamily() const{
     return getAddress()->sa_family;
 }
 
-std::string Address::toString(){
+std::string Address::toString() const{
     std::stringstream ss;
     insert(ss);
     return ss.str();
@@ -530,6 +530,9 @@ std::ostream & UnKnownAddress::insert(std::ostream & os) const{
     return os;
 }
 
+std::ostream & operator<<(std::ostream & os,const Address & addr){
+    return addr.insert(os);
+}
 
 
 }

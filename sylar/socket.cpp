@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-14 14:29:34
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-14 17:16:05
+ * @LastEditTime: 2020-06-16 15:41:29
  */ 
 #include"socket.h"
 #include"fd_manager.h"
@@ -125,8 +125,8 @@ bool Socket::setOption(int level,int option,const void * result,size_t len){
 Socket::ptr Socket::accept(){
     Socket::ptr sock(new Socket(m_family,m_type,m_protocol));
     int newsock = ::accept(m_sock,nullptr,nullptr);
-    if(newsock){
-        SYLAR_LOG_ERROR(g_logger) << "accept("<<m_sock <<") errno="
+    if(newsock == -1){
+        SYLAR_LOG_ERROR(g_logger) << " accept("<<m_sock <<") errno="
             <<errno<<" errstr="<<strerror(errno);
         return nullptr;
     }
@@ -439,5 +439,11 @@ void Socket::newSock(){
             <<errno <<" errstr="<<strerror(errno); 
     }
 }
+
+std::ostream & operator<<(std::ostream & os,const Socket & addr){
+    return addr.dump(os);
+}
+
+
 
 }

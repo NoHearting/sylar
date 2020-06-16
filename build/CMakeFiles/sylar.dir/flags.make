@@ -10,11 +10,17 @@ CXX_INCLUDES = -I/home/zsj/workspace/sylar/. -I/usr/local/include
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/http/http_parser.cpp.o_DEFINES = __FILE__="sylar/http/http_parser.cpp"
 
+# Custom defines: CMakeFiles/sylar.dir/sylar/http/http_session.cpp.o_DEFINES = __FILE__="sylar/http/http_session.cpp"
+
+# Custom defines: CMakeFiles/sylar.dir/sylar/http/http_server.cpp.o_DEFINES = __FILE__="sylar/http/http_server.cpp"
+
+# Custom defines: CMakeFiles/sylar.dir/sylar/http/servlet.cpp.o_DEFINES = __FILE__="sylar/http/servlet.cpp"
+
 # Custom defines: CMakeFiles/sylar.dir/sylar/http/http.cpp.o_DEFINES = __FILE__="sylar/http/http.cpp"
 
-# Custom defines: CMakeFiles/sylar.dir/sylar/http/http11_parser.rl.cpp.o_DEFINES = __FILE__="sylar/http/http11_parser.rl.cpp"
+# Custom defines: CMakeFiles/sylar.dir/sylar/http/http11_parser.rl.cpp.o_DEFINES = __FILE__="sylar/http/http11_parser.rl.cpp";__FILE__="sylar/http/http11_parser.rl.cpp"
 
-# Custom defines: CMakeFiles/sylar.dir/sylar/http/httpclient_parser.rl.cpp.o_DEFINES = __FILE__="sylar/http/httpclient_parser.rl.cpp"
+# Custom defines: CMakeFiles/sylar.dir/sylar/http/httpclient_parser.rl.cpp.o_DEFINES = __FILE__="sylar/http/httpclient_parser.rl.cpp";__FILE__="sylar/http/httpclient_parser.rl.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/address.cpp.o_DEFINES = __FILE__="sylar/address.cpp"
 
@@ -30,9 +36,15 @@ CXX_INCLUDES = -I/home/zsj/workspace/sylar/. -I/usr/local/include
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/scheduler.cpp.o_DEFINES = __FILE__="sylar/scheduler.cpp"
 
+# Custom defines: CMakeFiles/sylar.dir/sylar/socket_stream.cpp.o_DEFINES = __FILE__="sylar/socket_stream.cpp"
+
 # Custom defines: CMakeFiles/sylar.dir/sylar/socket.cpp.o_DEFINES = __FILE__="sylar/socket.cpp"
 
+# Custom defines: CMakeFiles/sylar.dir/sylar/stream.cpp.o_DEFINES = __FILE__="sylar/stream.cpp"
+
 # Custom defines: CMakeFiles/sylar.dir/sylar/util.cpp.o_DEFINES = __FILE__="sylar/util.cpp"
+
+# Custom defines: CMakeFiles/sylar.dir/sylar/tcp_server.cpp.o_DEFINES = __FILE__="sylar/tcp_server.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/thread.cpp.o_DEFINES = __FILE__="sylar/thread.cpp"
 

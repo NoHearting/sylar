@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-15 13:57:48
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-15 22:51:52
+ * @LastEditTime: 2020-06-16 17:21:11
  */ 
 #include"http.h"
 #include<sstream>
@@ -225,6 +225,14 @@ std::string HttpResponse::toString()const{
     std::stringstream ss;
     dump(ss);
     return ss.str();
+}
+
+
+std::ostream & operator<<(std::ostream & os,const HttpRequest & req){
+    return req.dump(os);
+}
+std::ostream & operator<<(std::ostream & os,const HttpResponse & rsp){
+    return rsp.dump(os);
 }
 
 } // namespace http

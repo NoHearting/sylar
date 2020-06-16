@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-14 17:55:35
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-15 11:22:59
+ * @LastEditTime: 2020-06-16 15:38:36
  */ 
 #include"bytearray.h"
 #include"log.h"
@@ -435,11 +435,14 @@ void ByteArray::read(void * buf,size_t size,size_t position) const{
 }
 
 void ByteArray::setPosition(size_t v){
-    if(v > m_size || v < 0){
+    if(v > m_capacity || v < 0){
         throw std::out_of_range("set_position out of range");
     }
 
     m_position = v;
+    if(m_position > m_size){
+        m_size = m_position;
+    }
     m_cur = m_root;
     while(v > m_cur->size){
         v -= m_cur->size;
@@ -449,6 +452,8 @@ void ByteArray::setPosition(size_t v){
         m_cur = m_cur->next;
     }
 }
+
+
 
 bool ByteArray::writeToFile(const std::string & name) const{
     std::ofstream ofs;
@@ -639,6 +644,7 @@ uint64_t ByteArray::getWriteBuffers(std::vector<iovec> & buffers,uint64_t len){
         if(ncap >= len){
             iov.iov_base = cur->ptr + npos;
             iov.iov_len = len;
+            len = 0;
         }
         else{
             iov.iov_base = cur->ptr + npos;

@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-14 14:10:56
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-14 16:51:44
+ * @LastEditTime: 2020-06-16 10:49:23
  */ 
 #pragma once
 
@@ -121,6 +121,7 @@ private:
     Address::ptr m_remoteAddress;
 };
 
+std::ostream & operator<<(std::ostream & os,const Socket & addr);
 
 
 

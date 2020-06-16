@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-15 11:42:35
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-15 22:52:13
+ * @LastEditTime: 2020-06-16 17:20:32
  */ 
 #pragma once
 
@@ -344,6 +344,10 @@ private:
     std::string m_reason;
     MapType m_headers;
 };
+
+
+std::ostream & operator<<(std::ostream & os,const HttpRequest & req);
+std::ostream & operator<<(std::ostream & os,const HttpResponse & rsp);
 
 
 

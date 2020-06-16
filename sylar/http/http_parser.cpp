@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-15 18:52:10
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-15 23:07:46
+ * @LastEditTime: 2020-06-16 17:00:48
  */ 
 #include"http_parser.h"
 #include"../log.h"
@@ -30,6 +30,15 @@ namespace http
 static uint64_t s_http_request_buffer_size = 0;
 static uint64_t s_http_request_max_body_size = 0;
 
+uint64_t HttpRequestParser::GetHttpRequestBufferSize(){
+    return s_http_request_buffer_size;
+}
+uint64_t HttpRequestParser::GetHttpRequestMaxBodySize(){
+    return s_http_request_max_body_size;
+}
+
+namespace 
+{
 struct _RequestSizeIniter{
     _RequestSizeIniter(){
         s_http_request_buffer_size = g_http_request_buffer_size->getValue();
@@ -48,6 +57,11 @@ struct _RequestSizeIniter{
         
     }
 };
+
+static _RequestSizeIniter _init;
+} // namespace 
+
+
 
 void on_request_method(void *data, const char *at, size_t length){
     HttpRequestParser * parser = static_cast<HttpRequestParser*>(data);
@@ -221,6 +235,8 @@ int HttpResponseParser::hasError(){
 uint64_t HttpResponseParser::getContentLength(){
     return m_data->getHeaderAs<uint64_t>("content-length",0);
 }
+
+
 
 } // namespace http
     

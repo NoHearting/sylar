@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-13 16:32:43
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-14 17:10:42
+ * @LastEditTime: 2020-06-16 11:22:15
  */ 
 #pragma once
 #include<memory>
@@ -57,7 +57,7 @@ public:
 
     virtual std::ostream & insert(std::ostream & os) const = 0;
 
-    std::string toString();
+    std::string toString() const;
 
     bool operator<(const Address & rhs) const;
     bool operator==(const Address & rhs) const;
@@ -160,5 +160,6 @@ private:
     sockaddr m_addr;
 };
 
+std::ostream & operator<<(std::ostream & os,const Address & addr);
 
 }

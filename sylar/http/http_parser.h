@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-15 18:49:46
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-15 23:04:39
+ * @LastEditTime: 2020-06-16 17:00:17
  */ 
 #pragma once
 
@@ -32,6 +32,9 @@ public:
     void setError(int error){m_error = error;}
 
     uint64_t getContentLength();
+public:
+    static uint64_t GetHttpRequestBufferSize();
+    static uint64_t GetHttpRequestMaxBodySize();
 private:
     http_parser m_parser;
     HttpRequest::ptr m_data;
@@ -55,6 +58,9 @@ public:
 
     HttpResponse::ptr getData()const{return m_data;}
     uint64_t getContentLength();
+
+public:
+    
 private:
     httpclient_parser m_parser;
     HttpResponse::ptr m_data;

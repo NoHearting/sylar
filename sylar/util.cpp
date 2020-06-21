@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-05 17:11:30
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-14 16:39:55
+ * @LastEditTime: 2020-06-21 20:42:40
  */ 
 #include"util.h"
 #include"log.h"
@@ -63,4 +63,12 @@ uint64_t GetCurrentUS(){
     return tv.tv_sec * 1000 * 1000ul + tv.tv_usec;
 }
 
+
+std::string TimeToString(time_t ts,const std::string & format){
+    struct tm tm;
+    localtime_r(&ts,&tm);
+    char buf[64];
+    strftime(buf,sizeof(buf),format.c_str(),&tm);
+    return buf;
+}
 }

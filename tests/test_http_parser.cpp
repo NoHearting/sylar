@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-15 22:14:38
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-15 23:08:55
+ * @LastEditTime: 2020-06-18 09:19:19
  */ 
 #include"../sylar/http/http_parser.h"
 #include"../sylar/log.h"
@@ -49,7 +49,7 @@ const char test_response_data[] = "HTTP/1.1 200 OK\r\n"
 void test_response(){
     sylar::http::HttpResponseParser parser;
     std::string temp = test_response_data;
-    size_t rt = parser.execute(&temp[0],temp.size());
+    size_t rt = parser.execute(&temp[0],temp.size(),false);
     SYLAR_LOG_INFO(g_logger) << "execute rt" << rt  
         << " has_error="<<parser.hasError()
         << " is_finished="<<parser.isFinished()

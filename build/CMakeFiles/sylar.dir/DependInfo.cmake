@@ -7,11 +7,13 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/zsj/workspace/sylar/sylar/address.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/address.cpp.o"
   "/home/zsj/workspace/sylar/sylar/bytearray.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/bytearray.cpp.o"
   "/home/zsj/workspace/sylar/sylar/config.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/config.cpp.o"
+  "/home/zsj/workspace/sylar/sylar/daemon.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/daemon.cpp.o"
   "/home/zsj/workspace/sylar/sylar/fd_manager.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/fd_manager.cpp.o"
   "/home/zsj/workspace/sylar/sylar/fiber.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/fiber.cpp.o"
   "/home/zsj/workspace/sylar/sylar/hook.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/hook.cpp.o"
   "/home/zsj/workspace/sylar/sylar/http/http.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/http/http.cpp.o"
   "/home/zsj/workspace/sylar/sylar/http/http11_parser.rl.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/http/http11_parser.rl.cpp.o"
+  "/home/zsj/workspace/sylar/sylar/http/http_connection.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/http/http_connection.cpp.o"
   "/home/zsj/workspace/sylar/sylar/http/http_parser.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/http/http_parser.cpp.o"
   "/home/zsj/workspace/sylar/sylar/http/http_server.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/http/http_server.cpp.o"
   "/home/zsj/workspace/sylar/sylar/http/http_session.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/http/http_session.cpp.o"
@@ -26,6 +28,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/zsj/workspace/sylar/sylar/tcp_server.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/tcp_server.cpp.o"
   "/home/zsj/workspace/sylar/sylar/thread.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/thread.cpp.o"
   "/home/zsj/workspace/sylar/sylar/timer.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/timer.cpp.o"
+  "/home/zsj/workspace/sylar/sylar/uri.rl.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/uri.rl.cpp.o"
   "/home/zsj/workspace/sylar/sylar/util.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/util.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

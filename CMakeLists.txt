@@ -15,6 +15,7 @@ include_directories(/usr/local/include)
 link_directories(/usr/local/lib)
 
 set(LIB_SRC
+	sylar/http/http_connection.cpp
 	sylar/http/http_parser.cpp
 	sylar/http/http_session.cpp
 	sylar/http/http_server.cpp
@@ -25,6 +26,7 @@ set(LIB_SRC
 	sylar/address.cpp
 	sylar/bytearray.cpp
 	sylar/config.cpp
+	sylar/daemon.cpp
 	sylar/fiber.cpp
 	sylar/iomanager.cpp
 	sylar/log.cpp
@@ -42,7 +44,7 @@ set(LIB_SRC
 
 ragelmaker(sylar/http/http11_parser.rl LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/sylar/http)
 ragelmaker(sylar/http/httpclient_parser.rl LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/sylar/http)
-
+ragelmaker(sylar/uri.rl LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/sylar/)
 
 add_library(sylar SHARED ${LIB_SRC})
 force_redefine_file_macro_for_sources(sylar) #__FILE__
@@ -80,6 +82,10 @@ sylar_add_executable(test_http_parser "tests/test_http_parser.cpp" sylar "${LIBS
 sylar_add_executable(test_tcp_server "tests/test_tcp_server.cpp" sylar "${LIBS}")
 sylar_add_executable(echo_server "examples/echo_server.cpp" sylar "${LIBS}")
 sylar_add_executable(test_http_server "tests/test_http_server.cpp" sylar "${LIBS}")
+sylar_add_executable(test_http_connection "tests/test_http_connection.cpp" sylar "${LIBS}")
+sylar_add_executable(test_uri "tests/test_uri.cpp" sylar "${LIBS}")
+sylar_add_executable(test_daemon "tests/test_daemon.cpp" sylar "${LIBS}")
+sylar_add_executable(my_http_server "examples/my_http_server.cpp" sylar "${LIBS}")
 
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

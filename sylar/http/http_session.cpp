@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 16:52:50
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 20:40:18
+ * @LastEditTime: 2020-06-21 22:27:51
  */ 
 #include"http_session.h"
 #include"http_parser.h"
@@ -58,16 +58,20 @@ HttpRequest::ptr HttpSession::recvRequest(){
         std::string body;
         body.resize(length);
         // body.reserve(length);
+
+        int len = 0;
         if(length >= offset){
-            body.append(data,offset);
+            memcpy(&body[0],data,offset);
+            len = offset;
         }
         else{
-            body.append(data,length);
+            memcpy(&body[0],data,length);
+            len = length;
         }
         
         length -= offset;
         if(length > 0){
-            if(readFixSize(&body[body.size()],length) <=0){
+            if(readFixSize(&body[len],length) <=0){
                 close();
                 return nullptr;
             }
@@ -75,6 +79,10 @@ HttpRequest::ptr HttpSession::recvRequest(){
         parser->getData()->setBody(body);
     }
     // parser->getData()->init();
+    std::string keep_alive = parser->getData()->getHeader("Connection");
+    if(strcasecmp(keep_alive.c_str(),"keep-alive")==0){
+        parser->getData()->setClose(false);
+    }
     return parser->getData();
     
 }

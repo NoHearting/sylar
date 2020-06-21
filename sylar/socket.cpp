@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-14 14:29:34
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 15:41:29
+ * @LastEditTime: 2020-06-21 13:58:05
  */ 
 #include"socket.h"
 #include"fd_manager.h"
@@ -97,7 +97,7 @@ int64_t Socket::getRecvTimeout(){
 }
 void Socket::setRecvTimeout(int64_t v){
     struct timeval tv{(int)v/1000,(int)v % 1000 * 1000};
-    setOption(SOL_SOCKET,SO_SNDTIMEO,tv);
+    setOption(SOL_SOCKET,SO_RCVTIMEO,tv);
 }
 
 bool Socket::getOption(int level,int option,void *result,size_t * len){
@@ -113,7 +113,7 @@ bool Socket::getOption(int level,int option,void *result,size_t * len){
 }
 bool Socket::setOption(int level,int option,const void * result,size_t len){
     if(setsockopt(m_sock,level,option,result,(socklen_t)len)){
-        SYLAR_LOG_DEBUG(g_logger) << "getOption sock=" << m_sock
+        SYLAR_LOG_DEBUG(g_logger) << "setOption sock=" << m_sock
             <<" level="<<level<<" option=" <<option<<" errno="<<errno
             <<" errstr="<<strerror(errno);
             

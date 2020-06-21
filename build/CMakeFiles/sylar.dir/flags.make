@@ -8,6 +8,8 @@ CXX_DEFINES = -Dsylar_EXPORTS
 
 CXX_INCLUDES = -I/home/zsj/workspace/sylar/. -I/usr/local/include 
 
+# Custom defines: CMakeFiles/sylar.dir/sylar/http/http_connection.cpp.o_DEFINES = __FILE__="sylar/http/http_connection.cpp"
+
 # Custom defines: CMakeFiles/sylar.dir/sylar/http/http_parser.cpp.o_DEFINES = __FILE__="sylar/http/http_parser.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/http/http_session.cpp.o_DEFINES = __FILE__="sylar/http/http_session.cpp"
@@ -27,6 +29,8 @@ CXX_INCLUDES = -I/home/zsj/workspace/sylar/. -I/usr/local/include
 # Custom defines: CMakeFiles/sylar.dir/sylar/bytearray.cpp.o_DEFINES = __FILE__="sylar/bytearray.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/config.cpp.o_DEFINES = __FILE__="sylar/config.cpp"
+
+# Custom defines: CMakeFiles/sylar.dir/sylar/daemon.cpp.o_DEFINES = __FILE__="sylar/daemon.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/fiber.cpp.o_DEFINES = __FILE__="sylar/fiber.cpp"
 
@@ -53,4 +57,6 @@ CXX_INCLUDES = -I/home/zsj/workspace/sylar/. -I/usr/local/include
 # Custom defines: CMakeFiles/sylar.dir/sylar/hook.cpp.o_DEFINES = __FILE__="sylar/hook.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/fd_manager.cpp.o_DEFINES = __FILE__="sylar/fd_manager.cpp"
+
+# Custom defines: CMakeFiles/sylar.dir/sylar/uri.rl.cpp.o_DEFINES = __FILE__="sylar/uri.rl.cpp"
 

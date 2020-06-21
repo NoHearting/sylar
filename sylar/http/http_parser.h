@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-15 18:49:46
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 17:00:17
+ * @LastEditTime: 2020-06-18 09:05:47
  */ 
 #pragma once
 
@@ -32,6 +32,8 @@ public:
     void setError(int error){m_error = error;}
 
     uint64_t getContentLength();
+
+    const http_parser & getParser()const {return m_parser;}
 public:
     static uint64_t GetHttpRequestBufferSize();
     static uint64_t GetHttpRequestMaxBodySize();
@@ -51,7 +53,7 @@ public:
     typedef std::shared_ptr<HttpResponseParser> ptr;
     HttpResponseParser();
 
-    size_t execute(char * data,size_t len);
+    size_t execute(char * data,size_t len,bool chunck);
     int isFinished() ;
     int hasError();
     void setError(int error){m_error = error;}
@@ -59,8 +61,13 @@ public:
     HttpResponse::ptr getData()const{return m_data;}
     uint64_t getContentLength();
 
+    const httpclient_parser & getParser()const{
+        return m_parser;
+    }
+
 public:
-    
+    static uint64_t GetHttpResponseBufferSize();
+    static uint64_t GetHttpResponseMaxBodySize();
 private:
     httpclient_parser m_parser;
     HttpResponse::ptr m_data;

@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-10 20:59:15
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-12 20:36:51
+ * @LastEditTime: 2020-06-21 21:26:39
  */ 
 
 #include"iomanager.h"
@@ -111,7 +111,7 @@ int IOManager::addEvent(int fd,Event event,std::function<void()> cb){
     }
 
     FdContext::MutexType::Lock lock2(fd_ctx->mutex);
-    if(fd_ctx->events & event){
+    if(SYLAR_UNLIKELY(fd_ctx->events & event)){
         SYLAR_LOG_ERROR(g_logger) << " addEvent assert fd="<<fd
                                   << " event="<<event
                                   << " fd_ctx.event="<<fd_ctx->events;
@@ -144,7 +144,8 @@ int IOManager::addEvent(int fd,Event event,std::function<void()> cb){
     }
     else{
         event_ctx.fiber = Fiber::GetThis();
-        SYLAR_ASSERT(event_ctx.fiber->getState() == Fiber::EXEC);
+        SYLAR_ASSERT2(event_ctx.fiber->getState() == Fiber::EXEC
+                ,"state=" << event_ctx.fiber->getState());
     }
     return 0;
 }

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "../sylar/http/http11_parser.rl.cpp"
   "../sylar/http/httpclient_parser.rl.cpp"
+  "../sylar/uri.rl.cpp"
+  "CMakeFiles/sylar.dir/sylar/http/http_connection.cpp.o"
   "CMakeFiles/sylar.dir/sylar/http/http_parser.cpp.o"
   "CMakeFiles/sylar.dir/sylar/http/http_session.cpp.o"
   "CMakeFiles/sylar.dir/sylar/http/http_server.cpp.o"
@@ -11,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/sylar.dir/sylar/address.cpp.o"
   "CMakeFiles/sylar.dir/sylar/bytearray.cpp.o"
   "CMakeFiles/sylar.dir/sylar/config.cpp.o"
+  "CMakeFiles/sylar.dir/sylar/daemon.cpp.o"
   "CMakeFiles/sylar.dir/sylar/fiber.cpp.o"
   "CMakeFiles/sylar.dir/sylar/iomanager.cpp.o"
   "CMakeFiles/sylar.dir/sylar/log.cpp.o"
@@ -24,6 +27,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/sylar.dir/sylar/timer.cpp.o"
   "CMakeFiles/sylar.dir/sylar/hook.cpp.o"
   "CMakeFiles/sylar.dir/sylar/fd_manager.cpp.o"
+  "CMakeFiles/sylar.dir/sylar/uri.rl.cpp.o"
   "../lib/libsylar.pdb"
   "../lib/libsylar.so"
 )

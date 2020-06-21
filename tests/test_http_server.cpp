@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 17:57:49
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 22:19:48
+ * @LastEditTime: 2020-06-17 21:40:43
  */ 
 #include"../sylar/http/http_server.h"
 #include"../sylar/log.h"
@@ -30,7 +30,8 @@ void run(){
     sd->addGlobalServlet("/sylar/*",[](sylar::http::HttpRequest::ptr req
                     ,sylar::http::HttpResponse::ptr rsp
                     ,sylar::http::HttpSession::ptr session){
-        rsp->setBody("Global:\r\n"+req->toString());
+        std::string body = "Global:\r\n"+req->toString();
+        rsp->setBody(body);
         return 0;
     });
 

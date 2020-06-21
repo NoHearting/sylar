@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-10 13:35:28
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-14 10:03:47
+ * @LastEditTime: 2020-06-21 21:44:15
  */ 
 #include"scheduler.h"
 #include"log.h"
@@ -77,7 +77,7 @@ void Scheduler::stop(){
     if(m_rootFiber && m_threadCount == 0 
         && ((m_rootFiber->getState() == Fiber::TERM) || m_rootFiber->getState() == Fiber::INIT)){
         
-        SYLAR_LOG_INFO(g_logger) << this << " stoped";
+        SYLAR_LOG_INFO(g_logger) << this << " stopped";
         m_stoping = true;
         if(stopping()){
             return;
@@ -146,7 +146,7 @@ void Scheduler::tickle(){
 }
 void Scheduler::run(){
     // Fiber::GetThis();
-    SYLAR_LOG_INFO(g_logger) << "run";
+    SYLAR_LOG_INFO(g_logger) << m_name<<"run";
     set_hook_enable(true);
     setThis();
     if(sylar::GetThreadId() != m_rootThread){

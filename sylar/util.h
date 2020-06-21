@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-05 17:08:39
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-12 11:22:58
+ * @LastEditTime: 2020-06-21 20:46:38
  */ 
 #ifndef __SYLAR__UTIL_H__
 #define __SYLAR__UTIL_H__
@@ -30,6 +30,8 @@ std::string BacktraceToString(int size = 64,int skip = 2,const std::string & pre
 //时间
 uint64_t GetCurrentMS();
 uint64_t GetCurrentUS();
+
+std::string TimeToString(time_t ts = time(0),const std::string & format = "%Y-%m-%d %H:%M:%S");
 
 }
 

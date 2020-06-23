@@ -4,12 +4,13 @@
  * @Author: zsj
  * @Date: 2020-06-06 14:18:03
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-08 18:42:06
+ * @LastEditTime: 2020-06-22 21:20:26
  */ 
 #include<yaml-cpp/yaml.h>
 #include<iostream>
 #include"../sylar/config.h"
 #include"../sylar/log.h"
+#include"../sylar/env.h"
 
 #if 0
 
@@ -237,7 +238,15 @@ void test_class(){
 
 }
 
+void test_loadconf(){
+    sylar::Config::LoadFromConfDir("conf");
+}
+
+
 void test_log(){
+
+    
+
     SYLAR_LOG_INFO(SYLAR_LOG_NAME("system"))<<"hello config";
     // std::cout<<sylar::LogLevel::toString(SYLAR_LOG_NAME("system")->getLevel())<<std::endl;
     // std::cout<<sylar::LoggerMgr::GetInstance()->toYamlString()<<std::endl;
@@ -251,16 +260,19 @@ void test_log(){
 
 int main(int argc,char * argv[])
 {
-    
-
+    // std::cout<<sylar::LoggerMgr::GetInstance()->toYamlString()<<std::endl;
+    sylar::EnvMgr::GetInstance()->init(argc,argv);
+    test_loadconf();    
+    std::cout<<sylar::LoggerMgr::GetInstance()->toYamlString()<<std::endl;
     // test_yaml();
     // test_config();
     // test_class();
-    test_log();
-    sylar::Config::Visit([](sylar::ConfigVarBase::ptr var){
-        SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) << "name="<<var->getName()
-            <<" description="<<var->getDescription()
-            <<" typename="<<var->getTypeName()
-            <<" value=" << var->toString();
-    });
+    // test_log();
+    // return 0;
+    // sylar::Config::Visit([](sylar::ConfigVarBase::ptr var){
+    //     SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) << "name="<<var->getName()
+    //         <<" description="<<var->getDescription()
+    //         <<" typename="<<var->getTypeName()
+    //         <<" value=" << var->toString();
+    // });
 }

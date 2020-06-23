@@ -114,6 +114,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_config_dir
+
+# Build rule for target.
+test_config_dir: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_config_dir
+.PHONY : test_config_dir
+
+# fast build rule for target.
+test_config_dir/fast:
+	$(MAKE) -f CMakeFiles/test_config_dir.dir/build.make CMakeFiles/test_config_dir.dir/build
+.PHONY : test_config_dir/fast
+
+#=============================================================================
 # Target rules for targets named test_uri
 
 # Build rule for target.
@@ -125,6 +138,19 @@ test_uri: cmake_check_build_system
 test_uri/fast:
 	$(MAKE) -f CMakeFiles/test_uri.dir/build.make CMakeFiles/test_uri.dir/build
 .PHONY : test_uri/fast
+
+#=============================================================================
+# Target rules for targets named test_env
+
+# Build rule for target.
+test_env: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_env
+.PHONY : test_env
+
+# fast build rule for target.
+test_env/fast:
+	$(MAKE) -f CMakeFiles/test_env.dir/build.make CMakeFiles/test_env.dir/build
+.PHONY : test_env/fast
 
 #=============================================================================
 # Target rules for targets named test_http_connection
@@ -335,6 +361,19 @@ test_address/fast:
 .PHONY : test_address/fast
 
 #=============================================================================
+# Target rules for targets named test_application
+
+# Build rule for target.
+test_application: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_application
+.PHONY : test_application
+
+# fast build rule for target.
+test_application/fast:
+	$(MAKE) -f CMakeFiles/test_application.dir/build.make CMakeFiles/test_application.dir/build
+.PHONY : test_application/fast
+
+#=============================================================================
 # Target rules for targets named test_tcp_server
 
 # Build rule for target.
@@ -467,6 +506,33 @@ sylar/address.cpp.s:
 	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/address.cpp.s
 .PHONY : sylar/address.cpp.s
 
+sylar/application.o: sylar/application.cpp.o
+
+.PHONY : sylar/application.o
+
+# target to build an object file
+sylar/application.cpp.o:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/application.cpp.o
+.PHONY : sylar/application.cpp.o
+
+sylar/application.i: sylar/application.cpp.i
+
+.PHONY : sylar/application.i
+
+# target to preprocess a source file
+sylar/application.cpp.i:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/application.cpp.i
+.PHONY : sylar/application.cpp.i
+
+sylar/application.s: sylar/application.cpp.s
+
+.PHONY : sylar/application.s
+
+# target to generate assembly for a file
+sylar/application.cpp.s:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/application.cpp.s
+.PHONY : sylar/application.cpp.s
+
 sylar/bytearray.o: sylar/bytearray.cpp.o
 
 .PHONY : sylar/bytearray.o
@@ -547,6 +613,33 @@ sylar/daemon.s: sylar/daemon.cpp.s
 sylar/daemon.cpp.s:
 	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/daemon.cpp.s
 .PHONY : sylar/daemon.cpp.s
+
+sylar/env.o: sylar/env.cpp.o
+
+.PHONY : sylar/env.o
+
+# target to build an object file
+sylar/env.cpp.o:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/env.cpp.o
+.PHONY : sylar/env.cpp.o
+
+sylar/env.i: sylar/env.cpp.i
+
+.PHONY : sylar/env.i
+
+# target to preprocess a source file
+sylar/env.cpp.i:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/env.cpp.i
+.PHONY : sylar/env.cpp.i
+
+sylar/env.s: sylar/env.cpp.s
+
+.PHONY : sylar/env.s
+
+# target to generate assembly for a file
+sylar/env.cpp.s:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/env.cpp.s
+.PHONY : sylar/env.cpp.s
 
 sylar/fd_manager.o: sylar/fd_manager.cpp.o
 
@@ -1196,6 +1289,33 @@ tests/test_address.cpp.s:
 	$(MAKE) -f CMakeFiles/test_address.dir/build.make CMakeFiles/test_address.dir/tests/test_address.cpp.s
 .PHONY : tests/test_address.cpp.s
 
+tests/test_application.o: tests/test_application.cpp.o
+
+.PHONY : tests/test_application.o
+
+# target to build an object file
+tests/test_application.cpp.o:
+	$(MAKE) -f CMakeFiles/test_application.dir/build.make CMakeFiles/test_application.dir/tests/test_application.cpp.o
+.PHONY : tests/test_application.cpp.o
+
+tests/test_application.i: tests/test_application.cpp.i
+
+.PHONY : tests/test_application.i
+
+# target to preprocess a source file
+tests/test_application.cpp.i:
+	$(MAKE) -f CMakeFiles/test_application.dir/build.make CMakeFiles/test_application.dir/tests/test_application.cpp.i
+.PHONY : tests/test_application.cpp.i
+
+tests/test_application.s: tests/test_application.cpp.s
+
+.PHONY : tests/test_application.s
+
+# target to generate assembly for a file
+tests/test_application.cpp.s:
+	$(MAKE) -f CMakeFiles/test_application.dir/build.make CMakeFiles/test_application.dir/tests/test_application.cpp.s
+.PHONY : tests/test_application.cpp.s
+
 tests/test_bytearray.o: tests/test_bytearray.cpp.o
 
 .PHONY : tests/test_bytearray.o
@@ -1250,6 +1370,33 @@ tests/test_config.cpp.s:
 	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cpp.s
 .PHONY : tests/test_config.cpp.s
 
+tests/test_config_dir.o: tests/test_config_dir.cpp.o
+
+.PHONY : tests/test_config_dir.o
+
+# target to build an object file
+tests/test_config_dir.cpp.o:
+	$(MAKE) -f CMakeFiles/test_config_dir.dir/build.make CMakeFiles/test_config_dir.dir/tests/test_config_dir.cpp.o
+.PHONY : tests/test_config_dir.cpp.o
+
+tests/test_config_dir.i: tests/test_config_dir.cpp.i
+
+.PHONY : tests/test_config_dir.i
+
+# target to preprocess a source file
+tests/test_config_dir.cpp.i:
+	$(MAKE) -f CMakeFiles/test_config_dir.dir/build.make CMakeFiles/test_config_dir.dir/tests/test_config_dir.cpp.i
+.PHONY : tests/test_config_dir.cpp.i
+
+tests/test_config_dir.s: tests/test_config_dir.cpp.s
+
+.PHONY : tests/test_config_dir.s
+
+# target to generate assembly for a file
+tests/test_config_dir.cpp.s:
+	$(MAKE) -f CMakeFiles/test_config_dir.dir/build.make CMakeFiles/test_config_dir.dir/tests/test_config_dir.cpp.s
+.PHONY : tests/test_config_dir.cpp.s
+
 tests/test_daemon.o: tests/test_daemon.cpp.o
 
 .PHONY : tests/test_daemon.o
@@ -1276,6 +1423,33 @@ tests/test_daemon.s: tests/test_daemon.cpp.s
 tests/test_daemon.cpp.s:
 	$(MAKE) -f CMakeFiles/test_daemon.dir/build.make CMakeFiles/test_daemon.dir/tests/test_daemon.cpp.s
 .PHONY : tests/test_daemon.cpp.s
+
+tests/test_env.o: tests/test_env.cpp.o
+
+.PHONY : tests/test_env.o
+
+# target to build an object file
+tests/test_env.cpp.o:
+	$(MAKE) -f CMakeFiles/test_env.dir/build.make CMakeFiles/test_env.dir/tests/test_env.cpp.o
+.PHONY : tests/test_env.cpp.o
+
+tests/test_env.i: tests/test_env.cpp.i
+
+.PHONY : tests/test_env.i
+
+# target to preprocess a source file
+tests/test_env.cpp.i:
+	$(MAKE) -f CMakeFiles/test_env.dir/build.make CMakeFiles/test_env.dir/tests/test_env.cpp.i
+.PHONY : tests/test_env.cpp.i
+
+tests/test_env.s: tests/test_env.cpp.s
+
+.PHONY : tests/test_env.s
+
+# target to generate assembly for a file
+tests/test_env.cpp.s:
+	$(MAKE) -f CMakeFiles/test_env.dir/build.make CMakeFiles/test_env.dir/tests/test_env.cpp.s
+.PHONY : tests/test_env.cpp.s
 
 tests/test_fiber.o: tests/test_fiber.cpp.o
 
@@ -1635,7 +1809,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... test_config_dir"
 	@echo "... test_uri"
+	@echo "... test_env"
 	@echo "... test_http_connection"
 	@echo "... test_http_server"
 	@echo "... test_socket"
@@ -1653,6 +1829,7 @@ help:
 	@echo "... test_iomanager"
 	@echo "... test_hook"
 	@echo "... test_address"
+	@echo "... test_application"
 	@echo "... test_tcp_server"
 	@echo "... test_http"
 	@echo "... test_http_parser"
@@ -1666,6 +1843,9 @@ help:
 	@echo "... sylar/address.o"
 	@echo "... sylar/address.i"
 	@echo "... sylar/address.s"
+	@echo "... sylar/application.o"
+	@echo "... sylar/application.i"
+	@echo "... sylar/application.s"
 	@echo "... sylar/bytearray.o"
 	@echo "... sylar/bytearray.i"
 	@echo "... sylar/bytearray.s"
@@ -1675,6 +1855,9 @@ help:
 	@echo "... sylar/daemon.o"
 	@echo "... sylar/daemon.i"
 	@echo "... sylar/daemon.s"
+	@echo "... sylar/env.o"
+	@echo "... sylar/env.i"
+	@echo "... sylar/env.s"
 	@echo "... sylar/fd_manager.o"
 	@echo "... sylar/fd_manager.i"
 	@echo "... sylar/fd_manager.s"
@@ -1747,15 +1930,24 @@ help:
 	@echo "... tests/test_address.o"
 	@echo "... tests/test_address.i"
 	@echo "... tests/test_address.s"
+	@echo "... tests/test_application.o"
+	@echo "... tests/test_application.i"
+	@echo "... tests/test_application.s"
 	@echo "... tests/test_bytearray.o"
 	@echo "... tests/test_bytearray.i"
 	@echo "... tests/test_bytearray.s"
 	@echo "... tests/test_config.o"
 	@echo "... tests/test_config.i"
 	@echo "... tests/test_config.s"
+	@echo "... tests/test_config_dir.o"
+	@echo "... tests/test_config_dir.i"
+	@echo "... tests/test_config_dir.s"
 	@echo "... tests/test_daemon.o"
 	@echo "... tests/test_daemon.i"
 	@echo "... tests/test_daemon.s"
+	@echo "... tests/test_env.o"
+	@echo "... tests/test_env.i"
+	@echo "... tests/test_env.s"
 	@echo "... tests/test_fiber.o"
 	@echo "... tests/test_fiber.i"
 	@echo "... tests/test_fiber.s"

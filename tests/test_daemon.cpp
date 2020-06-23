@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-21 20:19:26
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-21 20:44:36
+ * @LastEditTime: 2020-06-23 09:34:50
  */ 
 #include"../sylar/daemon.h"
 #include"../sylar/iomanager.h"
@@ -14,7 +14,7 @@
 static sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
 
 sylar::Timer::ptr timer;
-int server_main(int argc,const char ** argv){
+int server_main(int argc,char ** argv){
     SYLAR_LOG_INFO(g_logger) << sylar::ProcessInfoMgr::GetInstance()->toString();
     sylar::IOManager iom;
     
@@ -28,7 +28,7 @@ int server_main(int argc,const char ** argv){
     return 0;
 }
 
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
     return sylar::start_daemon(argc,argv,server_main,argc != 1);
 }

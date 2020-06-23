@@ -1,0 +1,2 @@
+2020-06-22 09:23:42	ERROR	test macro fmt warn xx
+2020-06-22 09:23:42	ERROR	test macro error

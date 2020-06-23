@@ -5,3 +5,216 @@
 2020-06-07 20:02:14	[INFO]	hello config
 2020-06-07 20:04:00	[INFO]	hello config
 2020-06-07 20:54:23	[FATAL]	hello config
+2020-06-22 11:24:42	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 11:25:35	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 11:30:55	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 11:33:32	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 11:34:44	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 11:36:18	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 11:37:36	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 11:38:44	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 11:40:10	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 11:42:35	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 11:46:16	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 11:46:54	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 15:18:41	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 15:38:18	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 20:20:37	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 20:20:37	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 20:23:11	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 20:23:11	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 20:24:58	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 20:24:58	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 20:28:10	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 20:28:10	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 20:30:09	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 20:30:09	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 20:30:32	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 20:30:32	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 20:37:01	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 20:38:56	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 20:38:56	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-22 20:38:56	[INFO]	on_logger_conf_changed
+2020-06-22 20:38:56	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 20:38:56	[INFO]	hello config
+2020-06-22 20:39:37	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 20:39:37	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-22 20:39:37	[INFO]	on_logger_conf_changed
+2020-06-22 20:39:37	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 20:39:37	[INFO]	hello config
+2020-06-22 20:39:37	[INFO]	on_logger_conf_changed
+2020-06-22 20:39:37	[INFO]	hello config
+2020-06-22 20:40:27	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 20:40:27	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-22 20:40:27	[INFO]	on_logger_conf_changed
+2020-06-22 20:40:27	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 20:40:27	[INFO]	hello config
+2020-06-22 20:40:27	[INFO]	on_logger_conf_changed
+2020-06-22 20:40:27	[INFO]	hello config
+2020-06-22 20:43:50	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 20:43:50	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-22 20:43:50	[INFO]	on_logger_conf_changed
+2020-06-22 20:43:50	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 20:48:12	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 20:48:12	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-22 20:48:12	[INFO]	on_logger_conf_changed
+2020-06-22 20:48:12	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 20:55:10	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 21:05:59	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 21:05:59	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-22 21:05:59	[INFO]	on_logger_conf_changed
+2020-06-22 21:05:59	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 21:07:35	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 21:07:35	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-22 21:07:35	[INFO]	on_logger_conf_changed
+2020-06-22 21:07:35	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 21:08:36	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 21:08:36	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-22 21:08:36	[INFO]	on_logger_conf_changed
+2020-06-22 21:08:36	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 21:08:36	file=/home/zsj/workspace/sylar/bin/conf/log3.yml
+2020-06-22 21:08:36	on_logger_conf_changed
+2020-06-22 21:08:36	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log3.yml success!!
+2020-06-22 21:09:26	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 21:09:26	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-22 21:09:26	[INFO]	on_logger_conf_changed
+2020-06-22 21:09:26	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 21:09:26	file=/home/zsj/workspace/sylar/bin/conf/log3.yml
+2020-06-22 21:09:26	on_logger_conf_changed
+2020-06-22 21:09:26	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log3.yml success!!
+2020-06-22 21:11:17	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 21:11:17	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-22 21:11:17	[INFO]	on_logger_conf_changed
+2020-06-22 21:11:17	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 21:11:17	file=/home/zsj/workspace/sylar/bin/conf/log3.yml
+2020-06-22 21:11:17	on_logger_conf_changed
+2020-06-22 21:11:17	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log3.yml success!!
+2020-06-22 21:19:03	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 21:19:03	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-22 21:19:03	[INFO]	on_logger_conf_changed
+2020-06-22 21:19:03	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log2.yml success!!
+2020-06-22 21:19:03	file=/home/zsj/workspace/sylar/bin/conf/log3.yml
+2020-06-22 21:19:03	on_logger_conf_changed
+2020-06-22 21:19:03	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log3.yml success!!
+2020-06-22 21:20:57	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 21:20:57	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-22 21:20:57	[INFO]	on_logger_conf_changed
+2020-06-22 21:21:34	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-22 21:21:34	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-22 21:21:34	[INFO]	on_logger_conf_changed
+2020-06-23 09:41:13	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 09:41:13	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/server.yml
+2020-06-23 09:41:13	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 09:41:13	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-23 09:41:13	[INFO]	on_logger_conf_changed
+2020-06-23 09:46:50	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 09:46:50	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/server.yml
+2020-06-23 09:46:50	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 09:46:50	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-23 09:46:50	[INFO]	on_logger_conf_changed
+2020-06-23 09:48:17	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 09:48:17	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/server.yml
+2020-06-23 09:48:17	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 09:48:17	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-23 09:48:17	[INFO]	on_logger_conf_changed
+2020-06-23 09:49:23	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 09:49:23	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/server.yml
+2020-06-23 09:49:23	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 09:49:23	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-23 09:49:23	[INFO]	on_logger_conf_changed
+2020-06-23 09:51:02	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 09:51:02	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/server.yml
+2020-06-23 09:51:02	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 09:51:02	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-23 09:51:02	[INFO]	on_logger_conf_changed
+2020-06-23 09:53:34	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 09:53:34	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/server.yml
+2020-06-23 09:53:34	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 09:53:34	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-23 09:53:34	[INFO]	on_logger_conf_changed
+2020-06-23 09:54:55	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 09:54:55	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/server.yml
+2020-06-23 09:54:55	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 09:54:55	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-23 09:54:55	[INFO]	on_logger_conf_changed
+2020-06-23 09:57:41	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 09:57:41	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/server.yml
+2020-06-23 09:57:41	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 09:57:41	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-23 09:57:41	[INFO]	on_logger_conf_changed
+2020-06-23 10:01:25	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 10:01:25	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/server.yml
+2020-06-23 10:01:25	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 10:01:25	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-23 10:01:25	[INFO]	on_logger_conf_changed
+2020-06-23 10:13:35	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 10:13:35	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/server.yml
+2020-06-23 10:13:35	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 10:13:35	[DEBUG]	file=/home/zsj/workspace/sylar/bin/conf/test.yml
+2020-06-23 10:13:35	[INFO]	on_logger_conf_changed
+2020-06-23 10:18:12	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 10:18:12	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 10:18:12	[INFO]	on_logger_conf_changed
+2020-06-23 10:21:23	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 10:21:23	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 10:21:23	[INFO]	on_logger_conf_changed
+2020-06-23 10:22:38	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 10:22:38	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 10:22:38	[INFO]	on_logger_conf_changed
+2020-06-23 10:24:54	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 10:24:54	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 10:24:54	[INFO]	on_logger_conf_changed
+2020-06-23 10:26:23	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 10:26:23	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 10:26:23	[INFO]	on_logger_conf_changed
+2020-06-23 10:27:05	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 10:27:05	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 10:27:05	[INFO]	on_logger_conf_changed
+2020-06-23 10:52:58	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 10:52:58	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 10:52:58	[INFO]	on_logger_conf_changed
+2020-06-23 10:56:30	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 10:56:30	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 10:56:30	[INFO]	on_logger_conf_changed
+2020-06-23 13:29:55	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 13:29:55	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 13:29:55	[INFO]	on_logger_conf_changed
+2020-06-23 13:30:11	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 13:30:11	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 13:30:11	[INFO]	on_logger_conf_changed
+2020-06-23 13:31:39	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 13:31:39	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 13:31:39	[INFO]	on_logger_conf_changed
+2020-06-23 13:31:55	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 13:31:55	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 13:31:55	[INFO]	on_logger_conf_changed
+2020-06-23 13:35:07	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 13:35:07	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 13:35:07	[INFO]	on_logger_conf_changed
+2020-06-23 13:35:36	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 13:35:36	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 13:35:36	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/test.yml success!!
+2020-06-23 13:38:50	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 13:38:50	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 13:38:50	[INFO]	on_logger_conf_changed
+2020-06-23 13:49:04	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 13:49:04	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 13:49:04	[INFO]	on_logger_conf_changed
+2020-06-23 13:50:23	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 13:50:23	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 13:50:23	[INFO]	on_logger_conf_changed
+2020-06-23 13:52:45	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 13:52:45	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 13:52:45	[INFO]	on_logger_conf_changed
+2020-06-23 13:53:43	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 13:53:43	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 13:53:43	[INFO]	on_logger_conf_changed
+2020-06-23 14:27:26	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 14:27:26	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 14:27:26	[INFO]	on_logger_conf_changed
+2020-06-23 14:28:30	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 14:28:30	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 14:28:30	[INFO]	on_logger_conf_changed
+2020-06-23 14:30:15	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/log.yml success!!
+2020-06-23 14:30:15	[ERROR]	LoadConfFile file=/home/zsj/workspace/sylar/bin/conf/server.yml success!!
+2020-06-23 14:30:15	[INFO]	on_logger_conf_changed

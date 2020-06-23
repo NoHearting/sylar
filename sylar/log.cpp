@@ -19,7 +19,7 @@
  * @Author: zsj
  * @Date: 2020-06-04 22:47:54
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-10 11:21:56
+ * @LastEditTime: 2020-06-23 14:27:08
  */ 
 #include"log.h"
 #include"config.h"
@@ -582,7 +582,36 @@ struct LogIniter{
                 const std::set<LogDefine> & new_value)
         {
             SYLAR_LOG_INFO(SYLAR_LOG_NAME("system")) << "on_logger_conf_changed";
-            
+            // std::cout<<"--------------begin old_value --------------"<<std::endl;
+            // for(auto & item : old_value){
+            //     std::cout << " name=" << item.name << std::endl
+            //               << " level=" << LogLevel::toString(item.level) << std::endl
+            //               << " formatter=" << item.formatter << std::endl;
+            //     for(auto & appender : item.appenders){
+            //         std::cout << " \tappender:" << std::endl
+            //                   << "\t\ttype=" << appender.type<<std::endl
+            //                   << "\t\tlevel="<< LogLevel::toString(appender.level) << std::endl
+            //                   << "\t\tformatter=" << appender.formatter<<std::endl
+            //                   << "\t\tfile" << appender.file << std::endl;
+            //     }
+            // }
+            // std::cout << "==============end old_value============" <<std::endl;
+
+            // std::cout<<"--------------begin new_value --------------"<<std::endl;
+            // for(auto & item : new_value){
+            //     std::cout << " name=" << item.name << std::endl
+            //               << " level=" << LogLevel::toString(item.level) << std::endl
+            //               << " formatter=" << item.formatter << std::endl;
+            //     for(auto & appender : item.appenders){
+            //         std::cout << " \tappender:" << std::endl
+            //                   << "\t\ttype=" << appender.type<<std::endl
+            //                   << "\t\tlevel="<< LogLevel::toString(appender.level) << std::endl
+            //                   << "\t\tformatter=" << appender.formatter<<std::endl
+            //                   << "\t\tfile" << appender.file << std::endl;
+            //     }
+            // }
+            // std::cout << "=============end old_value=============" <<std::endl;
+
             //新增或者修改
             for(auto & item : new_value){
                 auto it = old_value.find(item);
@@ -597,6 +626,8 @@ struct LogIniter{
                     if(!(item == *it)){
                         //修改logger
                         logger = SYLAR_LOG_NAME(item.name);
+                    }else{
+                        continue;
                     }
                 }
                 logger->setLevel(item.level);

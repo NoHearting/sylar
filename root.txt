@@ -18,3 +18,100 @@ sex: false
       file: system.txt
       formatter: "%d%T[%p]%T%m%n"
     - type: StdoutLogAppender
+2020-06-22 11:24:42	name=class.map description=class person map typename=St3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE6PersonSt4lessIS5_ESaISt4pairIKS5_S6_EEE value=sylar1:
+  name: sylar01
+  age: 18
+  sex: false
+sylay2:
+  name: sylar02
+  age: 40
+  sex: true
+2020-06-22 11:24:42	name=class.person description=class person typename=6Person value=name: sylar
+age: 31
+sex: false
+2020-06-22 11:24:42	name=class.vec_map description=class person vec_map typename=St3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorI6PersonSaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEE value=k1:
+  - name: m1
+    age: 33
+    sex: false
+  - name: m2
+    age: 44
+    sex: true
+k2:
+  - name: m11
+    age: 33
+    sex: false
+  - name: m22
+    age: 44
+    sex: true
+2020-06-22 11:24:42	name=daemon.restart_interval description=daemon restart interval typename=j value=5
+2020-06-22 11:24:42	name=fiber.stack_size description=fiber stack size typename=j value=131072
+2020-06-22 11:24:42	name=http.request.buffer_size description=http request buffer size typename=m value=4096
+2020-06-22 11:24:42	name=http.request.max_body_size description=http request max body size typename=m value=67108864
+2020-06-22 11:24:42	name=http.response.buffer_size description=http response buffer size typename=m value=4096
+2020-06-22 11:24:42	name=http.response.max_body_size description=http response max body size typename=m value=67108864
+2020-06-22 11:24:42	name=logs description=log config typename=St3setIN5sylar9LogDefineESt4lessIS1_ESaIS1_EE value=- name: root
+  level: INFO
+  formatter: "%d%T%m%n"
+  appenders:
+    - type: FileLogAppender
+      file: root.txt
+    - type: StdoutLogAppender
+- name: system
+  level: ERROR
+  formatter: "%d%T%m%n"
+  appenders:
+    - type: FileLogAppender
+      file: system.txt
+      formatter: "%d%T[%p]%T%m%n"
+    - type: StdoutLogAppender
+2020-06-22 11:24:42	name=tcp.connect.timeout description=tcp connect timeout typename=i value=5000
+2020-06-22 11:24:42	name=tcp_server.read_timeout description=tcp server read timeout typename=m value=120000
+2020-06-22 21:19:03	name=class.map description=class person map typename=St3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE6PersonSt4lessIS5_ESaISt4pairIKS5_S6_EEE value=sylar1:
+  name: sylar01
+  age: 18
+  sex: false
+sylay2:
+  name: sylar02
+  age: 40
+  sex: true
+2020-06-22 21:19:03	name=class.person description=class person typename=6Person value=name: sylar
+age: 31
+sex: false
+2020-06-22 21:19:03	name=class.vec_map description=class person vec_map typename=St3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorI6PersonSaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEE value=k1:
+  - name: m1
+    age: 33
+    sex: false
+  - name: m2
+    age: 44
+    sex: true
+k2:
+  - name: m11
+    age: 33
+    sex: false
+  - name: m22
+    age: 44
+    sex: true
+2020-06-22 21:19:03	name=daemon.restart_interval description=daemon restart interval typename=j value=5
+2020-06-22 21:19:03	name=fiber.stack_size description=fiber stack size typename=j value=131072
+2020-06-22 21:19:03	name=http.request.buffer_size description=http request buffer size typename=m value=4096
+2020-06-22 21:19:03	name=http.request.max_body_size description=http request max body size typename=m value=67108864
+2020-06-22 21:19:03	name=http.response.buffer_size description=http response buffer size typename=m value=4096
+2020-06-22 21:19:03	name=http.response.max_body_size description=http response max body size typename=m value=67108864
+2020-06-22 21:19:03	name=logs description=log config typename=St3setIN5sylar9LogDefineESt4lessIS1_ESaIS1_EE value=- name: root
+  level: INFO
+  formatter: "%d%T%m%n"
+  appenders:
+    - type: FileLogAppender
+      file: root.txt
+    - type: StdoutLogAppender
+- name: system
+  level: DEBUG
+  appenders:
+    - type: FileLogAppender
+      file: system.txt
+      formatter: "%d%T[%p]%T%m%n"
+    - type: StdoutLogAppender
+2020-06-22 21:19:03	name=tcp.connect.timeout description=tcp connect timeout typename=i value=5000
+2020-06-22 21:19:03	name=tcp_server.read_timeout description=tcp server read timeout typename=m value=120000
+2020-06-23 13:35:36	end log!! ******
+2020-06-23 13:35:36	end log!! ******

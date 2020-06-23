@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-21 19:33:44
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-21 20:43:42
+ * @LastEditTime: 2020-06-23 09:28:36
  */ 
 #include"daemon.h"
 #include"log.h"
@@ -12,6 +12,7 @@
 #include<time.h>
 #include<sys/types.h>
 #include<sys/wait.h>
+#include<unistd.h>
 
 
 namespace sylar
@@ -33,13 +34,15 @@ std::string ProcessInfo::toString()const{
 }
 
 
-static int real_start(int argc,const char ** argv
-        ,std::function<int(int,const char**)> main_cb){
+static int real_start(int argc,char ** argv
+        ,std::function<int(int,char**)> main_cb){
     return main_cb(argc,argv);
 }
 
-static int real_daemon(int argc,const char ** argv
-        ,std::function<int(int,const char**)> main_cb){
+static int real_daemon(int argc,char ** argv
+        ,std::function<int(int,char**)> main_cb){
+    
+    daemon(1,0);
     ProcessInfoMgr::GetInstance()->parent_id = getpid();
     ProcessInfoMgr::GetInstance()->parent_start_time = time(0);
     while(true){
@@ -77,8 +80,8 @@ static int real_daemon(int argc,const char ** argv
     return 0;
 }
 
-int start_daemon(int argc,const char ** argv
-        ,std::function<int(int,const char**)> main_cb,bool is_daemon){
+int start_daemon(int argc,char ** argv
+        ,std::function<int(int,char**)> main_cb,bool is_daemon){
     if(is_daemon == false){
         return real_start(argc,argv,main_cb);
         

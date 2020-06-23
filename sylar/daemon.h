@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-21 19:29:30
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-21 20:37:15
+ * @LastEditTime: 2020-06-23 09:28:45
  */ 
 #pragma once
 
@@ -46,7 +46,7 @@ typedef sylar::Singleton<ProcessInfo> ProcessInfoMgr;
  * @param is_daemon 是否守护进程
  * @return int 程序执行结果
  */ 
-int start_daemon(int argc,const char ** argv
-        ,std::function<int(int,const char**)> main_cb,bool is_daemon);
+int start_daemon(int argc,char ** argv
+        ,std::function<int(int,char**)> main_cb,bool is_daemon);
 
 } // namespace sylar

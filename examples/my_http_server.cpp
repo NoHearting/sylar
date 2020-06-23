@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-21 21:01:21
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-21 22:32:18
+ * @LastEditTime: 2020-06-21 23:12:50
  */ 
 #include"../sylar/http/http_server.h"
 #include"../sylar/log.h"
@@ -19,7 +19,7 @@ void run(){
         SYLAR_LOG_ERROR(g_logger) << "get address error";
         return;
     }
-    sylar::http::HttpServer::ptr http_server(new sylar::http::HttpServer(true));
+    sylar::http::HttpServer::ptr http_server(new sylar::http::HttpServer);
     while(!http_server->bind(addr)){
         SYLAR_LOG_ERROR(g_logger) << "bind " << *addr<<" fail";
         sleep(1);

@@ -13,7 +13,7 @@
  * @Author: zsj
  * @Date: 2020-06-05 20:06:46
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-08 18:37:29
+ * @LastEditTime: 2020-06-22 10:53:43
  */ 
 #ifndef SYLAR__CONFIG_H__
 #define SYLAR__CONFIG_H__
@@ -477,6 +477,13 @@ public:
      *  - 然后判断配置文件中配置和当前约定配置是否有不同，有则更新约定配置
      */ 
     static void LoadFromYaml(const YAML::Node & root);
+
+    /**
+     * @brief 从文件夹加载配置,
+     *  - 读取配置文件所有的配置到一个数据结构，
+     *  - 然后判断配置文件中配置和当前约定配置是否有不同，有则更新约定配置
+     */ 
+    static void LoadFromConfDir(const std::string & path);
 
     /**
      * @brief 查找当前命名的项，有则返回

@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 20:43:13
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 21:43:15
+ * @LastEditTime: 2020-06-23 14:37:11
  */ 
 #pragma once
 #include<memory>
@@ -126,6 +126,8 @@ public:
     int32_t handle(sylar::http::HttpRequest::ptr request
         ,sylar::http::HttpResponse::ptr response
         ,sylar::http::HttpSession::ptr session) override;
+private:
+    // std::string m_server;
 };
 
 } // namespace http

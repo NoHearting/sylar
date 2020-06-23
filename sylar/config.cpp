@@ -4,13 +4,21 @@
  * @Author: zsj
  * @Date: 2020-06-06 14:23:07
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-08 18:34:05
+ * @LastEditTime: 2020-06-23 10:15:13
  */ 
 #include"config.h"
+#include"log.h"
+#include"env.h"
+#include<time.h>
+#include<sys/time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
 namespace sylar{
 
 
+static Logger::ptr g_logger = SYLAR_LOG_NAME("system");
 
 /**
  * @brief 递归读取配置文件中的配置到一个list中
@@ -51,6 +59,37 @@ void Config::LoadFromYaml(const YAML::Node & root)
                 ss << item.second;
                 var->fromString(ss.str());
             }
+        }
+    }
+}
+
+
+static std::map<std::string,uint64_t> s_fileToModifytime;
+static sylar::Mutex s_mutex;
+
+void Config::LoadFromConfDir(const std::string & path){
+    std::string absolute_path = sylar::EnvMgr::GetInstance()->getAbsolutePath(path);
+    std::vector<std::string> files;
+    FSUtil::listAllFile(files,absolute_path,".yml");
+    // SYLAR_LOG_DEBUG(g_logger) << "files size="<<files.size();
+    for(auto & i : files){
+        // SYLAR_LOG_DEBUG(g_logger) << "file=" << i;
+        {
+            struct stat st;
+            lstat(i.c_str(),&st);
+            sylar::Mutex::Lock lock(s_mutex);
+            if(s_fileToModifytime[i] == (uint64_t)st.st_mtime){
+                continue;
+            }
+            s_fileToModifytime[i] = (uint64_t)st.st_mtime;
+        }
+        try{
+            // SYLAR_LOG_DEBUG(g_logger) << i;
+            YAML::Node root = YAML::LoadFile(i);
+            LoadFromYaml(root);
+            SYLAR_LOG_ERROR(g_logger) << "LoadConfFile file="<<i<<" success!!";
+        }catch(...){
+            SYLAR_LOG_ERROR(g_logger) << "LoadConfFile file="<<i<<" failed!";
         }
     }
 }

@@ -4,8 +4,8 @@ project(sylar)
 include(cmake/utils.cmake)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
-set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -g -std=c++11 -Wall -Wno-deprecated -Werror \
-	 -Wno-unused-function -Wno-builtin-macro-redefined")
+set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O0 -ggdb -std=c++11 -Wall -Wno-deprecated -Werror \
+	 -Wno-unused-function -Wno-unused-result -Wno-builtin-macro-redefined")
 
 
 
@@ -24,9 +24,11 @@ set(LIB_SRC
 	sylar/http/http11_parser.rl.cpp
 	sylar/http/httpclient_parser.rl.cpp
 	sylar/address.cpp
+	sylar/application.cpp
 	sylar/bytearray.cpp
 	sylar/config.cpp
 	sylar/daemon.cpp
+	sylar/env.cpp
 	sylar/fiber.cpp
 	sylar/iomanager.cpp
 	sylar/log.cpp
@@ -86,6 +88,9 @@ sylar_add_executable(test_http_connection "tests/test_http_connection.cpp" sylar
 sylar_add_executable(test_uri "tests/test_uri.cpp" sylar "${LIBS}")
 sylar_add_executable(test_daemon "tests/test_daemon.cpp" sylar "${LIBS}")
 sylar_add_executable(my_http_server "examples/my_http_server.cpp" sylar "${LIBS}")
+sylar_add_executable(test_env "tests/test_env.cpp" sylar "${LIBS}")
+sylar_add_executable(test_application "tests/test_application.cpp" sylar "${LIBS}")
+sylar_add_executable(test_config_dir "tests/test_config_dir.cpp" sylar "${LIBS}")
 
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

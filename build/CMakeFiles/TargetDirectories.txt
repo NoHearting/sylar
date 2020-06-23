@@ -1,5 +1,7 @@
 /home/zsj/workspace/sylar/build/CMakeFiles/rebuild_cache.dir
+/home/zsj/workspace/sylar/build/CMakeFiles/test_config_dir.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_uri.dir
+/home/zsj/workspace/sylar/build/CMakeFiles/test_env.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_http_connection.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_http_server.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_socket.dir
@@ -17,6 +19,7 @@
 /home/zsj/workspace/sylar/build/CMakeFiles/test_iomanager.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_hook.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_address.dir
+/home/zsj/workspace/sylar/build/CMakeFiles/test_application.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_tcp_server.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_http.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_http_parser.dir

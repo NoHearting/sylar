@@ -38,6 +38,20 @@ util.h
 thread.h
 /home/zsj/workspace/sylar/sylar/thread.h
 
+/home/zsj/workspace/sylar/sylar/env.h
+memory
+-
+map
+-
+string
+-
+vector
+-
+singleton.h
+/home/zsj/workspace/sylar/sylar/singleton.h
+thread.h
+/home/zsj/workspace/sylar/sylar/thread.h
+
 /home/zsj/workspace/sylar/sylar/log.h
 string
 -
@@ -129,6 +143,8 @@ iostream
 /home/zsj/workspace/sylar/sylar/config.h
 ../sylar/log.h
 /home/zsj/workspace/sylar/sylar/log.h
+../sylar/env.h
+/home/zsj/workspace/sylar/sylar/env.h
 
 /usr/local/include/boost/array.hpp
 boost/detail/workaround.hpp

@@ -1,4 +1,6 @@
 /home/zsj/workspace/sylar/build/CMakeFiles/rebuild_cache.dir
+/home/zsj/workspace/sylar/build/CMakeFiles/echo_udp_client.dir
+/home/zsj/workspace/sylar/build/CMakeFiles/echo_server_udp.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_config_dir.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_uri.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_env.dir

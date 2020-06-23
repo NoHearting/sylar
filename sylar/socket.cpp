@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-14 14:29:34
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-21 13:58:05
+ * @LastEditTime: 2020-06-23 15:58:50
  */ 
 #include"socket.h"
 #include"fd_manager.h"
@@ -32,6 +32,8 @@ Socket::ptr Socket::CreateTCP(Address::ptr address){
 }
 Socket::ptr Socket::CreateUDP(Address::ptr address){
     Socket::ptr sock(new Socket(address->getFamily(),UDP,0));
+    sock->newSock();
+    sock->m_isConnected = true;
     return sock;
 }
 
@@ -41,6 +43,8 @@ Socket::ptr Socket::CreateTCPSocket() {
 }
 Socket::ptr Socket::CreateUDPSocket() {
     Socket::ptr sock(new Socket(IPv4,UDP,0));
+    sock->newSock();
+    sock->m_isConnected = true;
     return sock;
 }
 
@@ -50,6 +54,8 @@ Socket::ptr Socket::CreateTCPSocket6(){
 }
 Socket::ptr Socket::CreateUDPSocket6(){
     Socket::ptr sock(new Socket(IPv6,UDP,0));
+    sock->newSock();
+    sock->m_isConnected = true;
     return sock;
 }
 
@@ -163,7 +169,6 @@ bool Socket::bind(const Address::ptr addr){
             return false;
     }
     
-    //! 循环调用？？？
     if(::bind(m_sock,addr->getAddress(),addr->getAddressLen())){
         SYLAR_LOG_ERROR(g_logger) << "bind errorno="<<errno
             <<" strerr="<<strerror(errno);
@@ -251,13 +256,13 @@ int Socket::send(const iovec * buffers,size_t length,int flags){
     }
     return -1;
 }
-int Socket::sendto(const void * buffer,size_t length,const Address::ptr to,int flags){
+int Socket::sendTo(const void * buffer,size_t length,const Address::ptr to,int flags){
     if(isConnected()){
         return ::sendto(m_sock,buffer,length,flags,to->getAddress(),to->getAddressLen());
     }
     return -1;
 }
-int Socket::sendto(const iovec * buffers,size_t length,const Address::ptr to,int flags){
+int Socket::sendTo(const iovec * buffers,size_t length,const Address::ptr to,int flags){
     if(isConnected()){
         msghdr msg;
         memset(&msg,0,sizeof(msg));

@@ -114,6 +114,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named echo_udp_client
+
+# Build rule for target.
+echo_udp_client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 echo_udp_client
+.PHONY : echo_udp_client
+
+# fast build rule for target.
+echo_udp_client/fast:
+	$(MAKE) -f CMakeFiles/echo_udp_client.dir/build.make CMakeFiles/echo_udp_client.dir/build
+.PHONY : echo_udp_client/fast
+
+#=============================================================================
+# Target rules for targets named echo_server_udp
+
+# Build rule for target.
+echo_server_udp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 echo_server_udp
+.PHONY : echo_server_udp
+
+# fast build rule for target.
+echo_server_udp/fast:
+	$(MAKE) -f CMakeFiles/echo_server_udp.dir/build.make CMakeFiles/echo_server_udp.dir/build
+.PHONY : echo_server_udp/fast
+
+#=============================================================================
 # Target rules for targets named test_config_dir
 
 # Build rule for target.
@@ -451,6 +477,60 @@ examples/echo_server.s: examples/echo_server.cpp.s
 examples/echo_server.cpp.s:
 	$(MAKE) -f CMakeFiles/echo_server.dir/build.make CMakeFiles/echo_server.dir/examples/echo_server.cpp.s
 .PHONY : examples/echo_server.cpp.s
+
+examples/echo_server_udp.o: examples/echo_server_udp.cpp.o
+
+.PHONY : examples/echo_server_udp.o
+
+# target to build an object file
+examples/echo_server_udp.cpp.o:
+	$(MAKE) -f CMakeFiles/echo_server_udp.dir/build.make CMakeFiles/echo_server_udp.dir/examples/echo_server_udp.cpp.o
+.PHONY : examples/echo_server_udp.cpp.o
+
+examples/echo_server_udp.i: examples/echo_server_udp.cpp.i
+
+.PHONY : examples/echo_server_udp.i
+
+# target to preprocess a source file
+examples/echo_server_udp.cpp.i:
+	$(MAKE) -f CMakeFiles/echo_server_udp.dir/build.make CMakeFiles/echo_server_udp.dir/examples/echo_server_udp.cpp.i
+.PHONY : examples/echo_server_udp.cpp.i
+
+examples/echo_server_udp.s: examples/echo_server_udp.cpp.s
+
+.PHONY : examples/echo_server_udp.s
+
+# target to generate assembly for a file
+examples/echo_server_udp.cpp.s:
+	$(MAKE) -f CMakeFiles/echo_server_udp.dir/build.make CMakeFiles/echo_server_udp.dir/examples/echo_server_udp.cpp.s
+.PHONY : examples/echo_server_udp.cpp.s
+
+examples/echo_udp_client.o: examples/echo_udp_client.cpp.o
+
+.PHONY : examples/echo_udp_client.o
+
+# target to build an object file
+examples/echo_udp_client.cpp.o:
+	$(MAKE) -f CMakeFiles/echo_udp_client.dir/build.make CMakeFiles/echo_udp_client.dir/examples/echo_udp_client.cpp.o
+.PHONY : examples/echo_udp_client.cpp.o
+
+examples/echo_udp_client.i: examples/echo_udp_client.cpp.i
+
+.PHONY : examples/echo_udp_client.i
+
+# target to preprocess a source file
+examples/echo_udp_client.cpp.i:
+	$(MAKE) -f CMakeFiles/echo_udp_client.dir/build.make CMakeFiles/echo_udp_client.dir/examples/echo_udp_client.cpp.i
+.PHONY : examples/echo_udp_client.cpp.i
+
+examples/echo_udp_client.s: examples/echo_udp_client.cpp.s
+
+.PHONY : examples/echo_udp_client.s
+
+# target to generate assembly for a file
+examples/echo_udp_client.cpp.s:
+	$(MAKE) -f CMakeFiles/echo_udp_client.dir/build.make CMakeFiles/echo_udp_client.dir/examples/echo_udp_client.cpp.s
+.PHONY : examples/echo_udp_client.cpp.s
 
 examples/my_http_server.o: examples/my_http_server.cpp.o
 
@@ -1809,6 +1889,8 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... echo_udp_client"
+	@echo "... echo_server_udp"
 	@echo "... test_config_dir"
 	@echo "... test_uri"
 	@echo "... test_env"
@@ -1837,6 +1919,12 @@ help:
 	@echo "... examples/echo_server.o"
 	@echo "... examples/echo_server.i"
 	@echo "... examples/echo_server.s"
+	@echo "... examples/echo_server_udp.o"
+	@echo "... examples/echo_server_udp.i"
+	@echo "... examples/echo_server_udp.s"
+	@echo "... examples/echo_udp_client.o"
+	@echo "... examples/echo_udp_client.i"
+	@echo "... examples/echo_udp_client.s"
 	@echo "... examples/my_http_server.o"
 	@echo "... examples/my_http_server.i"
 	@echo "... examples/my_http_server.s"

@@ -43,6 +43,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/echo_udp_client.dir/DependInfo.cmake"
+  "CMakeFiles/echo_server_udp.dir/DependInfo.cmake"
   "CMakeFiles/test_config_dir.dir/DependInfo.cmake"
   "CMakeFiles/test_uri.dir/DependInfo.cmake"
   "CMakeFiles/test_env.dir/DependInfo.cmake"

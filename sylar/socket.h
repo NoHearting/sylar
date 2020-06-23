@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-14 14:10:56
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 10:49:23
+ * @LastEditTime: 2020-06-23 15:58:35
  */ 
 #pragma once
 
@@ -78,8 +78,8 @@ public:
 
     int send(const void * buffer,size_t length,int flags = 0);
     int send(const iovec * buffers,size_t length,int flags = 0);
-    int sendto(const void * buffer,size_t length,const Address::ptr to,int flags = 0);
-    int sendto(const iovec * buffers,size_t length,const Address::ptr to,int flags = 0);
+    int sendTo(const void * buffer,size_t length,const Address::ptr to,int flags = 0);
+    int sendTo(const iovec * buffers,size_t length,const Address::ptr to,int flags = 0);
 
 
     int recv(void * buffer,size_t length,int flags = 0);

@@ -91,6 +91,8 @@ sylar_add_executable(my_http_server "examples/my_http_server.cpp" sylar "${LIBS}
 sylar_add_executable(test_env "tests/test_env.cpp" sylar "${LIBS}")
 sylar_add_executable(test_application "tests/test_application.cpp" sylar "${LIBS}")
 sylar_add_executable(test_config_dir "tests/test_config_dir.cpp" sylar "${LIBS}")
+sylar_add_executable(echo_server_udp "examples/echo_server_udp.cpp" sylar "${LIBS}")
+sylar_add_executable(echo_udp_client "examples/echo_udp_client.cpp" sylar "${LIBS}")
 
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

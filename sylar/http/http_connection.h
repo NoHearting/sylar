@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 16:48:30
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-21 16:01:30
+ * @LastEditTime: 2020-06-29 20:19:19
  */ 
 #pragma once
 #include"../socket_stream.h"
@@ -120,9 +120,16 @@ public:
     typedef std::shared_ptr<HttpConnectionPool> ptr;
     typedef Mutex MutexType;
 
+    static HttpConnectionPool::ptr Create(const std::string & uri
+                                          ,const std::string & vhost
+                                          ,uint32_t max_size
+                                          ,uint32_t max_alive_time
+                                          ,uint32_t max_request);
+
     HttpConnectionPool(const std::string & host
                        ,const std::string & vhost
                        ,uint32_t port
+                       ,bool is_https
                        ,uint32_t max_size
                        ,uint32_t max_alive_time
                        ,uint32_t max_request);
@@ -176,6 +183,7 @@ private:
     uint32_t m_maxSize;
     uint32_t m_maxAliveTime;
     uint32_t m_maxRequest;
+    bool m_isHttps;
 
     MutexType m_mutex;
     std::list<HttpConnection*>m_conns;

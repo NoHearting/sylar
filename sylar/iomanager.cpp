@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-10 20:59:15
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-21 21:26:39
+ * @LastEditTime: 2020-06-28 21:15:10
  */ 
 
 #include"iomanager.h"
@@ -159,7 +159,7 @@ bool IOManager::delEvent(int fd,Event event){
     lock.unlock(); 
 
     FdContext::MutexType::Lock lock2(fd_ctx->mutex);
-    if(!(fd_ctx->events & event)){
+    if(SYLAR_UNLIKELY(!(fd_ctx->events & event))){
         return false;
     }
 
@@ -195,7 +195,7 @@ bool IOManager::cancelEvent(int fd,Event event){
     lock.unlock(); 
 
     FdContext::MutexType::Lock lock2(fd_ctx->mutex);
-    if(!(fd_ctx->events & event)){
+    if(SYLAR_UNLIKELY(!(fd_ctx->events & event))){
         return false;
     }
 
@@ -293,14 +293,16 @@ bool IOManager::stopping(uint64_t & timeout){
 }
 
 void IOManager::idle() {
-    epoll_event * events = new epoll_event[64];
+    SYLAR_LOG_DEBUG(g_logger) << "idle";
+    const uint64_t MAX_EVENTS =256;
+    epoll_event * events = new epoll_event[MAX_EVENTS];
     std::shared_ptr<epoll_event> shared_events(events,[](epoll_event * ptr){
         delete[] ptr;
     });
     
     while(true){
         uint64_t next_timeout = 0;
-        if(stopping(next_timeout)){
+        if(SYLAR_UNLIKELY(stopping(next_timeout))){
             next_timeout = getNextTimer();
             if(next_timeout == ~0ull){
                 SYLAR_LOG_INFO(g_logger) << " name="<<getName()<<" idle stopping exit";
@@ -319,7 +321,7 @@ void IOManager::idle() {
             else{
                 next_timeout = MAX_TIMEOUT;
             }
-            rt = epoll_wait(m_epfd,events,64,(int)next_timeout);
+            rt = epoll_wait(m_epfd,events,MAX_EVENTS,(int)next_timeout);
             
             if(rt < 0 && errno == EINTR){
 
@@ -340,8 +342,10 @@ void IOManager::idle() {
             epoll_event & event = events[i];
             // SYLAR_LOG_INFO(g_logger) << event.data.fd;
             if(event.data.fd == m_tickleFds[0]){
-                uint8_t dummy;
-                while(read(m_tickleFds[0],&dummy,1) == 1);
+                uint8_t dummy[256];
+                while(read(m_tickleFds[0],&dummy,sizeof(dummy)) > 0);
+
+                
                 continue;
             }
             FdContext * fd_ctx = (FdContext *)event.data.ptr;
@@ -376,11 +380,11 @@ void IOManager::idle() {
                 continue;
             }
 
-            if(real_events & READ){
+            if(fd_ctx->events & READ){
                 fd_ctx->triggerEvent(READ);
                 --m_pendingEventCount;
             }
-            if(real_events & WRITE){
+            if(fd_ctx->events & WRITE){
                 fd_ctx->triggerEvent(WRITE);
                 --m_pendingEventCount;
             }

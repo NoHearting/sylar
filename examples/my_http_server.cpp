@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-21 21:01:21
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-21 23:12:50
+ * @LastEditTime: 2020-06-29 20:43:33
  */ 
 #include"../sylar/http/http_server.h"
 #include"../sylar/log.h"
@@ -20,10 +20,16 @@ void run(){
         return;
     }
     sylar::http::HttpServer::ptr http_server(new sylar::http::HttpServer);
-    while(!http_server->bind(addr)){
+    bool ssl = false;
+    while(!http_server->bind(addr,ssl)){
         SYLAR_LOG_ERROR(g_logger) << "bind " << *addr<<" fail";
         sleep(1);
     }
+
+    if(ssl){
+        
+    }
+
     http_server->start();
 }
 

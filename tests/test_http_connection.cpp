@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-17 22:12:56
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-21 16:12:44
+ * @LastEditTime: 2020-06-29 20:51:11
  */ 
 #include"../sylar/http/http_connection.h"
 #include<iostream>
@@ -15,7 +15,7 @@ static sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
 
 void test_pool(){
     sylar::http::HttpConnectionPool::ptr pool(new sylar::http::HttpConnectionPool(
-        "www.sylar.top","",80,10,1000*30,5));
+        "www.sylar.top","",80,false,10,1000*30,5));
     sylar::IOManager::GetThis()->addTimer(1000,[pool](){
         auto r = pool->doGet("/",300);
         SYLAR_LOG_INFO(g_logger) << r->toString();

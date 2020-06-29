@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-22 21:39:14
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-23 10:49:36
+ * @LastEditTime: 2020-06-29 16:04:57
  */ 
 #pragma once
 
@@ -17,6 +17,9 @@ class Application{
 
 public:
     Application();
+
+
+    static Application * GetInstance(){return s_instance;}
 
     bool init(int argc,char ** argv);
 

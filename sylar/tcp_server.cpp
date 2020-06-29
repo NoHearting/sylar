@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 10:35:16
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 11:40:40
+ * @LastEditTime: 2020-06-29 19:18:16
  */ 
 #include"tcp_server.h"
 #include"config.h"
@@ -34,16 +34,17 @@ TcpServer::~TcpServer(){
     m_socks.clear();
 }
 
-bool TcpServer::bind(sylar::Address::ptr addr){
+bool TcpServer::bind(sylar::Address::ptr addr,bool ssl){
     std::vector<Address::ptr> addrs;
     std::vector<Address::ptr> failed;
     addrs.push_back(addr);
-    return bind(addrs,failed);
+    return bind(addrs,failed,ssl);
 }
 bool TcpServer::bind(const std::vector<Address::ptr> & addrs
-    ,std::vector<Address::ptr> & failed){
+    ,std::vector<Address::ptr> & failed,bool ssl){
     for(auto & addr : addrs){
-        Socket::ptr sock = Socket::CreateTCP(addr);
+        // Socket::ptr sock = Socket::CreateTCP(addr);
+        Socket::ptr sock = ssl ? SSLSocket::CreateTCP(addr) : Socket::CreateTCP(addr);
         if(!sock->bind(addr)){
             SYLAR_LOG_ERROR(g_logger) << "bind fail errno="
                 << errno <<" errstr="<<strerror(errno)
@@ -113,4 +114,17 @@ void TcpServer::handleClient(Socket::ptr client){
     SYLAR_LOG_INFO(g_logger) << "handleClient: " << *client;
 }
 
+
+bool TcpServer::loadCertificates(const std::string & cert_file
+    ,const std::string & key_file){
+   for(auto & i : m_socks){
+       auto ssl_socket = std::dynamic_pointer_cast<SSLSocket>(i);
+       if(ssl_socket){
+           if(!ssl_socket->loadCertificates(cert_file,key_file)){
+               return false;
+           }
+       }
+   } 
+   return true;
+}
 } // namespace sylar

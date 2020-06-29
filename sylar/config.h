@@ -13,7 +13,7 @@
  * @Author: zsj
  * @Date: 2020-06-05 20:06:46
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-22 10:53:43
+ * @LastEditTime: 2020-06-29 20:33:45
  */ 
 #ifndef SYLAR__CONFIG_H__
 #define SYLAR__CONFIG_H__
@@ -337,7 +337,8 @@ public:
             return ToStr()(m_val);
         }catch(std::exception & e){
             SYLAR_LOG_ERROR(SYLAR_LOG_ROOT())<<"ConfigVar::toString exception"
-                <<e.what()<<" convert: "<<typeid(m_val).name()<<" to string";
+                <<e.what()<<" convert: "<<typeid(m_val).name()<<" to string"
+                << " name="<<m_name;
         }
         return "";
     }
@@ -354,9 +355,12 @@ public:
             return true;
         }catch(std::exception & e){
             SYLAR_LOG_ERROR(SYLAR_LOG_ROOT())<<"ConfigVar::fromString exception  "
-                <<e.what()<<" convert: string to "<<typeid(T).name();
-            return false;
+                <<e.what()<<" convert: string to "<<typeid(m_val).name()
+                << " name=" << m_name
+                << " - " << val;
+            
         }
+        return false;
     }
 
     

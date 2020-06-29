@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-05 17:08:39
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-22 22:01:30
+ * @LastEditTime: 2020-06-29 19:11:59
  */ 
 #ifndef __SYLAR__UTIL_H__
 #define __SYLAR__UTIL_H__
@@ -16,6 +16,9 @@
 #include<stdint.h>
 #include<vector>
 #include<string>
+#include <iomanip>
+#include <boost/lexical_cast.hpp>
+#include"sylar/util/hash_util.h"
 
 
 
@@ -44,7 +47,52 @@ public:
     static bool Mkdir(const std::string& dirname);
     static bool IsRunningPidfile(const std::string& pidfile);
 
+    static bool Rm(const std::string & path);
+    static bool Mv(const std::string & from,const std::string & to);
+    static bool Realpath(const std::string & path,std::string & rpath);
+    static bool Symlink(const std::string & from,const std::string & to);
+    static bool Unlink(const std::string & filename,bool exist = false);
+    static std::string Dirname(const std::string & filename);
+    static std::string Basename(const std::string & filename);
+    static bool OpenForRead(std::ifstream & ifs,const std::string & filename
+                            ,std::ios_base::openmode mode);
+    static bool OpenForWrite(std::ofstream & ofs,const std::string & filename
+                            ,std::ios_base::openmode mode);
+
+
 };
+
+template<class Map,class K,class V>
+V GetParamValue(const Map & m,const K & k,const V & def = V()){
+    auto it = m.find(k);
+    if(it == m.end()){
+        return def;
+    }
+
+    try{
+        return boost::lexical_cast<V>(it->second);
+        
+    }catch(...){
+        
+    }
+    return def;
+}
+
+template<class Map,class K,class V>
+bool CheckGetParamValue(const Map & m,const K & k,V & v){
+    auto it = m.find(k);
+    if(it == m.end()){
+        return false;
+    }
+    try{
+        v = boost::lexical_cast<V>(it->second);
+        return true;
+    }catch(...){
+        
+    }
+    return false;
+    
+}
 
 }
 

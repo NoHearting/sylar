@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 21:04:36
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 22:23:06
+ * @LastEditTime: 2020-06-29 20:14:36
  */ 
 #include"servlet.h"
 #include<fnmatch.h>
@@ -24,7 +24,7 @@ int32_t FunctionServlet::handle(sylar::http::HttpRequest::ptr request
 
 ServletDispatch::ServletDispatch()
         :Servlet("ServletDispatch") {
-        m_default.reset(new NotFoundServlet());
+        m_default.reset(new NotFoundServlet("sylar/1.0"));
 }
 
 
@@ -104,16 +104,26 @@ Servlet::ptr ServletDispatch::getMatchedServlet(const std::string & uri){
     return m_default;
 }
 
+NotFoundServlet::NotFoundServlet(const std::string & name)
+    :Servlet("NotFoundServlet")
+    ,m_name(name){
+    
+    m_content = "<html><head><title>404 NotFound </title></head>"
+                "<body><center><h1>404 Not Found</h1></center>" 
+                "<hr><center>" + name + "</center></body></html>";
+    
 
+}
 
 
 int32_t NotFoundServlet::handle(sylar::http::HttpRequest::ptr request
         ,sylar::http::HttpResponse::ptr response
         ,sylar::http::HttpSession::ptr session){
-    static const std::string & RSP_BODY = "<!doctype html><html lang='en'><head><title>HTTP Status 404 – Not Found</title><style type='text/css'>h1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} h2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} h3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} body {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} b {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} p {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;} a {color:black;} a.name {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 404 – Not Found</h1><hr class='line' /><p><b>Type</b> Status Report</p><p><b>Description</b> The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</p><hr class='line'/><h3>Apache Tomcat/9.0.1</h3></body></html>";
+    // static const std::string & RSP_BODY = "<!doctype html><html lang='en'><head><title>HTTP Status 404 – Not Found</title><style type='text/css'>h1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} h2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} h3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} body {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} b {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} p {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;} a {color:black;} a.name {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 404 – Not Found</h1><hr class='line' /><p><b>Type</b> Status Report</p><p><b>Description</b> The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</p><hr class='line'/><h3>Apache Tomcat/9.0.1</h3></body></html>";
     response->setStatus(sylar::http::HttpStatus::NOT_FOUND);
+    response->setHeader("Server","sylar/1.0.0");
     response->setHeader("Content-Type","text/html");
-    response->setBody(RSP_BODY);
+    response->setBody(m_content);
     return 0;
 }
 

@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-15 13:57:48
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 17:21:11
+ * @LastEditTime: 2020-06-23 16:50:23
  */ 
 #include"http.h"
 #include<sstream>
@@ -68,9 +68,16 @@ HttpRequest::HttpRequest(uint8_t version,bool close)
     :m_method(HttpMethod::GET)
     ,m_version(version)
     ,m_close(close)
+    ,m_websocket(false)
     ,m_path("/"){
 
 }
+
+std::shared_ptr<HttpResponse> HttpRequest::createResponse(){
+    HttpResponse::ptr rsp(new HttpResponse(getVersion(),isClose()));
+    return rsp;
+}
+
 std::string HttpRequest::getHeader(const std::string & key
                                 ,const std::string & def){
     auto it = m_headers.find(key);
@@ -151,10 +158,12 @@ std::ostream & HttpRequest::dump(std::ostream & os)const{
        << "."
        << ((uint32_t)(m_version & 0x0f))
        << "\r\n";
-    os << "connection: "<<(m_close ? "close" : "keep-alive") << "\r\n";
-
+    // os << "connection: "<<(m_close ? "close" : "keep-alive") << "\r\n";
+    if(m_websocket == false){
+        os << "connection: "<<(m_close ? "close" : "keep-alive") << "\r\n";
+    }
     for(auto & i : m_headers){
-        if(strcasecmp(i.first.c_str(),"connection")==0){
+        if(m_websocket== false && strcasecmp(i.first.c_str(),"connection")==0){
             continue;
         }
         os << i.first << ":"<<i.second<<"\r\n";
@@ -178,7 +187,8 @@ std::string HttpRequest::toString()const{
 HttpResponse::HttpResponse(uint8_t version,bool close)
     :m_status(HttpStatus::OK)
     ,m_version(version)
-    ,m_close(close){
+    ,m_close(close)
+    ,m_websocket(false){
 
 }
 
@@ -204,13 +214,15 @@ std::ostream & HttpResponse::dump(std::ostream & os) const{
        << "\r\n";
 
     for (auto & i : m_headers){
-        if(strcasecmp(i.first.c_str(),"connection")==0){
+        if(m_websocket == false && strcasecmp(i.first.c_str(),"connection")==0){
             continue;
         }
         os << i.first <<": "<<i.second<<"\r\n";
     }
-    os << "connection: "<<(m_close ? "close" : "keep-alive") << "\r\n";
-
+    // os << "connection: "<<(m_close ? "close" : "keep-alive") << "\r\n";
+    if(m_websocket == false){
+        os << "connection: "<<(m_close ? "close" : "keep-alive") << "\r\n";
+    }
     if(!m_body.empty()){
         os << "content-length: "<<m_body.size() << "\r\n\r\n"   
            << m_body;

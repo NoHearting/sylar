@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-13 16:32:43
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 11:22:15
+ * @LastEditTime: 2020-06-29 19:23:18
  */ 
 #pragma once
 #include<memory>
@@ -137,6 +137,7 @@ public:
     sockaddr * getAddress() override{return (sockaddr*)&m_addr;}
     const socklen_t getAddressLen() const override;
     void setAddressLen(uint32_t v){m_length = v;}
+    std::string getPath()const;
     std::ostream & insert(std::ostream & os) const override;
 
 private:

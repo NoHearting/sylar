@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-15 18:52:10
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-18 09:07:40
+ * @LastEditTime: 2020-06-28 22:43:44
  */ 
 #include"http_parser.h"
 #include"../log.h"
@@ -200,7 +200,7 @@ uint64_t HttpRequestParser::getContentLength(){
 
 void on_response_reason(void *data, const char *at, size_t length){
     HttpResponseParser * parser = static_cast<HttpResponseParser*>(data);
-    parser->getData()->setReson(std::string(at,length));
+    parser->getData()->setReason(std::string(at,length));
 }
 void on_response_status(void *data, const char *at, size_t length){
     HttpResponseParser * parser = static_cast<HttpResponseParser*>(data);

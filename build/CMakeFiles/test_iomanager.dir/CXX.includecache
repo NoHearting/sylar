@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+.././sylar/util/hash_util.h
+stdint.h
+-
+string
+-
+vector
+-
+
 /home/zsj/workspace/sylar/sylar/config.h
 memory
 -
@@ -45,8 +53,6 @@ memory
 -
 functional
 -
-thread.h
-/home/zsj/workspace/sylar/sylar/thread.h
 
 /home/zsj/workspace/sylar/sylar/iomanager.h
 scheduler.h
@@ -105,6 +111,36 @@ assert.h
 -
 util.h
 /home/zsj/workspace/sylar/sylar/util.h
+log.h
+/home/zsj/workspace/sylar/sylar/log.h
+
+/home/zsj/workspace/sylar/sylar/mutex.h
+pthread.h
+-
+thread
+-
+functional
+-
+memory
+-
+string
+-
+stdint.h
+-
+semaphore.h
+-
+atomic
+-
+iostream
+-
+list
+-
+fiber.h
+/home/zsj/workspace/sylar/sylar/fiber.h
+noncopyable.h
+/home/zsj/workspace/sylar/sylar/noncopyable.h
+
+/home/zsj/workspace/sylar/sylar/noncopyable.h
 
 /home/zsj/workspace/sylar/sylar/scheduler.h
 memory
@@ -116,6 +152,8 @@ list
 functional
 -
 atomic
+-
+iostream
 -
 thread.h
 /home/zsj/workspace/sylar/sylar/thread.h
@@ -163,6 +201,8 @@ atomic
 -
 iostream
 -
+mutex.h
+/home/zsj/workspace/sylar/sylar/mutex.h
 
 /home/zsj/workspace/sylar/sylar/timer.h
 memory
@@ -189,6 +229,12 @@ vector
 -
 string
 -
+iomanip
+-
+boost/lexical_cast.hpp
+-
+sylar/util/hash_util.h
+/home/zsj/workspace/sylar/sylar/sylar/util/hash_util.h
 
 /home/zsj/workspace/sylar/tests/test_iomanager.cpp
 ../sylar/sylar.h

@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-22 21:41:13
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-23 14:34:49
+ * @LastEditTime: 2020-06-29 20:41:49
  */ 
 #include"application.h"
 #include"config.h"
@@ -35,11 +35,16 @@ struct HttpServerConf
     std::vector<std::string> address;
     int keepalive = 0;
     int timeout = 1000 * 2 * 60;
+    int ssl = 0;
     std::string name;
+    std::string cert_file;
+    std::string key_file;
 
     bool operator==(const HttpServerConf & rhs)const{
         return address == rhs.address && keepalive == rhs.keepalive
-            && timeout == rhs.timeout && name == rhs.name;
+            && timeout == rhs.timeout && name == rhs.name
+            && ssl == rhs.ssl && cert_file == rhs.cert_file
+            && key_file == rhs.key_file;
     }
 
     bool isValid()const{return !address.empty();}
@@ -54,6 +59,9 @@ public:
         conf.keepalive = node["keepalive"].as<int>(conf.keepalive);
         conf.timeout = node["timeout"].as<int>(conf.timeout);
         conf.name = node["name"].as<std::string>(conf.name);
+        conf.ssl = node["ssl"].as<int>(conf.ssl);
+        conf.cert_file = node["cert_file"].as<std::string>(conf.cert_file);
+        conf.key_file = node["key_file"].as<std::string>(conf.key_file);
 
         if(node["address"].IsDefined()){
             for(size_t i = 0;i < node["address"].size();++i){
@@ -73,6 +81,9 @@ public:
         node["name"] = conf.name;
         node["keepalive"] = conf.keepalive;
         node["timeout"] = conf.timeout;
+        node["ssl"] = conf.ssl;
+        node["cert_file"] = conf.cert_file;
+        node["key_file"] = conf.key_file;
 
         for(auto & i : conf.address){
             node["address"].push_back(i);
@@ -211,11 +222,17 @@ int Application::run_fiber(){
         }
         http::HttpServer::ptr server(new http::HttpServer(i.keepalive));
         std::vector<Address::ptr> fails;
-        if(!server->bind(address,fails)){
+        if(!server->bind(address,fails,i.ssl)){  //! 当前有不同
             for(auto & x : fails ){
                 SYLAR_LOG_ERROR(g_logger) << "bind address fail:"<< *x;
             }
             _exit(0);
+        }
+        if(i.ssl){
+            if(!server->loadCertificates(i.cert_file,i.key_file)){
+                SYLAR_LOG_ERROR(g_logger) << "loadCertificates fail, cert_file="
+                    << i.cert_file << " key_file=" << i.key_file;
+            }
         }
         if(!i.name.empty()){
             server->setName(i.name);

@@ -1,3 +1,4 @@
+
 /*
  * @Descripttion: 
  *  1.设置当前线程的scheduler
@@ -9,7 +10,7 @@
  * @Author: zsj
  * @Date: 2020-06-10 13:13:19
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-12 16:13:08
+ * @LastEditTime: 2020-06-29 19:31:09
  */ 
 #ifndef __SYLAR_SCHEDULER_H__
 #define __SYLAR_SCHEDULER_H__
@@ -19,6 +20,7 @@
 #include<list>
 #include<functional>
 #include<atomic>
+#include<iostream>
 
 #include"thread.h"
 #include"fiber.h"
@@ -72,6 +74,9 @@ public:
     //Static
     static Scheduler * GetThis();
     static Fiber * GetMainFiber();
+
+    void switchTo(int thread = -1);
+    std::ostream & dump(std::ostream & os);
 protected:
     virtual void tickle();
     void run();
@@ -142,6 +147,15 @@ protected:
     int m_rootThread = 0;  //主线程id
 
 
+};
+
+class SchedulerSwitcher : public Noncopyable{
+public:
+    SchedulerSwitcher(Scheduler * target = nullptr);
+    ~SchedulerSwitcher();
+    
+private:
+    Scheduler * m_caller;
 };
 
 }

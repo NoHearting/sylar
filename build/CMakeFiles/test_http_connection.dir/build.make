@@ -94,6 +94,8 @@ test_http_connection_EXTERNAL_OBJECTS =
 ../bin/test_http_connection: CMakeFiles/test_http_connection.dir/tests/test_http_connection.cpp.o
 ../bin/test_http_connection: CMakeFiles/test_http_connection.dir/build.make
 ../bin/test_http_connection: ../lib/libsylar.so
+../bin/test_http_connection: /usr/lib/x86_64-linux-gnu/libssl.so
+../bin/test_http_connection: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_http_connection: CMakeFiles/test_http_connection.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zsj/workspace/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_http_connection"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_http_connection.dir/link.txt --verbose=$(VERBOSE)

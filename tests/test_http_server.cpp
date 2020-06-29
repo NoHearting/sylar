@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 17:57:49
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-17 21:40:43
+ * @LastEditTime: 2020-06-28 22:55:45
  */ 
 #include"../sylar/http/http_server.h"
 #include"../sylar/log.h"
@@ -15,7 +15,7 @@ static sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
 void run(){
     sylar::http::HttpServer::ptr server(new sylar::http::HttpServer);
     sylar::Address::ptr addr = sylar::Address::LookupAnyIPAddress("0.0.0.0:8020");
-    while(!server->bind(addr)){
+    while(!server->bind(addr,false)){
         sleep(2);
     }
 

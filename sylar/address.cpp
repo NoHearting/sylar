@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-13 16:49:24
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 11:23:05
+ * @LastEditTime: 2020-06-29 19:27:27
  */ 
 
 #include<netdb.h>
@@ -501,6 +501,19 @@ const sockaddr * UnixAddress::getAddress()const{
 }
 const socklen_t UnixAddress::getAddressLen() const {
     return m_length;
+}
+
+std::string UnixAddress::getPath()const{
+    std::stringstream ss;
+    if(m_length > offsetof(sockaddr_un,sun_path)
+            && m_addr.sun_path[0] == '\0'){
+        ss <<"\\0" << std::string(m_addr.sun_path + 1,
+                m_length - offsetof(sockaddr_un,sun_path) - 1);
+    }
+    else{
+        ss << m_addr.sun_path;
+    }
+    return ss.str();
 }
 
 std::ostream & UnixAddress::insert(std::ostream & os) const {

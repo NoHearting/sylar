@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 20:43:13
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-23 14:37:11
+ * @LastEditTime: 2020-06-29 20:08:49
  */ 
 #pragma once
 #include<memory>
@@ -119,7 +119,8 @@ class NotFoundServlet : public Servlet
 private:
     /* data */
 public:
-    NotFoundServlet() :Servlet("NotFoundServlet"){}
+    // NotFoundServlet() :Servlet("NotFoundServlet"){}
+    NotFoundServlet(const std::string & name);
     ~NotFoundServlet() {}
 
 
@@ -128,6 +129,8 @@ public:
         ,sylar::http::HttpSession::ptr session) override;
 private:
     // std::string m_server;
+    std::string m_name;
+    std::string m_content;
 };
 
 } // namespace http

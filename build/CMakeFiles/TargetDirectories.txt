@@ -1,4 +1,5 @@
 /home/zsj/workspace/sylar/build/CMakeFiles/rebuild_cache.dir
+/home/zsj/workspace/sylar/build/CMakeFiles/test_ws_client.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/echo_udp_client.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/echo_server_udp.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_config_dir.dir
@@ -16,6 +17,7 @@
 /home/zsj/workspace/sylar/build/CMakeFiles/test_fiber.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test.dir
+/home/zsj/workspace/sylar/build/CMakeFiles/test_ws_server.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_scheduler.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_daemon.dir
 /home/zsj/workspace/sylar/build/CMakeFiles/test_iomanager.dir

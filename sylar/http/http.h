@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-15 11:42:35
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 17:20:32
+ * @LastEditTime: 2020-06-28 20:18:15
  */ 
 #pragma once
 
@@ -193,6 +193,9 @@ T getAs(const MapType & m,const std::string & key,const T & def = T()){
     return def;
 }
 
+
+class HttpResponse;
+
 class HttpRequest{
 public:
     typedef std::shared_ptr<HttpRequest> ptr;
@@ -200,6 +203,7 @@ public:
 
     HttpRequest(uint8_t version = 0x11,bool close = true);
 
+    std::shared_ptr<HttpResponse> createResponse();
 
 
     // Getter and Setter
@@ -236,6 +240,10 @@ public:
 
     bool isClose()const {return m_close;}
     void setClose(bool v){m_close = v;}
+
+    bool isWebsocket()const{return m_websocket;}
+
+    void setWebsocket(bool v){m_websocket = v;}
 
     void delHeader(const std::string & key);
     void delParam(const std::string & key);
@@ -285,6 +293,8 @@ private:
     uint8_t m_version;
     bool m_close;
 
+    bool m_websocket;
+
     std::string m_path;
     std::string m_query;
     std::string m_fragment;
@@ -313,11 +323,15 @@ public:
     void setStatus(HttpStatus v){m_status = v;}
     void setVersion(uint8_t v){m_version = v;}
     void setBody(const std::string v){m_body = v;}
-    void setReson(const std::string & v){m_reason = v;}
+    void setReason(const std::string & v){m_reason = v;}
     void setHeaders(const MapType & v){m_headers = v;}
 
     bool isClose()const {return m_close;}
     void setClose(bool v){m_close = v;}
+
+    bool isWebsocket()const{return m_websocket;}
+
+    void setWebsocket(bool v){m_websocket = v;}
 
     std::string getHeader(const std::string & key,const std::string & def = "");
     void setHeader(const std::string & key,const std::string & val);
@@ -339,6 +353,8 @@ private:
     HttpStatus m_status;
     uint8_t m_version;
     bool m_close;
+
+    bool m_websocket;
 
     std::string m_body;
     std::string m_reason;

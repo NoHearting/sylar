@@ -94,6 +94,8 @@ test_socket_EXTERNAL_OBJECTS =
 ../bin/test_socket: CMakeFiles/test_socket.dir/tests/test_socket.cpp.o
 ../bin/test_socket: CMakeFiles/test_socket.dir/build.make
 ../bin/test_socket: ../lib/libsylar.so
+../bin/test_socket: /usr/lib/x86_64-linux-gnu/libssl.so
+../bin/test_socket: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_socket: CMakeFiles/test_socket.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zsj/workspace/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_socket"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_socket.dir/link.txt --verbose=$(VERBOSE)

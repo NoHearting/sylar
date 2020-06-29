@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+.././sylar/util/hash_util.h
+stdint.h
+-
+string
+-
+vector
+-
+
 /home/zsj/workspace/sylar/examples/my_http_server.cpp
 ../sylar/http/http_server.h
 /home/zsj/workspace/sylar/sylar/http/http_server.h
@@ -61,8 +69,6 @@ memory
 -
 functional
 -
-thread.h
-/home/zsj/workspace/sylar/sylar/thread.h
 
 /home/zsj/workspace/sylar/sylar/http/http.h
 memory
@@ -178,6 +184,32 @@ singleton.h
 util.h
 /home/zsj/workspace/sylar/sylar/util.h
 
+/home/zsj/workspace/sylar/sylar/mutex.h
+pthread.h
+-
+thread
+-
+functional
+-
+memory
+-
+string
+-
+stdint.h
+-
+semaphore.h
+-
+atomic
+-
+iostream
+-
+list
+-
+fiber.h
+/home/zsj/workspace/sylar/sylar/fiber.h
+noncopyable.h
+/home/zsj/workspace/sylar/sylar/noncopyable.h
+
 /home/zsj/workspace/sylar/sylar/noncopyable.h
 
 /home/zsj/workspace/sylar/sylar/scheduler.h
@@ -190,6 +222,8 @@ list
 functional
 -
 atomic
+-
+iostream
 -
 thread.h
 /home/zsj/workspace/sylar/sylar/thread.h
@@ -207,6 +241,10 @@ address.h
 /home/zsj/workspace/sylar/sylar/address.h
 noncopyable.h
 /home/zsj/workspace/sylar/sylar/noncopyable.h
+openssl/err.h
+-
+openssl/ssl.h
+-
 
 /home/zsj/workspace/sylar/sylar/socket_stream.h
 stream.h
@@ -257,6 +295,8 @@ atomic
 -
 iostream
 -
+mutex.h
+/home/zsj/workspace/sylar/sylar/mutex.h
 
 /home/zsj/workspace/sylar/sylar/timer.h
 memory
@@ -283,6 +323,12 @@ vector
 -
 string
 -
+iomanip
+-
+boost/lexical_cast.hpp
+-
+sylar/util/hash_util.h
+/home/zsj/workspace/sylar/sylar/sylar/util/hash_util.h
 
 /usr/local/include/boost/array.hpp
 boost/detail/workaround.hpp

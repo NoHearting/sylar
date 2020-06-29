@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-08 11:19:30
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-08 15:11:50
+ * @LastEditTime: 2020-06-29 20:50:06
  */ 
 #include"thread.h"
 #include"log.h"
@@ -21,31 +21,6 @@ static thread_local std::string t_thread_name = "UNKNOW";
 static sylar::Logger::ptr g_logger = SYLAR_LOG_NAME("system");
 
 
-//---------------------------------- Semaphore -----------------------------
-
-Semaphore::Semaphore(uint32_t count){
-    if(sem_init(&m_semaphore,0,count)){
-        throw std::logic_error("sem_init error");
-    }
-}
-
-Semaphore::~Semaphore(){
-    sem_destroy(&m_semaphore);
-}
-
-void Semaphore::wait(){
-    if(sem_wait(&m_semaphore)){
-        throw std::logic_error("sem_wait error");
-    }
-    
-
-}
-
-void Semaphore::notify(){
-    if(sem_post(&m_semaphore)){
-        throw std::logic_error("sem_post error");
-    }
-}
 
 
 
@@ -113,6 +88,10 @@ const std::string Thread::GetName(){
 }
 void Thread::SetName(const std::string & name)
 {
+    if(name.empty()){
+        return;
+    }
+
     if(t_thread){
         // t_thread->SetName(name);
         t_thread->m_name = name;

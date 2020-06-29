@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-10 13:35:28
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-21 21:44:15
+ * @LastEditTime: 2020-06-29 19:36:54
  */ 
 #include"scheduler.h"
 #include"log.h"
@@ -179,12 +179,12 @@ void Scheduler::run(){
 
                 ft = *it;  
                 // tickle_me = true;
-                m_fibers.erase(it++);  //! 按照文件修改
+                m_fibers.erase(it++); 
                 ++m_activeThreadCount;
                 is_active = true;
                 break;
             }
-            tickle_me |= it != m_fibers.end();  //! 按照文件添加
+            tickle_me |= it != m_fibers.end();  
         }
         if(tickle_me){
             tickle();
@@ -266,6 +266,33 @@ void Scheduler::idle(){
 }
 void Scheduler::setThis(){
     t_scheduler = this;
+}
+
+void Scheduler::switchTo(int thread){
+    SYLAR_ASSERT(Scheduler::GetThis() != nullptr)
+    if(Scheduler::GetThis() == this){
+        if(thread == -1 || thread == sylar::GetThreadId()){
+            return;
+        }
+    }
+    schedule(Fiber::GetThis(),thread);
+    Fiber::YieldToHold();
+}
+
+std::ostream & Scheduler::dump(std::ostream & os){
+    os << "[Scheduler name="<<m_name
+       << " size=" << m_threadCount
+       << " activer_count="<<m_activeThreadCount
+       << " idle_count-"<<m_idleThreadCount
+       << " stopping=" << m_stoping
+       << " ]" << std::endl << "   ";
+    for(size_t i = 0;i<m_threadIds.size();++i){
+        if(i){
+            os << ", ";
+        }
+        os << m_threadIds[i];
+    }
+    return os;
 }
 
 

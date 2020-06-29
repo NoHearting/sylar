@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-22 08:47:39
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-22 10:54:50
+ * @LastEditTime: 2020-06-29 20:49:53
  */ 
 #pragma once
 #include<memory>
@@ -42,6 +42,8 @@ public:
     std::string getEnv(const std::string & key,const std::string & default_value = "");
 
     std::string getAbsolutePath(const std::string & path)const;
+
+    
 private:
     RWMutexType m_mutex;
     std::map<std::string,std::string> m_args;

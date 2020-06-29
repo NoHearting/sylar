@@ -4,7 +4,7 @@ project(sylar)
 include(cmake/utils.cmake)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
-set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O0 -ggdb -std=c++11 -Wall -Wno-deprecated -Werror \
+set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -ggdb -std=c++11 -Wall -Wno-deprecated -Werror \
 	 -Wno-unused-function -Wno-unused-result -Wno-builtin-macro-redefined")
 
 
@@ -14,15 +14,25 @@ include_directories(.)
 include_directories(/usr/local/include)
 link_directories(/usr/local/lib)
 
+find_package(OpenSSL REQUIRED)
+if(OPENSSL_FOUND)
+	include_directories(${OPENSSL_INCLUDE_DIR})
+endif()
+
 set(LIB_SRC
 	sylar/http/http_connection.cpp
 	sylar/http/http_parser.cpp
 	sylar/http/http_session.cpp
 	sylar/http/http_server.cpp
 	sylar/http/servlet.cpp
+	sylar/http/ws_connection.cpp
+	sylar/http/ws_server.cpp
+	sylar/http/ws_servlet.cpp
+	sylar/http/ws_session.cpp
 	sylar/http/http.cpp
 	sylar/http/http11_parser.rl.cpp
 	sylar/http/httpclient_parser.rl.cpp
+	sylar/util/hash_util.cpp
 	sylar/address.cpp
 	sylar/application.cpp
 	sylar/bytearray.cpp
@@ -32,6 +42,7 @@ set(LIB_SRC
 	sylar/fiber.cpp
 	sylar/iomanager.cpp
 	sylar/log.cpp
+	sylar/mutex.cpp
 	sylar/scheduler.cpp
 	sylar/socket_stream.cpp
 	sylar/socket.cpp
@@ -42,6 +53,7 @@ set(LIB_SRC
 	sylar/timer.cpp
 	sylar/hook.cpp
 	sylar/fd_manager.cpp
+	sylar/worker.cpp
 	)
 
 ragelmaker(sylar/http/http11_parser.rl LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/sylar/http)
@@ -60,7 +72,8 @@ set(LIBS
 		sylar
 		dl
 		pthread
-		yaml-cpp)	
+		yaml-cpp
+		${OPENSSL_LIBRARIES})	
 
 message("***", ${LIBS})
 
@@ -93,6 +106,8 @@ sylar_add_executable(test_application "tests/test_application.cpp" sylar "${LIBS
 sylar_add_executable(test_config_dir "tests/test_config_dir.cpp" sylar "${LIBS}")
 sylar_add_executable(echo_server_udp "examples/echo_server_udp.cpp" sylar "${LIBS}")
 sylar_add_executable(echo_udp_client "examples/echo_udp_client.cpp" sylar "${LIBS}")
+sylar_add_executable(test_ws_server "tests/test_ws_server.cpp" sylar "${LIBS}")
+sylar_add_executable(test_ws_client "tests/test_ws_client.cpp" sylar "${LIBS}")
 
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

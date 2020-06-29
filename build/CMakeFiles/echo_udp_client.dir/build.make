@@ -94,6 +94,8 @@ echo_udp_client_EXTERNAL_OBJECTS =
 ../bin/echo_udp_client: CMakeFiles/echo_udp_client.dir/examples/echo_udp_client.cpp.o
 ../bin/echo_udp_client: CMakeFiles/echo_udp_client.dir/build.make
 ../bin/echo_udp_client: ../lib/libsylar.so
+../bin/echo_udp_client: /usr/lib/x86_64-linux-gnu/libssl.so
+../bin/echo_udp_client: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/echo_udp_client: CMakeFiles/echo_udp_client.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zsj/workspace/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/echo_udp_client"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/echo_udp_client.dir/link.txt --verbose=$(VERBOSE)

@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 11:16:16
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 11:43:37
+ * @LastEditTime: 2020-06-28 22:56:23
  */ 
 #include"../sylar/tcp_server.h"
 #include"../sylar/iomanager.h"
@@ -21,7 +21,7 @@ void run(){
     // addrs.push_back(addr2);
     sylar::TcpServer::ptr  tcp_server(new sylar::TcpServer);
     std::vector<sylar::Address::ptr> fails;
-    while(!tcp_server->bind(addrs,fails)){
+    while(!tcp_server->bind(addrs,fails,false)){
         sleep(2);
     }
     tcp_server->start();

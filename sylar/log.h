@@ -204,6 +204,10 @@ public:
      *  - 具体由负责不同部分的格式化器共同格式化并组合返回而成
      */ 
     std::string format(std::shared_ptr<Logger> logger,LogLevel::Level level,LogEvent::ptr event);
+
+
+    std::ostream & format(std::ostream & ofs,std::shared_ptr<Logger> logger
+                ,LogLevel::Level level,LogEvent::ptr event);
 public:
 
     /**

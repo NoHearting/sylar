@@ -94,6 +94,8 @@ test_bytearray_EXTERNAL_OBJECTS =
 ../bin/test_bytearray: CMakeFiles/test_bytearray.dir/tests/test_bytearray.cpp.o
 ../bin/test_bytearray: CMakeFiles/test_bytearray.dir/build.make
 ../bin/test_bytearray: ../lib/libsylar.so
+../bin/test_bytearray: /usr/lib/x86_64-linux-gnu/libssl.so
+../bin/test_bytearray: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_bytearray: CMakeFiles/test_bytearray.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zsj/workspace/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_bytearray"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_bytearray.dir/link.txt --verbose=$(VERBOSE)

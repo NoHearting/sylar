@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 10:26:38
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 11:11:01
+ * @LastEditTime: 2020-06-29 19:14:28
  */ 
 #pragma once
 #include<memory>
@@ -29,9 +29,12 @@ public:
              ,sylar::IOManager * accept_worker = sylar::IOManager::GetThis());
     virtual ~TcpServer();
 
-    virtual bool bind(sylar::Address::ptr addr);
+    virtual bool bind(sylar::Address::ptr addr,bool ssl);
     virtual bool bind(const std::vector<Address::ptr> & addrs
-        ,std::vector<Address::ptr> & failed);
+        ,std::vector<Address::ptr> & failed,bool ssl);
+
+    
+    bool loadCertificates(const std::string & cert_file,const std::string & key_file);
 
     virtual bool start();
     virtual void stop();
@@ -39,7 +42,7 @@ public:
     uint64_t getRecvTimeout()const{return m_recvTimeout;}
     std::string getName()const{return m_name;}
     void setRecvTimeout(uint64_t v){m_recvTimeout = v;}
-    void setName(const std::string & v){m_name = v;}
+    virtual void setName(const std::string & v){m_name = v;}
 
     bool isStop()const{return m_isStop;}
 

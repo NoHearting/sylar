@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 17:30:29
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 22:04:26
+ * @LastEditTime: 2020-06-29 20:15:29
  */ 
 #pragma once
 
@@ -30,6 +30,8 @@ public:
 
     ServletDispatch::ptr getDispatch()const{return m_dispatch;}
     void setServletDispatch(ServletDispatch::ptr dispatch){m_dispatch = dispatch;}
+
+    virtual void setName(const std::string & v)override;
 protected:
     virtual void handleClient(Socket::ptr client)override;
 

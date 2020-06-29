@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 14:35:46
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-16 15:55:48
+ * @LastEditTime: 2020-06-28 22:56:32
  */ 
 #include"../sylar/tcp_server.h"
 #include"../sylar/log.h"
@@ -68,7 +68,7 @@ int type = 1;
 void run(){
     EchoServer::ptr es(new EchoServer(type));
     auto addr = sylar::Address::LookupAny("0.0.0.0:8020");
-    while(!es->bind(addr)){
+    while(!es->bind(addr,false)){
         sleep(2);
     }
     es->start();

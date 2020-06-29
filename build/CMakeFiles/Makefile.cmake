@@ -23,6 +23,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.10/Modules/Compiler/GNU-C.cmake"
   "/usr/share/cmake-3.10/Modules/Compiler/GNU-CXX.cmake"
   "/usr/share/cmake-3.10/Modules/Compiler/GNU.cmake"
+  "/usr/share/cmake-3.10/Modules/FindOpenSSL.cmake"
+  "/usr/share/cmake-3.10/Modules/FindPackageHandleStandardArgs.cmake"
+  "/usr/share/cmake-3.10/Modules/FindPackageMessage.cmake"
+  "/usr/share/cmake-3.10/Modules/FindPkgConfig.cmake"
   "/usr/share/cmake-3.10/Modules/Platform/Linux-GNU-C.cmake"
   "/usr/share/cmake-3.10/Modules/Platform/Linux-GNU-CXX.cmake"
   "/usr/share/cmake-3.10/Modules/Platform/Linux-GNU.cmake"
@@ -43,6 +47,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/test_ws_client.dir/DependInfo.cmake"
   "CMakeFiles/echo_udp_client.dir/DependInfo.cmake"
   "CMakeFiles/echo_server_udp.dir/DependInfo.cmake"
   "CMakeFiles/test_config_dir.dir/DependInfo.cmake"
@@ -59,6 +64,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/test_fiber.dir/DependInfo.cmake"
   "CMakeFiles/sylar.dir/DependInfo.cmake"
   "CMakeFiles/test.dir/DependInfo.cmake"
+  "CMakeFiles/test_ws_server.dir/DependInfo.cmake"
   "CMakeFiles/test_scheduler.dir/DependInfo.cmake"
   "CMakeFiles/test_daemon.dir/DependInfo.cmake"
   "CMakeFiles/test_iomanager.dir/DependInfo.cmake"

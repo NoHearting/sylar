@@ -5,7 +5,7 @@
  * @Author: zsj
  * @Date: 2020-06-08 19:40:53
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-10 16:39:55
+ * @LastEditTime: 2020-06-29 20:30:59
  */ 
 #ifndef __SYLAR_FIBER_H__
 #define __SYLAR_FIBER_H__
@@ -14,7 +14,7 @@
 #include<memory>
 #include<functional>
 
-#include"thread.h"
+// #include"thread.h"
 
 namespace sylar{
 

@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-06 23:45:02
  * @LastEditors: zsj
- * @LastEditTime: 2020-07-05 13:09:45
+ * @LastEditTime: 2020-07-05 15:23:07
 --> 
 
 # sylar(C++高性能服务器框架)
@@ -123,9 +123,13 @@ make
 make -j
 ```
 ## 使用库创建项目
+
+```shell
 sh generate.sh ${project_name} ${name_space}
 cd ${project_name}
 make 
 make -j
 sh move.sh  # 编译完成后，move可执行文件和动态库
 bin/${project_name} -s # 执行
+```
+

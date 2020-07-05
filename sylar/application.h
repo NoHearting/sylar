@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-22 21:39:14
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-29 16:04:57
+ * @LastEditTime: 2020-07-05 14:45:17
  */ 
 #pragma once
 
@@ -24,6 +24,8 @@ public:
     bool init(int argc,char ** argv);
 
     bool run();
+
+    bool getServer(const std::string & type,std::vector<TcpServer::ptr> & svrs);
 private:
     
 
@@ -33,7 +35,9 @@ private:
     int m_argc = 0;
     char ** m_argv = nullptr;
 
-    std::vector<http::HttpServer::ptr> m_httpservers;
+    // std::vector<http::HttpServer::ptr> m_httpservers;
+    std::map<std::string,std::vector<TcpServer::ptr>> m_servers;
+    IOManager::ptr m_mainIOManager;
     static Application* s_instance;
 
 };

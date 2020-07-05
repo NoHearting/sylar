@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-05 17:11:30
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-29 15:58:51
+ * @LastEditTime: 2020-07-05 14:12:13
  */ 
 #include"util.h"
 #include"log.h"
@@ -303,6 +303,44 @@ bool FSUtil::OpenForWrite(std::ofstream & ofs,const std::string & filename
 }
 
 
+
+int8_t TypeUtil::toChar(const std::string & str){
+    if(str.empty()){
+        return 0;
+    }
+    return *str.begin();
+}
+int64_t TypeUtil::Atoi(const std::string & str){
+    if(str.empty()){
+        return 0;
+    }
+    return strtoull(str.c_str(),nullptr,10);
+}
+double TypeUtil::Atof(const std::string & str){
+    if(str.empty()){
+        return 0;
+    }
+    return atof(str.c_str());
+}
+int8_t TypeUtil::ToChar(const char * str){
+    if(str == nullptr){
+        return 0;
+    }
+    return *str;
+}
+int64_t TypeUtil::Atoi(const char * str){
+    if(str == nullptr){
+        return 0;
+    }
+    return strtoull(str,nullptr,10);
+}
+double TypeUtil::Atof(const char * str){
+    if(str == nullptr){
+        return 0;
+    }
+
+    return atof(str);
+}
 
 
 

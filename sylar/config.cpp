@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-06 14:23:07
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-23 10:15:13
+ * @LastEditTime: 2020-07-01 11:42:51
  */ 
 #include"config.h"
 #include"log.h"
@@ -67,7 +67,7 @@ void Config::LoadFromYaml(const YAML::Node & root)
 static std::map<std::string,uint64_t> s_fileToModifytime;
 static sylar::Mutex s_mutex;
 
-void Config::LoadFromConfDir(const std::string & path){
+void Config::LoadFromConfDir(const std::string & path,bool force){
     std::string absolute_path = sylar::EnvMgr::GetInstance()->getAbsolutePath(path);
     std::vector<std::string> files;
     FSUtil::listAllFile(files,absolute_path,".yml");
@@ -78,7 +78,7 @@ void Config::LoadFromConfDir(const std::string & path){
             struct stat st;
             lstat(i.c_str(),&st);
             sylar::Mutex::Lock lock(s_mutex);
-            if(s_fileToModifytime[i] == (uint64_t)st.st_mtime){
+            if(!force && s_fileToModifytime[i] == (uint64_t)st.st_mtime){
                 continue;
             }
             s_fileToModifytime[i] = (uint64_t)st.st_mtime;

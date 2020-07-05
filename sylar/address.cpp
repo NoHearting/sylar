@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-13 16:49:24
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-29 19:27:27
+ * @LastEditTime: 2020-07-01 10:49:27
  */ 
 
 #include<netdb.h>
@@ -116,7 +116,7 @@ bool Address::Lookup(std::vector<Address::ptr> & result,const std::string &host
 
 
     freeaddrinfo(results);
-    return true;
+    return !result.empty();
 }
 
 bool Address::GetInterfaceAddress(std::multimap<std::string
@@ -169,7 +169,7 @@ bool Address::GetInterfaceAddress(std::multimap<std::string
     }
 
     freeifaddrs(results);
-    return true;
+    return !result.empty();
 }
 bool Address::GetInterfaceAddress(std::vector<std::pair<Address::ptr,uint32_t>> & result
     ,const std::string & iface
@@ -194,7 +194,7 @@ bool Address::GetInterfaceAddress(std::vector<std::pair<Address::ptr,uint32_t>> 
     for(;its.first != its.second;++its.first){
         result.push_back(its.first->second);
     }
-    return true;
+    return !result.empty();
 }
 
 

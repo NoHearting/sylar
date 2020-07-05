@@ -13,7 +13,7 @@
  * @Author: zsj
  * @Date: 2020-06-05 20:06:46
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-29 20:33:45
+ * @LastEditTime: 2020-07-05 14:43:24
  */ 
 #ifndef SYLAR__CONFIG_H__
 #define SYLAR__CONFIG_H__
@@ -122,7 +122,7 @@ template<typename T>
 class LexicalCast<std::vector<T>,std::string>{
 public:
     std::string operator()(const std::vector<T> & v){
-        YAML::Node node;
+        YAML::Node node(YAML::NodeType::Sequence);
         for(auto & item : v){
             node.push_back(YAML::Load(LexicalCast<T,std::string>()(item)));
         }
@@ -155,7 +155,7 @@ template<typename T>
 class LexicalCast<std::list<T>,std::string>{
 public:
     std::string operator()(const std::list<T> & v){
-        YAML::Node node;
+        YAML::Node node(YAML::NodeType::Sequence);
         for(auto & item : v){
             node.push_back(YAML::Load(LexicalCast<T,std::string>()(item)));
         }
@@ -188,7 +188,7 @@ template<typename T>
 class LexicalCast<std::set<T>,std::string>{
 public:
     std::string operator()(const std::set<T> & v){
-        YAML::Node node;
+        YAML::Node node(YAML::NodeType::Sequence);
         for(auto & item : v){
             node.push_back(YAML::Load(LexicalCast<T,std::string>()(item)));
         }
@@ -220,7 +220,7 @@ template<typename T>
 class LexicalCast<std::unordered_set<T>,std::string>{
 public:
     std::string operator()(const std::unordered_set<T> & v){
-        YAML::Node node;
+        YAML::Node node(YAML::NodeType::Sequence);
         for(auto & item : v){
             node.push_back(YAML::Load(LexicalCast<T,std::string>()(item)));
         }
@@ -253,7 +253,7 @@ template<typename T>
 class LexicalCast<std::map<std::string,T>,std::string>{
 public:
     std::string operator()(const std::map<std::string,T> & v){
-        YAML::Node node;
+        YAML::Node node(YAML::NodeType::Sequence);
         for(auto & item : v){
             node[item.first] = YAML::Load(LexicalCast<T,std::string>()(item.second));
         }
@@ -285,7 +285,7 @@ template<typename T>
 class LexicalCast<std::unordered_map<std::string,T>,std::string>{
 public:
     std::string operator()(const std::unordered_map<std::string,T> & v){
-        YAML::Node node;
+        YAML::Node node(YAML::NodeType::Sequence);
         for(auto & item : v){
             node[item.first] = YAML::Load(LexicalCast<T,std::string>()(item.second));
         }
@@ -332,7 +332,6 @@ public:
      */ 
     std::string toString()override{
         try{
-            // return boost::lexical_cast<std::string>(m_val);
             RWMutexType::ReadLock lock(m_mutex);
             return ToStr()(m_val);
         }catch(std::exception & e){
@@ -487,7 +486,7 @@ public:
      *  - 读取配置文件所有的配置到一个数据结构，
      *  - 然后判断配置文件中配置和当前约定配置是否有不同，有则更新约定配置
      */ 
-    static void LoadFromConfDir(const std::string & path);
+    static void LoadFromConfDir(const std::string & path,bool force = false);
 
     /**
      * @brief 查找当前命名的项，有则返回

@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 17:39:20
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-29 20:16:35
+ * @LastEditTime: 2020-07-05 14:39:54
  */ 
 #include"http_server.h"
 #include"../log.h"
@@ -23,6 +23,7 @@ HttpServer::HttpServer(bool keepalive
     :TcpServer(worker,accept_worker)
     ,m_isKeepalive(keepalive){
     m_dispatch.reset(new ServletDispatch);
+    m_type = "http";
 }
 
 void HttpServer::setName(const std::string & v){

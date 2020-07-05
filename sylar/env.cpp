@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-22 08:54:24
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-23 10:17:21
+ * @LastEditTime: 2020-07-01 11:43:13
  */ 
 #include"env.h"
 #include"log.h"
@@ -137,4 +137,9 @@ std::string Env::getAbsolutePath(const std::string & path)const{
     }
     return m_cwd + path;
 }
+
+std::string Env::getConfigPath(){
+    return getAbsolutePath(get("c","conf"));
+}
+
 } // namespace sylar

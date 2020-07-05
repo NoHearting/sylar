@@ -4,20 +4,114 @@
  * @Author: zsj
  * @Date: 2020-06-16 10:26:38
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-29 19:14:28
+ * @LastEditTime: 2020-07-05 15:15:05
  */ 
 #pragma once
 #include<memory>
 #include<functional>
 #include<vector>
+#include<yaml-cpp/yaml.h>
 #include"iomanager.h"
 #include"socket.h"
 #include"address.h"
 #include"noncopyable.h"
-
+#include"config.h"
 
 
 namespace sylar{
+
+struct TcpServerConf
+{
+    typedef std::shared_ptr<TcpServerConf> ptr;
+    std::vector<std::string> address;
+    int keepalive = 0;
+    int timeout = 1000 * 2 * 60;
+    int ssl = 0;
+    std::string id;
+
+    /// 服务器类型   http,ws
+    std::string type = "http"; 
+    std::string name; 
+    std::string cert_file;
+    std::string key_file;
+
+    std::string accept_worker;
+    std::string process_worker;
+
+    std::map<std::string,std::string> args;
+
+    bool operator==(const TcpServerConf & rhs)const{
+        return address == rhs.address && keepalive == rhs.keepalive
+            && timeout == rhs.timeout && name == rhs.name
+            && ssl == rhs.ssl && cert_file == rhs.cert_file
+            && key_file == rhs.key_file
+            && accept_worker == rhs.accept_worker
+            && process_worker == rhs.process_worker
+            && args == rhs.args
+            && id == rhs.id
+            && type == rhs.type;
+    }
+
+    bool isValid()const{return !address.empty();}
+};
+
+template<>
+class LexicalCast<std::string,TcpServerConf>{
+public:
+    TcpServerConf operator()(const std::string & v){
+        YAML::Node node = YAML::Load(v);
+        TcpServerConf conf;
+        conf.id = node["id"].as<std::string>(conf.id);
+        conf.type = node["type"].as<std::string>(conf.type);
+        conf.keepalive = node["keepalive"].as<int>(conf.keepalive);
+        conf.timeout = node["timeout"].as<int>(conf.timeout);
+        conf.name = node["name"].as<std::string>(conf.name);
+        conf.ssl = node["ssl"].as<int>(conf.ssl);
+        conf.cert_file = node["cert_file"].as<std::string>(conf.cert_file);
+        conf.key_file = node["key_file"].as<std::string>(conf.key_file);
+        conf.accept_worker = node["accept_worker"].as<std::string>(conf.accept_worker);
+        conf.process_worker = node["process_worker"].as<std::string>(conf.process_worker);
+        conf.args = LexicalCast<std::string,
+            std::map<std::string,std::string>>()(node["args"].as<std::string>(""));
+        if(node["address"].IsDefined()){
+            for(size_t i = 0;i < node["address"].size();++i){
+                conf.address.push_back(node["address"][i].as<std::string>());
+            }
+        }
+
+        return conf;
+    }
+};
+
+template<>
+class LexicalCast<TcpServerConf,std::string>{
+public:
+    std::string operator()(const TcpServerConf & conf){
+        YAML::Node node;
+        node["id"] = conf.id;
+        node["type"] = conf.type;
+        node["name"] = conf.name;
+        node["keepalive"] = conf.keepalive;
+        node["timeout"] = conf.timeout;
+        node["ssl"] = conf.ssl;
+        node["cert_file"] = conf.cert_file;
+        node["key_file"] = conf.key_file;
+        node["accept_worker"] = conf.accept_worker;
+        node["process_worker"] = conf.process_worker;
+        node["args"] = YAML::Load(LexicalCast<std::map<std::string,std::string>,
+                std::string>()(conf.args));
+
+
+        for(auto & i : conf.address){
+            node["address"].push_back(i);
+        }
+        std::stringstream ss;
+        ss << node;
+        return ss.str();
+    }
+
+};
+
 
 class TcpServer : public std::enable_shared_from_this<TcpServer>
                 , public Noncopyable{
@@ -46,16 +140,24 @@ public:
 
     bool isStop()const{return m_isStop;}
 
+
+    TcpServerConf::ptr getConf()const {return m_conf;}
+    void setConf(TcpServerConf::ptr v){m_conf = v;}
+    void setConf(const TcpServerConf & v);
 protected:
     virtual void handleClient(Socket::ptr client);
     virtual void startAccept(Socket::ptr sock);
-private:
+protected:
     std::vector<Socket::ptr> m_socks;
     IOManager * m_worker;
     IOManager * m_acceptWorker;
     uint64_t m_recvTimeout;
     std::string m_name;
+    std::string m_type = "tcp";
     bool m_isStop;
+
+    bool m_ssl = false;
+    TcpServerConf::ptr m_conf;
 };
 
 

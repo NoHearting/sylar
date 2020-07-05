@@ -34,6 +34,8 @@ CXX_INCLUDES = -I/home/zsj/workspace/sylar/. -I/usr/local/include
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/util/hash_util.cpp.o_DEFINES = __FILE__="sylar/util/hash_util.cpp"
 
+# Custom defines: CMakeFiles/sylar.dir/sylar/util/json_util.cpp.o_DEFINES = __FILE__="sylar/util/json_util.cpp"
+
 # Custom defines: CMakeFiles/sylar.dir/sylar/address.cpp.o_DEFINES = __FILE__="sylar/address.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/application.cpp.o_DEFINES = __FILE__="sylar/application.cpp"
@@ -50,7 +52,11 @@ CXX_INCLUDES = -I/home/zsj/workspace/sylar/. -I/usr/local/include
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/iomanager.cpp.o_DEFINES = __FILE__="sylar/iomanager.cpp"
 
+# Custom defines: CMakeFiles/sylar.dir/sylar/library.cpp.o_DEFINES = __FILE__="sylar/library.cpp"
+
 # Custom defines: CMakeFiles/sylar.dir/sylar/log.cpp.o_DEFINES = __FILE__="sylar/log.cpp"
+
+# Custom defines: CMakeFiles/sylar.dir/sylar/module.cpp.o_DEFINES = __FILE__="sylar/module.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/mutex.cpp.o_DEFINES = __FILE__="sylar/mutex.cpp"
 

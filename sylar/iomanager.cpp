@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-10 20:59:15
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-28 21:15:10
+ * @LastEditTime: 2020-07-05 14:38:55
  */ 
 
 #include"iomanager.h"
@@ -29,6 +29,7 @@ IOManager::FdContext::EventContext & IOManager::FdContext::getContext(IOManager:
         default:
             SYLAR_ASSERT2(false,"getContext");
     }
+    throw std::invalid_argument("getContext invalid event");
 }
 void IOManager::FdContext::resetContext(EventContext & ctx){
     ctx.scheduler = nullptr;

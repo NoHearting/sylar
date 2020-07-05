@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-05 17:08:39
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-29 19:11:59
+ * @LastEditTime: 2020-07-05 14:06:25
  */ 
 #ifndef __SYLAR__UTIL_H__
 #define __SYLAR__UTIL_H__
@@ -19,6 +19,7 @@
 #include <iomanip>
 #include <boost/lexical_cast.hpp>
 #include"sylar/util/hash_util.h"
+#include "sylar/util/json_util.h"
 
 
 
@@ -93,6 +94,16 @@ bool CheckGetParamValue(const Map & m,const K & k,V & v){
     return false;
     
 }
+
+class TypeUtil{
+public:
+    static int8_t toChar(const std::string & str);
+    static int64_t Atoi(const std::string & str);
+    static double Atof(const std::string & str);
+    static int8_t ToChar(const char * str);
+    static int64_t Atoi(const char * str);
+    static double Atof(const char * str);
+};
 
 }
 

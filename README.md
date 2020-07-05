@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-06 23:45:02
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-08 10:46:29
+ * @LastEditTime: 2020-07-05 13:09:45
 --> 
 
 # sylar(C++高性能服务器框架)
@@ -112,3 +112,20 @@ tcp:
             timeout: 10000
 ```
 配置文件的配置会修改默认配置
+
+
+# 项目编译
+## 编译库
+```shell
+git clone https://github.com/NoHearting/sylar.git
+cd sylar
+make
+make -j
+```
+## 使用库创建项目
+sh generate.sh ${project_name} ${name_space}
+cd ${project_name}
+make 
+make -j
+sh move.sh  # 编译完成后，move可执行文件和动态库
+bin/${project_name} -s # 执行

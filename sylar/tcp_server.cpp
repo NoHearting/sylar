@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 10:35:16
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-29 19:18:16
+ * @LastEditTime: 2020-07-05 14:28:53
  */ 
 #include"tcp_server.h"
 #include"config.h"
@@ -34,6 +34,10 @@ TcpServer::~TcpServer(){
     m_socks.clear();
 }
 
+void TcpServer::setConf(const TcpServerConf & v){
+    m_conf.reset(new TcpServerConf(v));
+}
+
 bool TcpServer::bind(sylar::Address::ptr addr,bool ssl){
     std::vector<Address::ptr> addrs;
     std::vector<Address::ptr> failed;
@@ -42,6 +46,8 @@ bool TcpServer::bind(sylar::Address::ptr addr,bool ssl){
 }
 bool TcpServer::bind(const std::vector<Address::ptr> & addrs
     ,std::vector<Address::ptr> & failed,bool ssl){
+    
+    m_ssl = ssl;
     for(auto & addr : addrs){
         // Socket::ptr sock = Socket::CreateTCP(addr);
         Socket::ptr sock = ssl ? SSLSocket::CreateTCP(addr) : Socket::CreateTCP(addr);
@@ -68,7 +74,11 @@ bool TcpServer::bind(const std::vector<Address::ptr> & addrs
     }
 
     for(auto & i : m_socks){
-        SYLAR_LOG_INFO(g_logger) << "server bind success: " << *i;
+        // SYLAR_LOG_INFO(g_logger) << "server bind success: " << *i;
+        SYLAR_LOG_INFO(g_logger) << "type=" << m_type
+            << " name=" << m_name
+            << " ssl=" << m_ssl
+            << " server bind success: " << *i;
     }
 
     return true;

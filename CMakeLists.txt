@@ -14,9 +14,17 @@ include_directories(.)
 include_directories(/usr/local/include)
 link_directories(/usr/local/lib)
 
+option(TEST "ON for complile test" OFF)
+
 find_package(OpenSSL REQUIRED)
 if(OPENSSL_FOUND)
 	include_directories(${OPENSSL_INCLUDE_DIR})
+endif()
+
+
+find_package(Boost REQUIRED)
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS})
 endif()
 
 set(LIB_SRC
@@ -33,6 +41,7 @@ set(LIB_SRC
 	sylar/http/http11_parser.rl.cpp
 	sylar/http/httpclient_parser.rl.cpp
 	sylar/util/hash_util.cpp
+	sylar/util/json_util.cpp
 	sylar/address.cpp
 	sylar/application.cpp
 	sylar/bytearray.cpp
@@ -41,7 +50,9 @@ set(LIB_SRC
 	sylar/env.cpp
 	sylar/fiber.cpp
 	sylar/iomanager.cpp
+	sylar/library.cpp
 	sylar/log.cpp
+	sylar/module.cpp
 	sylar/mutex.cpp
 	sylar/scheduler.cpp
 	sylar/socket_stream.cpp
@@ -67,12 +78,14 @@ force_redefine_file_macro_for_sources(sylar) #__FILE__
 
 find_library(YAMLCPP yaml-cpp)
 find_library(PTHREAD pthread)
+find_library(JSONCPP jsoncpp)
 
 set(LIBS
 		sylar
 		dl
 		pthread
 		yaml-cpp
+		jsoncpp
 		${OPENSSL_LIBRARIES})	
 
 message("***", ${LIBS})
@@ -80,7 +93,7 @@ message("***", ${LIBS})
 
 
 
-
+if(TEST)
 sylar_add_executable(test "tests/test.cpp" sylar "${LIBS}")
 sylar_add_executable(test_config "tests/test_config.cpp" sylar "${LIBS}")
 sylar_add_executable(test_thread "tests/test_thread.cpp" sylar "${LIBS}")
@@ -109,6 +122,15 @@ sylar_add_executable(echo_udp_client "examples/echo_udp_client.cpp" sylar "${LIB
 sylar_add_executable(test_ws_server "tests/test_ws_server.cpp" sylar "${LIBS}")
 sylar_add_executable(test_ws_client "tests/test_ws_client.cpp" sylar "${LIBS}")
 
+
+
+
+endif()
+
+# add_library(test SHARED tests/test_module.cpp)
+
+sylar_add_executable(bin_sylar "sylar/main.cpp" sylar "${LIBS}")
+set_target_properties(bin_sylar PROPERTIES OUTPUT_NAME "sylar")
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

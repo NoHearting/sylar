@@ -43,6 +43,7 @@ public:
 
     std::string getAbsolutePath(const std::string & path)const;
 
+    std::string getConfigPath();
     
 private:
     RWMutexType m_mutex;

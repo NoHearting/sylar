@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-29 10:14:28
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-29 10:23:25
+ * @LastEditTime: 2020-07-05 14:39:31
  */ 
 #include"ws_server.h"
 #include"sylar/log.h"
@@ -22,6 +22,7 @@ WSServer::WSServer(IOManager * worker
             ,IOManager * accept_worker)
     :TcpServer(worker,accept_worker){
     m_dispatch.reset(new WSServletDispatch);
+    m_type = "websocket_server";
 }
 
 void WSServer::handleClient(Socket::ptr client){

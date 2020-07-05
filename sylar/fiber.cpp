@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-08 21:29:36
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-21 22:02:07
+ * @LastEditTime: 2020-07-05 14:40:16
  */ 
 #include"fiber.h"
 #include"config.h"
@@ -115,8 +115,6 @@ void Fiber::reset(std::function<void()> cb){
 void Fiber::call(){
     SetThis(this);
     m_state = EXEC;
-    // SYLAR_ASSERT(GetThis() == t_threadFiber)
-    // SYLAR_LOG_ERROR(g_logger) << getId();
     if(swapcontext(&t_threadFiber->m_ctx,&m_ctx)){
         SYLAR_ASSERT2(false,"swapcontext");
     }

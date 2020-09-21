@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-12 22:54:03
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-13 18:25:16
+ * @LastEditTime: 2020-07-31 14:42:20
  */ 
 #include "hook.h"
 #include <dlfcn.h>
@@ -68,9 +68,9 @@ struct _HookIniter {
         s_connect_timeout = g_tcp_connect_timeout->getValue();
 
         g_tcp_connect_timeout->addListener([](const int& old_value, const int& new_value){
-                SYLAR_LOG_INFO(g_logger) << "tcp connect timeout changed from "
-                                         << old_value << " to " << new_value;
-                s_connect_timeout = new_value;
+            SYLAR_LOG_INFO(g_logger) << "tcp connect timeout changed from "
+                                        << old_value << " to " << new_value;
+            s_connect_timeout = new_value;
         });
     }
 };
@@ -112,14 +112,21 @@ static ssize_t do_io(int fd, OriginFun fun, const char* hook_fun_name,
         return fun(fd, std::forward<Args>(args)...);
     }
 
+    //获取超时时间
     uint64_t to = ctx->getTimeout(timeout_so);
     std::shared_ptr<timer_info> tinfo(new timer_info);
 
 retry:
     ssize_t n = fun(fd, std::forward<Args>(args)...);
+
+    //表示io过程中遇到了一个中断  此时要重新调用函数
     while(n == -1 && errno == EINTR) {
         n = fun(fd, std::forward<Args>(args)...);
     }
+
+    
+    //EAGAIN : Resource temporarily unavailable
+    //当前读缓冲区没有数据或者写缓冲区已满，需要再次尝试
     if(n == -1 && errno == EAGAIN) {
         sylar::IOManager* iom = sylar::IOManager::GetThis();
         sylar::Timer::ptr timer;
@@ -127,7 +134,7 @@ retry:
 
         if(to != (uint64_t)-1) {
             timer = iom->addConditionTimer(to, [winfo, fd, iom, event]() {
-                auto t = winfo.lock();
+                auto t = winfo.lock();  //获得shared_ptr对象
                 if(!t || t->cancelled) {
                     return;
                 }
@@ -361,17 +368,27 @@ int close(int fd) {
 
 int fcntl(int fd, int cmd, ... /* arg */ ) {
     va_list va;
+    ///将可变参数读取到va这个结构体中
     va_start(va, cmd);
     switch(cmd) {
         case F_SETFL:
             {
+                /**
+                 * type va_arg( va_list argptr, type ); 
+                 * @brief va_arg 返回参数列表中的一个type类型的参数
+                 * 
+                 */ 
                 int arg = va_arg(va, int);
                 va_end(va);
                 sylar::FdCtx::ptr ctx = sylar::FdMgr::GetInstance()->get(fd);
                 if(!ctx || ctx->isClose() || !ctx->isSocket()) {
                     return fcntl_f(fd, cmd, arg);
                 }
+
+                //判断用户是否设置了非阻塞
                 ctx->setUserNonblock(arg & O_NONBLOCK);
+
+                //根据系统是否设置了非阻塞选项设置参数
                 if(ctx->getSysNonblock()) {
                     arg |= O_NONBLOCK;
                 } else {

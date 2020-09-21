@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-21 19:33:44
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-23 09:28:36
+ * @LastEditTime: 2020-07-05 21:46:49
  */ 
 #include"daemon.h"
 #include"log.h"
@@ -42,6 +42,15 @@ static int real_start(int argc,char ** argv
 static int real_daemon(int argc,char ** argv
         ,std::function<int(int,char**)> main_cb){
     
+    /**
+     * @brief 主要用于希望脱离控制台，以守护进程形式在后台运行的程序。
+     * int daemon (int __nochdir, int __noclose)
+     * @param[in] __nochdir ==0时，daemon将更改进程的根目录为 "/"
+     * @param[in] __noclose ==0时，daemon将stdin,stdout,stderr都重定向到 /dev/null
+     * 
+     * @return 成功创建daemon子进程返回0，失败返回-1
+     * 
+     */ 
     daemon(1,0);
     ProcessInfoMgr::GetInstance()->parent_id = getpid();
     ProcessInfoMgr::GetInstance()->parent_start_time = time(0);
@@ -72,6 +81,8 @@ static int real_daemon(int argc,char ** argv
                 break;
             }
             ProcessInfoMgr::GetInstance()->restart_count += 1;
+
+            //子进程如果非正常退出  父进程等待一段时间重启子进程
             sleep(g_daemon_restart_interval->getValue());
             
         }
@@ -83,10 +94,10 @@ static int real_daemon(int argc,char ** argv
 int start_daemon(int argc,char ** argv
         ,std::function<int(int,char**)> main_cb,bool is_daemon){
     if(is_daemon == false){
-        return real_start(argc,argv,main_cb);
+        return real_start(argc,argv,main_cb);  //正常运行
         
     }
-    return real_daemon(argc,argv,main_cb);
+    return real_daemon(argc,argv,main_cb);  //守护进程方式运行
 }
         
 

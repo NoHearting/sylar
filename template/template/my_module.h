@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-07-01 11:02:34
  * @LastEditors: zsj
- * @LastEditTime: 2020-07-01 17:29:10
+ * @LastEditTime: 2020-07-05 16:22:53
  */ 
 #pragma once
 
@@ -20,7 +20,7 @@ public:
     MyModule();
 
     bool onLoad() override;
-    bool onUnload() override;
+    bool onUnLoad() override;
     bool onServerReady()override;
     bool onServerUp()override;
 };

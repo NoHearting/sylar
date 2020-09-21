@@ -29,6 +29,7 @@ CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o
  .././sylar/timer.h
  .././sylar/util.h
  .././sylar/util/hash_util.h
+ .././sylar/util/json_util.h
  /home/zsj/workspace/sylar/tests/test_ws_server.cpp
  /usr/local/include/boost/array.hpp
  /usr/local/include/boost/assert.hpp

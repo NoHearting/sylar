@@ -28,6 +28,7 @@ CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o
  .././sylar/uri.h
  .././sylar/util.h
  .././sylar/util/hash_util.h
+ .././sylar/util/json_util.h
  /home/zsj/workspace/sylar/tests/test_ws_client.cpp
  /usr/local/include/boost/array.hpp
  /usr/local/include/boost/assert.hpp

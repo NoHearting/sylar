@@ -4,12 +4,12 @@
  * @Author: zsj
  * @Date: 2020-06-08 18:53:51
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-08 19:30:05
+ * @LastEditTime: 2020-07-05 20:52:41
  */ 
 #include<assert.h>
 #include"../sylar/sylar.h"
 
-sylar::Logger::ptr g_logger = SYLAR_LOG_NAME("system");
+// static sylar::Logger::ptr g_logger = SYLAR_LOG_NAME("system");
 
 void test_assert(){
     SYLAR_LOG_INFO(g_logger) << sylar::BacktraceToString(10);

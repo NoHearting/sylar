@@ -4,9 +4,9 @@
  # @Author: zsj
  # @Date: 2020-07-01 11:03:26
  # @LastEditors: zsj
- # @LastEditTime: 2020-07-05 13:15:12
+ # @LastEditTime: 2020-07-05 16:30:49
 ### 
-!/bin/sh
+#!/bin/sh
 
 # unlink sylar/bin/sylar
 # unlink bin/module/libproject_name.so

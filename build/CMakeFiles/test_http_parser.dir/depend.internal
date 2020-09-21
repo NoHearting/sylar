@@ -3,6 +3,7 @@
 
 CMakeFiles/test_http_parser.dir/tests/test_http_parser.cpp.o
  .././sylar/util/hash_util.h
+ .././sylar/util/json_util.h
  /home/zsj/workspace/sylar/sylar/fiber.h
  /home/zsj/workspace/sylar/sylar/http/http.h
  /home/zsj/workspace/sylar/sylar/http/http11_common.h

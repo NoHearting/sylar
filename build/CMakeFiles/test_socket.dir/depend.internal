@@ -3,6 +3,7 @@
 
 CMakeFiles/test_socket.dir/tests/test_socket.cpp.o
  .././sylar/util/hash_util.h
+ .././sylar/util/json_util.h
  /home/zsj/workspace/sylar/sylar/address.h
  /home/zsj/workspace/sylar/sylar/fiber.h
  /home/zsj/workspace/sylar/sylar/iomanager.h

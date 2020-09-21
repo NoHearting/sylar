@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-29 16:28:54
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-29 20:49:14
+ * @LastEditTime: 2020-07-05 20:53:05
  */ 
 #pragma once
 
@@ -14,7 +14,7 @@
 #include "log.h"
 #include "iomanager.h"
 
-static sylar::Logger::ptr g_logger = SYLAR_LOG_NAME("system");;
+static sylar::Logger::ptr g_logger = SYLAR_LOG_NAME("system");
 
 namespace sylar
 {

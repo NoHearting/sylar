@@ -3,6 +3,7 @@
 
 CMakeFiles/test_config.dir/tests/test_config.cpp.o
  .././sylar/util/hash_util.h
+ .././sylar/util/json_util.h
  /home/zsj/workspace/sylar/sylar/config.h
  /home/zsj/workspace/sylar/sylar/env.h
  /home/zsj/workspace/sylar/sylar/fiber.h

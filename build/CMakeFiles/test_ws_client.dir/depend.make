@@ -27,6 +27,7 @@ CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/timer.h
 CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/uri.h
 CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/util.h
 CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/util/hash_util.h
+CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/util/json_util.h
 CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: ../tests/test_ws_client.cpp
 CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: /usr/local/include/boost/array.hpp
 CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: /usr/local/include/boost/assert.hpp

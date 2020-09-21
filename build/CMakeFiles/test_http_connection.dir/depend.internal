@@ -3,6 +3,7 @@
 
 CMakeFiles/test_http_connection.dir/tests/test_http_connection.cpp.o
  .././sylar/util/hash_util.h
+ .././sylar/util/json_util.h
  /home/zsj/workspace/sylar/sylar/address.h
  /home/zsj/workspace/sylar/sylar/bytearray.h
  /home/zsj/workspace/sylar/sylar/fiber.h

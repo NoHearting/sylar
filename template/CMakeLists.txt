@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 project(project_name)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/sylar)
@@ -32,14 +32,14 @@ set(LIB_SRC
 	)
 
 
-add_library(sylar SHARED ${LIB_SRC})
-force_redefine_file_macro_for_sources(sylar) #__FILE__
+add_library(project_name SHARED ${LIB_SRC})
+force_redefine_file_macro_for_sources(project_name) #__FILE__
 
 find_library(YAMLCPP yaml-cpp)
 find_library(PTHREAD pthread)
 
 set(LIBS
-		sylar
+		project_name
 		dl
 		pthread
 		yaml-cpp

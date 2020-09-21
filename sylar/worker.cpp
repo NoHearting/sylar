@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-29 17:18:34
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-29 20:49:04
+ * @LastEditTime: 2020-07-05 22:45:58
  */ 
 #include"worker.h"
 #include"config.h"
@@ -80,8 +80,10 @@ bool WorkerManager::init(){
         std::string name = i.first;
         int32_t thread_num = GetParamValue(i.second,"thread_num",1);
         int32_t worker_num = GetParamValue(i.second,"worker_num",1);
-
-        for(int32_t x = 0;x < worker_num; ++ x){
+        SYLAR_LOG_DEBUG(g_logger) <<"name=" <<name
+            << " thread_num=" << thread_num 
+            << " worker_num=" << worker_num;
+        for(int32_t x = 0;x < worker_num; ++x){
             Scheduler::ptr s;
             if(!x){
                 s = std::make_shared<IOManager>(thread_num,false,name);

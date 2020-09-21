@@ -287,6 +287,8 @@ thread.h
 .././sylar/thread.h
 fiber.h
 .././sylar/fiber.h
+log.h
+.././sylar/log.h
 
 .././sylar/singleton.h
 memory
@@ -1131,8 +1133,6 @@ log.h
 /home/zsj/workspace/sylar/sylar/log.h
 macro.h
 /home/zsj/workspace/sylar/sylar/macro.h
-hook.h
-/home/zsj/workspace/sylar/sylar/hook.h
 
 /home/zsj/workspace/sylar/sylar/scheduler.h
 memory
@@ -1151,6 +1151,8 @@ thread.h
 /home/zsj/workspace/sylar/sylar/thread.h
 fiber.h
 /home/zsj/workspace/sylar/sylar/fiber.h
+log.h
+/home/zsj/workspace/sylar/sylar/log.h
 
 /home/zsj/workspace/sylar/sylar/singleton.h
 memory

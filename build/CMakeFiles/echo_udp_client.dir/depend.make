@@ -14,6 +14,7 @@ CMakeFiles/echo_udp_client.dir/examples/echo_udp_client.cpp.o: .././sylar/thread
 CMakeFiles/echo_udp_client.dir/examples/echo_udp_client.cpp.o: .././sylar/timer.h
 CMakeFiles/echo_udp_client.dir/examples/echo_udp_client.cpp.o: .././sylar/util.h
 CMakeFiles/echo_udp_client.dir/examples/echo_udp_client.cpp.o: .././sylar/util/hash_util.h
+CMakeFiles/echo_udp_client.dir/examples/echo_udp_client.cpp.o: .././sylar/util/json_util.h
 CMakeFiles/echo_udp_client.dir/examples/echo_udp_client.cpp.o: ../examples/echo_udp_client.cpp
 CMakeFiles/echo_udp_client.dir/examples/echo_udp_client.cpp.o: /usr/local/include/boost/array.hpp
 CMakeFiles/echo_udp_client.dir/examples/echo_udp_client.cpp.o: /usr/local/include/boost/assert.hpp

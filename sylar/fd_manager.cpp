@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-13 15:29:34
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-13 16:31:11
+ * @LastEditTime: 2020-07-07 21:26:30
  */ 
 #include"fd_manager.h"
 #include"hook.h"
@@ -36,6 +36,14 @@ bool FdCtx::init() {
     m_sendTimeout = -1;
 
     struct stat fd_stat;
+    /**
+     * int fstat (int __fd, struct stat *__buf)
+     * @brief fstat用来将参数filedes所指向的文件状态
+     *      复制到参数buf 所指向的结构中（struct stat）
+     * @param[in] __fd 文件描述符
+     * @param[out] __buf 保存状态的缓冲区
+     * @return 0,成功  -1，失败
+     */ 
     if(-1 == fstat(m_fd, &fd_stat)) {
         m_isInit = false;
         m_isSocket = false;
@@ -46,6 +54,7 @@ bool FdCtx::init() {
 
     if(m_isSocket) {
         int flags = fcntl_f(m_fd, F_GETFL, 0);
+        //将此socket设置为非阻塞的
         if(!(flags & O_NONBLOCK)) {
             fcntl_f(m_fd, F_SETFL, flags | O_NONBLOCK);
         }

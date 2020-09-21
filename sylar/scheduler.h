@@ -10,7 +10,7 @@
  * @Author: zsj
  * @Date: 2020-06-10 13:13:19
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-29 19:31:09
+ * @LastEditTime: 2020-07-31 14:33:14
  */ 
 #ifndef __SYLAR_SCHEDULER_H__
 #define __SYLAR_SCHEDULER_H__
@@ -24,8 +24,11 @@
 
 #include"thread.h"
 #include"fiber.h"
+#include"log.h"
 
 namespace sylar{
+// static Logger::ptr g_logger = SYLAR_LOG_NAME("system");
+
 
 class Scheduler{
 
@@ -42,6 +45,7 @@ public:
 
     template<class FiberOrCb>
     void schedule(FiberOrCb fc,int thread = -1){
+        SYLAR_LOG_DEBUG(SYLAR_LOG_NAME("system")) << "schedule task";
         bool need_tickle = false;
         {
             MutexType::Lock lock(m_mutex);

@@ -4,7 +4,7 @@
  # @Author: zsj
  # @Date: 2020-07-05 12:05:14
  # @LastEditors: zsj
- # @LastEditTime: 2020-07-05 13:04:03
+ # @LastEditTime: 2020-07-05 15:52:23
 ### 
 #!/bin/sh
 
@@ -32,7 +32,7 @@ command_error_exit git clone https://github.com/NoHearting/sylar.git
 command_error_exit cp sylar/Makefile .
 command_error_exit cp -rf sylar/template/* .
 command_error_exit cp -rf sylar/template/* .
-command_error_exit mv template $[namespace]
+command_error_exit mv template ${namespace}
 # command_error_exit ls ${namespace}
 command_error_exit sed -i "s/project_name/${project_name}/g" CMakeLists.txt
 command_error_exit sed -i "s/template/${namespace}/g" CMakeLists.txt

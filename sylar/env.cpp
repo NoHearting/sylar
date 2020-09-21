@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-22 08:54:24
  * @LastEditors: zsj
- * @LastEditTime: 2020-07-01 11:43:13
+ * @LastEditTime: 2020-07-05 22:09:13
  */ 
 #include"env.h"
 #include"log.h"
@@ -24,12 +24,23 @@ bool Env::init(int argc,char ** argv){
     char link[1024] = {0};
     char path[1024] = {0};
     sprintf(link,"/proc/%d/exe",getpid());
-    readlink(link,path,sizeof(path));
-    m_exe = path;
+
+
+    /**
+     * @brief 将参数path的符号链接内容存储到参数buf所指的内存空间
+     * ssize_t readlink(const char* path1, har* path2 , size_t size );
+     * @param[in] path1 文件路径
+     * @param[out] path2 path1符号链接所链接到的内容
+     * @param[in] path2的长度。若小于path1链接的内容的长度，则会被截断
+     * @return 成功返回字符数，失败返回-1
+     */     
+    readlink(link,path,sizeof(path));  
+    m_exe = path; //程序可执行文件的路径
     
     auto pos = m_exe.find_last_of("/");
     m_cwd = m_exe.substr(0,pos) + "/";
 
+    SYLAR_LOG_DEBUG(g_logger) << "m_exe=" << m_exe << "  m_cwd="<<m_cwd; 
 
     m_program = argv[0];
     const char * now_key = nullptr;

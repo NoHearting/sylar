@@ -28,6 +28,7 @@ CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/thread.h
 CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/timer.h
 CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/util.h
 CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/util/hash_util.h
+CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/util/json_util.h
 CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: ../tests/test_ws_server.cpp
 CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: /usr/local/include/boost/array.hpp
 CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: /usr/local/include/boost/assert.hpp

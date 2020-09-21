@@ -249,6 +249,8 @@ thread.h
 .././sylar/thread.h
 fiber.h
 .././sylar/fiber.h
+log.h
+.././sylar/log.h
 
 .././sylar/singleton.h
 memory

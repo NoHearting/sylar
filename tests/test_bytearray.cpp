@@ -4,13 +4,11 @@
  * @Author: zsj
  * @Date: 2020-06-14 22:43:46
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-15 11:06:27
+ * @LastEditTime: 2020-07-05 20:53:52
  */ 
-#include"../sylar/bytearray.h"
-#include"../sylar/log.h"
 #include"../sylar/sylar.h"
 
-static sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
+// static sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
 
 void test(){
 

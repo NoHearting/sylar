@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-10 20:59:15
  * @LastEditors: zsj
- * @LastEditTime: 2020-07-05 14:38:55
+ * @LastEditTime: 2020-07-07 23:26:43
  */ 
 
 #include"iomanager.h"
@@ -215,8 +215,6 @@ bool IOManager::cancelEvent(int fd,Event event){
                                   << ")";
         return false;
     }
-    // FdContext::EventContext & event_ctx = fd_ctx->getContext(event);
-    // event_ctx->triggerEvent(event);
     fd_ctx->triggerEvent(event);
     --m_pendingEventCount;
     return true;

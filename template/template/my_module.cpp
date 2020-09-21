@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-07-01 17:30:24
  * @LastEditors: zsj
- * @LastEditTime: 2020-07-01 17:39:02
+ * @LastEditTime: 2020-07-05 19:31:24
  */ 
 #include "my_module.h"
 #include "sylar/config.h"
@@ -25,7 +25,7 @@ bool MyModule::onLoad(){
     return true;
 }
 
-bool MyModule::onUnload(){
+bool MyModule::onUnLoad(){
     SYLAR_LOG_INFO(g_logger) << "onUnLoad";
     return true;
 }
@@ -49,7 +49,7 @@ sylar::Module * CreateModule(){
 }
 
 void DestoryModule(sylar::Module * module){
-    SYLAR_LOG_INFO(name_space::g_logger) << "CreateModule " << module;
+    SYLAR_LOG_INFO(name_space::g_logger) << "DestoryModule " << module;
     delete module;
 }
 

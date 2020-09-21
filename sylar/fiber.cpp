@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-08 21:29:36
  * @LastEditors: zsj
- * @LastEditTime: 2020-07-05 14:40:16
+ * @LastEditTime: 2020-07-30 19:59:40
  */ 
 #include"fiber.h"
 #include"config.h"
@@ -50,7 +50,7 @@ Fiber::Fiber(){
 
     ++s_fiber_count;
 
-    SYLAR_LOG_DEBUG(g_logger) << "Fiber::Fiber main";
+    SYLAR_LOG_DEBUG(g_logger) << "Fiber::Fiber Construct";
 }
 
 Fiber::Fiber(std::function<void()> cb,size_t stacksize,bool use_caller)
@@ -131,12 +131,17 @@ void Fiber::back(){
 
 //切换到当前协程执行
 void Fiber::swapIn(){
+    // auto t = GetThis().get();
+
     SetThis(this);
     SYLAR_ASSERT(m_state != EXEC);
     m_state = EXEC;
     if(swapcontext(&Scheduler::GetMainFiber()->m_ctx,&m_ctx)){
         SYLAR_ASSERT2(false,"swapcontext");
     }
+    // if(swapcontext(&t->m_ctx,&m_ctx)){
+    //     SYLAR_ASSERT2(false,"swapcontext");
+    // }
 }
 
 //切换到后台执行
@@ -146,20 +151,11 @@ void Fiber::swapOut(){
     if(swapcontext(&m_ctx,&Scheduler::GetMainFiber()->m_ctx)){
         SYLAR_ASSERT2(false,"swapcontext");
     }
+    // SetThis(t_threadFiber.get());
+    // if(swapcontext(&m_ctx,&t_threadFiber->m_ctx)){
+    //     SYLAR_ASSERT2(false,"swapcontext");
+    // }
 
-    // if(this != Scheduler::GetMainFiber()){
-    //     SetThis(Scheduler::GetMainFiber());
-    //     if(swapcontext(&m_ctx,&Scheduler::GetMainFiber()->m_ctx)){
-    //         SYLAR_ASSERT2(false,"swapcontext");
-    //     }
-    // }
-    // else{
-    //     SetThis(t_threadFiber.get());
-    //     if(swapcontext(&m_ctx,&t_threadFiber->m_ctx)){
-    //         SYLAR_ASSERT2(false,"swapcontext");
-    //     }
-    // }
-    
 }
 
 //设置当前协程
@@ -190,7 +186,7 @@ void Fiber::YieldToReady(){
 void Fiber::YieldToHold(){
     Fiber::ptr cur = GetThis();
     SYLAR_ASSERT(cur->m_state == EXEC);
-    // cur->m_state = HOLD;
+    cur->m_state = HOLD;
     cur->swapOut();
 }
 

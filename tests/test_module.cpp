@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-07-05 12:31:37
  * @LastEditors: zsj
- * @LastEditTime: 2020-07-05 12:49:50
+ * @LastEditTime: 2020-07-05 16:46:18
  */ 
 #include "sylar/module.h"
 #include "sylar/singleton.h"
@@ -44,20 +44,20 @@ public:
 
 };
 
-extern "C" {
+// extern "C" {
 
-    sylar::Module * CreateModule{
-        sylar::Singleton<A>::GetInstance();
-        std::cout << "===========CreateModule============" << std::endl;
-        return new MyModule;
-    }
+//     sylar::Module * CreateModule{
+//         sylar::Singleton<A>::GetInstance();
+//         std::cout << "===========CreateModule============" << std::endl;
+//         return new MyModule;
+//     }
 
-    void DestoryModule(sylar::Module * ptr){
-        std::cout << "==========DestoryModule===========" << std::endl;
-        delete ptr;
-    }
+//     void DestoryModule(sylar::Module * ptr){
+//         std::cout << "==========DestoryModule===========" << std::endl;
+//         delete ptr;
+//     }
 
-}
+// }
 
 
 

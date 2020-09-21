@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-10 13:35:28
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-29 19:36:54
+ * @LastEditTime: 2020-07-31 14:45:56
  */ 
 #include"scheduler.h"
 #include"log.h"
@@ -66,11 +66,6 @@ void Scheduler::start(){
     }
 
     lock.unlock();
-    // if(m_rootFiber){
-    //     m_rootFiber->call();
-    //     // m_rootFiber->swapIn();
-    //     SYLAR_LOG_INFO(g_logger) << "call out " << m_rootFiber->getState();
-    // }
 }
 void Scheduler::stop(){
     m_autoStop = true;
@@ -102,15 +97,6 @@ void Scheduler::stop(){
     }
 
     if(m_rootFiber){
-        // while(!stopping()){
-        //     if(m_rootFiber->getState() == Fiber::TERM
-        //         || m_rootFiber->getState() == Fiber::EXECPT){
-        //         m_rootFiber.reset(new Fiber(std::bind(&Scheduler::run,this),0,true));
-        //         SYLAR_LOG_INFO(g_logger)<<" root fiber is term, reset";
-        //         t_fiber = m_rootFiber.get();
-        //     }
-        //     m_rootFiber->call();
-        // }
         if(!stopping()){
             m_rootFiber->call();
         }
@@ -126,12 +112,6 @@ void Scheduler::stop(){
         i->join();
     }
 
-    // if(stopping()){
-    //     return;
-    // }
-    // if(exit_on_this_fiber){
-
-    // }
 }
 
 Scheduler * Scheduler::GetThis(){
@@ -146,7 +126,7 @@ void Scheduler::tickle(){
 }
 void Scheduler::run(){
     // Fiber::GetThis();
-    SYLAR_LOG_INFO(g_logger) << m_name<<"run";
+    SYLAR_LOG_INFO(g_logger) << m_name<<" run";
     set_hook_enable(true);
     setThis();
     if(sylar::GetThreadId() != m_rootThread){
@@ -155,6 +135,7 @@ void Scheduler::run(){
 
     Fiber::ptr idle_fiber(new Fiber(std::bind(&Scheduler::idle,this)));
     Fiber::ptr cb_fiber;
+
 
     FiberAndThread ft;
     while(true){
@@ -249,7 +230,6 @@ void Scheduler::run(){
             
         }
     }
-
 
 }
 bool Scheduler::stopping(){

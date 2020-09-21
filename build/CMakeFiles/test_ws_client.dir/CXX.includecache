@@ -249,6 +249,8 @@ thread.h
 .././sylar/thread.h
 fiber.h
 .././sylar/fiber.h
+log.h
+.././sylar/log.h
 
 .././sylar/singleton.h
 memory
@@ -345,6 +347,8 @@ boost/lexical_cast.hpp
 -
 sylar/util/hash_util.h
 .././sylar/sylar/util/hash_util.h
+sylar/util/json_util.h
+.././sylar/sylar/util/json_util.h
 
 .././sylar/util/hash_util.h
 stdint.h
@@ -352,6 +356,14 @@ stdint.h
 string
 -
 vector
+-
+
+.././sylar/util/json_util.h
+string
+-
+iostream
+-
+jsoncpp/json/json.h
 -
 
 /home/zsj/workspace/sylar/tests/test_ws_client.cpp

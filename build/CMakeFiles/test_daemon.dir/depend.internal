@@ -3,6 +3,7 @@
 
 CMakeFiles/test_daemon.dir/tests/test_daemon.cpp.o
  .././sylar/util/hash_util.h
+ .././sylar/util/json_util.h
  /home/zsj/workspace/sylar/sylar/daemon.h
  /home/zsj/workspace/sylar/sylar/fiber.h
  /home/zsj/workspace/sylar/sylar/iomanager.h

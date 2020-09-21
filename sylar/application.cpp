@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-22 21:41:13
  * @LastEditors: zsj
- * @LastEditTime: 2020-07-05 15:09:56
+ * @LastEditTime: 2020-07-05 21:49:55
  */ 
 
 #include<unistd.h>
@@ -65,13 +65,20 @@ bool Application::init(int argc,char ** argv){
     if(sylar::EnvMgr::GetInstance()->has("p")){
         is_print_help = true;
     }
+    
+    
+
 
     std::string conf_path = sylar::EnvMgr::GetInstance()->getConfigPath();
     SYLAR_LOG_INFO(g_logger) << "load conf path:" << conf_path;
     sylar::Config::LoadFromConfDir(conf_path);
     ModuleMgr::GetInstance()->init();
     std::vector<Module::ptr> modules;
+
+    //取出当前加载的模块
     ModuleMgr::GetInstance()->listAll(modules);
+
+    //调用所有模块在参数解析之前的函数
     for(auto i : modules){
         i->onBeforeArgsParse(argc,argv);
     }
@@ -80,10 +87,13 @@ bool Application::init(int argc,char ** argv){
         sylar::EnvMgr::GetInstance()->printHelp();
         return false;
     }
-
+    
+    //调用所有模块在参数解析之后的函数
     for(auto i : modules){
         i->onAfterArgsParse(argc,argv);
     }
+
+    //清空元素   减少每一个对象的引用计数
     modules.clear();
 
 
@@ -95,23 +105,24 @@ bool Application::init(int argc,char ** argv){
         run_type = 2;
     }
 
+    //未选择运行模式（直接运行或者守护进程）  返回
     if(run_type == 0){
         sylar::EnvMgr::GetInstance()->printHelp();
         return false;
     }
+
+    //保存当前线程运行信息(线程号）的文件： /home/zsj/workspace/work/sylar + ‘/' + sylar.pid
     std::string pidfile = g_server_work_path->getValue()
                  + "/" + g_server_pid_file->getValue();
     SYLAR_LOG_INFO(g_logger) << pidfile;
+
+    //判断当前有无进程占用此进程号运行
     if(sylar::FSUtil::IsRunningPidfile(pidfile)){
         SYLAR_LOG_ERROR(g_logger) << "server is runing: " << pidfile;
         return false;
     }
 
-    // std::string conf_path = sylar::EnvMgr::GetInstance()->getAbsolutePath(
-    //     sylar::EnvMgr::GetInstance()->get("c","conf")
-    // );
-    // SYLAR_LOG_INFO(g_logger) << "load conf path:" << conf_path;
-    // sylar::Config::LoadFromConfDir(conf_path);
+    // /home/zsj/workspace/work/sylar
     if(!sylar::FSUtil::Mkdir(g_server_work_path->getValue())){
         SYLAR_LOG_ERROR(g_logger) << "create work path ["<<g_server_work_path->getValue()
             << " errno="<<errno<<" errstr="<<strerror(errno);
@@ -125,7 +136,7 @@ bool Application::init(int argc,char ** argv){
 }
 
 bool Application::run(){
-    // SYLAR_LOG_DEBUG(g_logger) << "run function!";
+    // 是否为守护进程方式运行
     bool is_daemon = sylar::EnvMgr::GetInstance()->has("d");
     return start_daemon(m_argc,m_argv,std::bind(&Application::main,
         this,std::placeholders::_1,std::placeholders::_2),is_daemon);
@@ -135,9 +146,11 @@ bool Application::run(){
 int Application::main(int argc,char ** argv){
     
     // SYLAR_LOG_DEBUG(g_logger) << pidfile;
+    SYLAR_LOG_DEBUG(g_logger) << "run main";
     std::string conf_path = sylar::EnvMgr::GetInstance()->getConfigPath();
     sylar::Config::LoadFromConfDir(conf_path,true);
     {
+        //将当前运行的进程id写入进程信息文件，标志已经在运行
         std::string pidfile = g_server_work_path->getValue()
                  + "/" + g_server_pid_file->getValue();
         std::ofstream ofs(pidfile);
@@ -145,7 +158,7 @@ int Application::main(int argc,char ** argv){
             SYLAR_LOG_ERROR(g_logger) << "open pidfile " << pidfile <<" failed";
             return false;
         }
-        ofs << getpid();
+        ofs << getpid(); 
     }
     
     

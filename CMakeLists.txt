@@ -4,8 +4,11 @@ project(sylar)
 include(cmake/utils.cmake)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
-set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -ggdb -std=c++11 -Wall -Wno-deprecated -Werror \
-	 -Wno-unused-function -Wno-unused-result -Wno-builtin-macro-redefined")
+set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O0 -ggdb -std=c++11 -Wall -Wno-deprecated -Werror \
+	 -Wno-unused-function -Wno-unused-result -Wno-builtin-macro-redefined -Wno-deprecated-declarations")
+set(CMAKE_C_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -fPIC -ggdb -std=c11 -Wall -Wno-deprecated -Werror \
+	  -Wno-unused-function -Wno-unused-result -Wno-builtin-macro-redefined -Wno-deprecated-declarations")
+
 
 
 
@@ -14,7 +17,11 @@ include_directories(.)
 include_directories(/usr/local/include)
 link_directories(/usr/local/lib)
 
-option(TEST "ON for complile test" OFF)
+option(BUILD_TEST "ON for complile test" ON)
+message("defined BUILD_TEST: ${BUILD_TEST}")
+set(BUILD_TEST ON)
+message("defined BUILD_TEST: ${BUILD_TEST}")
+
 
 find_package(OpenSSL REQUIRED)
 if(OPENSSL_FOUND)
@@ -88,12 +95,12 @@ set(LIBS
 		jsoncpp
 		${OPENSSL_LIBRARIES})	
 
-message("***", ${LIBS})
+# message("***", ${LIBS})
 
 
 
 
-if(TEST)
+if(BUILD_TEST)
 sylar_add_executable(test "tests/test.cpp" sylar "${LIBS}")
 sylar_add_executable(test_config "tests/test_config.cpp" sylar "${LIBS}")
 sylar_add_executable(test_thread "tests/test_thread.cpp" sylar "${LIBS}")
@@ -121,8 +128,7 @@ sylar_add_executable(echo_server_udp "examples/echo_server_udp.cpp" sylar "${LIB
 sylar_add_executable(echo_udp_client "examples/echo_udp_client.cpp" sylar "${LIBS}")
 sylar_add_executable(test_ws_server "tests/test_ws_server.cpp" sylar "${LIBS}")
 sylar_add_executable(test_ws_client "tests/test_ws_client.cpp" sylar "${LIBS}")
-
-
+sylar_add_executable(test_fileop "tests/test_fileop.cpp" sylar "${LIBS}")
 
 
 endif()

@@ -4,14 +4,14 @@
  * @Author: zsj
  * @Date: 2020-06-08 11:18:54
  * @LastEditors: zsj
- * @LastEditTime: 2020-06-08 18:40:55
+ * @LastEditTime: 2020-07-05 20:53:45
  */ 
 
 #include "../sylar/sylar.h"
 #include<time.h>
 #include<iostream>
 
-sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
+// static sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
 
 int count = 0;
 // sylar::RWMutex s_mutex;

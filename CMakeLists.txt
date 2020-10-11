@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 project(sylar)
 
 include(cmake/utils.cmake)
@@ -101,7 +101,7 @@ set(LIBS
 
 
 if(BUILD_TEST)
-sylar_add_executable(test "tests/test.cpp" sylar "${LIBS}")
+# sylar_add_executable(test "tests/test.cpp" sylar "${LIBS}")
 sylar_add_executable(test_config "tests/test_config.cpp" sylar "${LIBS}")
 sylar_add_executable(test_thread "tests/test_thread.cpp" sylar "${LIBS}")
 sylar_add_executable(test_util "tests/test_util.cpp" sylar "${LIBS}")
@@ -129,6 +129,9 @@ sylar_add_executable(echo_udp_client "examples/echo_udp_client.cpp" sylar "${LIB
 sylar_add_executable(test_ws_server "tests/test_ws_server.cpp" sylar "${LIBS}")
 sylar_add_executable(test_ws_client "tests/test_ws_client.cpp" sylar "${LIBS}")
 sylar_add_executable(test_fileop "tests/test_fileop.cpp" sylar "${LIBS}")
+sylar_add_executable(test_timed_cache "tests/test_timed_cache.cpp" sylar "${LIBS}")
+sylar_add_executable(test_lru "tests/test_lru.cpp" sylar "${LIBS}")
+sylar_add_executable(test_timed_lru_cache "tests/test_timed_lru_cache.cpp" sylar "${LIBS}")
 
 
 endif()

@@ -127,6 +127,19 @@ bin_sylar/fast:
 .PHONY : bin_sylar/fast
 
 #=============================================================================
+# Target rules for targets named test_lru
+
+# Build rule for target.
+test_lru: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_lru
+.PHONY : test_lru
+
+# fast build rule for target.
+test_lru/fast:
+	$(MAKE) -f CMakeFiles/test_lru.dir/build.make CMakeFiles/test_lru.dir/build
+.PHONY : test_lru/fast
+
+#=============================================================================
 # Target rules for targets named test_fileop
 
 # Build rule for target.
@@ -138,6 +151,19 @@ test_fileop: cmake_check_build_system
 test_fileop/fast:
 	$(MAKE) -f CMakeFiles/test_fileop.dir/build.make CMakeFiles/test_fileop.dir/build
 .PHONY : test_fileop/fast
+
+#=============================================================================
+# Target rules for targets named test_timed_lru_cache
+
+# Build rule for target.
+test_timed_lru_cache: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_timed_lru_cache
+.PHONY : test_timed_lru_cache
+
+# fast build rule for target.
+test_timed_lru_cache/fast:
+	$(MAKE) -f CMakeFiles/test_timed_lru_cache.dir/build.make CMakeFiles/test_timed_lru_cache.dir/build
+.PHONY : test_timed_lru_cache/fast
 
 #=============================================================================
 # Target rules for targets named test_ws_client
@@ -231,17 +257,30 @@ test_http_connection/fast:
 .PHONY : test_http_connection/fast
 
 #=============================================================================
-# Target rules for targets named test_http_server
+# Target rules for targets named test_ws_server
 
 # Build rule for target.
-test_http_server: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_http_server
-.PHONY : test_http_server
+test_ws_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_ws_server
+.PHONY : test_ws_server
 
 # fast build rule for target.
-test_http_server/fast:
-	$(MAKE) -f CMakeFiles/test_http_server.dir/build.make CMakeFiles/test_http_server.dir/build
-.PHONY : test_http_server/fast
+test_ws_server/fast:
+	$(MAKE) -f CMakeFiles/test_ws_server.dir/build.make CMakeFiles/test_ws_server.dir/build
+.PHONY : test_ws_server/fast
+
+#=============================================================================
+# Target rules for targets named test_scheduler
+
+# Build rule for target.
+test_scheduler: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_scheduler
+.PHONY : test_scheduler
+
+# fast build rule for target.
+test_scheduler/fast:
+	$(MAKE) -f CMakeFiles/test_scheduler.dir/build.make CMakeFiles/test_scheduler.dir/build
+.PHONY : test_scheduler/fast
 
 #=============================================================================
 # Target rules for targets named test_socket
@@ -296,32 +335,6 @@ test_bytearray/fast:
 .PHONY : test_bytearray/fast
 
 #=============================================================================
-# Target rules for targets named my_http_server
-
-# Build rule for target.
-my_http_server: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 my_http_server
-.PHONY : my_http_server
-
-# fast build rule for target.
-my_http_server/fast:
-	$(MAKE) -f CMakeFiles/my_http_server.dir/build.make CMakeFiles/my_http_server.dir/build
-.PHONY : my_http_server/fast
-
-#=============================================================================
-# Target rules for targets named test_config
-
-# Build rule for target.
-test_config: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_config
-.PHONY : test_config
-
-# fast build rule for target.
-test_config/fast:
-	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/build
-.PHONY : test_config/fast
-
-#=============================================================================
 # Target rules for targets named test_fiber
 
 # Build rule for target.
@@ -348,43 +361,30 @@ sylar/fast:
 .PHONY : sylar/fast
 
 #=============================================================================
-# Target rules for targets named test
+# Target rules for targets named my_http_server
 
 # Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test
-.PHONY : test
+my_http_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 my_http_server
+.PHONY : my_http_server
 
 # fast build rule for target.
-test/fast:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
+my_http_server/fast:
+	$(MAKE) -f CMakeFiles/my_http_server.dir/build.make CMakeFiles/my_http_server.dir/build
+.PHONY : my_http_server/fast
 
 #=============================================================================
-# Target rules for targets named test_ws_server
+# Target rules for targets named test_config
 
 # Build rule for target.
-test_ws_server: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_ws_server
-.PHONY : test_ws_server
+test_config: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_config
+.PHONY : test_config
 
 # fast build rule for target.
-test_ws_server/fast:
-	$(MAKE) -f CMakeFiles/test_ws_server.dir/build.make CMakeFiles/test_ws_server.dir/build
-.PHONY : test_ws_server/fast
-
-#=============================================================================
-# Target rules for targets named test_scheduler
-
-# Build rule for target.
-test_scheduler: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_scheduler
-.PHONY : test_scheduler
-
-# fast build rule for target.
-test_scheduler/fast:
-	$(MAKE) -f CMakeFiles/test_scheduler.dir/build.make CMakeFiles/test_scheduler.dir/build
-.PHONY : test_scheduler/fast
+test_config/fast:
+	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/build
+.PHONY : test_config/fast
 
 #=============================================================================
 # Target rules for targets named test_daemon
@@ -411,6 +411,19 @@ test_iomanager: cmake_check_build_system
 test_iomanager/fast:
 	$(MAKE) -f CMakeFiles/test_iomanager.dir/build.make CMakeFiles/test_iomanager.dir/build
 .PHONY : test_iomanager/fast
+
+#=============================================================================
+# Target rules for targets named test_timed_cache
+
+# Build rule for target.
+test_timed_cache: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_timed_cache
+.PHONY : test_timed_cache
+
+# fast build rule for target.
+test_timed_cache/fast:
+	$(MAKE) -f CMakeFiles/test_timed_cache.dir/build.make CMakeFiles/test_timed_cache.dir/build
+.PHONY : test_timed_cache/fast
 
 #=============================================================================
 # Target rules for targets named test_hook
@@ -502,6 +515,19 @@ echo_server: cmake_check_build_system
 echo_server/fast:
 	$(MAKE) -f CMakeFiles/echo_server.dir/build.make CMakeFiles/echo_server.dir/build
 .PHONY : echo_server/fast
+
+#=============================================================================
+# Target rules for targets named test_http_server
+
+# Build rule for target.
+test_http_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_http_server
+.PHONY : test_http_server
+
+# fast build rule for target.
+test_http_server/fast:
+	$(MAKE) -f CMakeFiles/test_http_server.dir/build.make CMakeFiles/test_http_server.dir/build
+.PHONY : test_http_server/fast
 
 examples/echo_server.o: examples/echo_server.cpp.o
 
@@ -1664,33 +1690,6 @@ sylar/worker.cpp.s:
 	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/worker.cpp.s
 .PHONY : sylar/worker.cpp.s
 
-tests/test.o: tests/test.cpp.o
-
-.PHONY : tests/test.o
-
-# target to build an object file
-tests/test.cpp.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cpp.o
-.PHONY : tests/test.cpp.o
-
-tests/test.i: tests/test.cpp.i
-
-.PHONY : tests/test.i
-
-# target to preprocess a source file
-tests/test.cpp.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cpp.i
-.PHONY : tests/test.cpp.i
-
-tests/test.s: tests/test.cpp.s
-
-.PHONY : tests/test.s
-
-# target to generate assembly for a file
-tests/test.cpp.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cpp.s
-.PHONY : tests/test.cpp.s
-
 tests/test_address.o: tests/test_address.cpp.o
 
 .PHONY : tests/test_address.o
@@ -2096,6 +2095,33 @@ tests/test_iomanager.cpp.s:
 	$(MAKE) -f CMakeFiles/test_iomanager.dir/build.make CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.s
 .PHONY : tests/test_iomanager.cpp.s
 
+tests/test_lru.o: tests/test_lru.cpp.o
+
+.PHONY : tests/test_lru.o
+
+# target to build an object file
+tests/test_lru.cpp.o:
+	$(MAKE) -f CMakeFiles/test_lru.dir/build.make CMakeFiles/test_lru.dir/tests/test_lru.cpp.o
+.PHONY : tests/test_lru.cpp.o
+
+tests/test_lru.i: tests/test_lru.cpp.i
+
+.PHONY : tests/test_lru.i
+
+# target to preprocess a source file
+tests/test_lru.cpp.i:
+	$(MAKE) -f CMakeFiles/test_lru.dir/build.make CMakeFiles/test_lru.dir/tests/test_lru.cpp.i
+.PHONY : tests/test_lru.cpp.i
+
+tests/test_lru.s: tests/test_lru.cpp.s
+
+.PHONY : tests/test_lru.s
+
+# target to generate assembly for a file
+tests/test_lru.cpp.s:
+	$(MAKE) -f CMakeFiles/test_lru.dir/build.make CMakeFiles/test_lru.dir/tests/test_lru.cpp.s
+.PHONY : tests/test_lru.cpp.s
+
 tests/test_scheduler.o: tests/test_scheduler.cpp.o
 
 .PHONY : tests/test_scheduler.o
@@ -2203,6 +2229,60 @@ tests/test_thread.s: tests/test_thread.cpp.s
 tests/test_thread.cpp.s:
 	$(MAKE) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/tests/test_thread.cpp.s
 .PHONY : tests/test_thread.cpp.s
+
+tests/test_timed_cache.o: tests/test_timed_cache.cpp.o
+
+.PHONY : tests/test_timed_cache.o
+
+# target to build an object file
+tests/test_timed_cache.cpp.o:
+	$(MAKE) -f CMakeFiles/test_timed_cache.dir/build.make CMakeFiles/test_timed_cache.dir/tests/test_timed_cache.cpp.o
+.PHONY : tests/test_timed_cache.cpp.o
+
+tests/test_timed_cache.i: tests/test_timed_cache.cpp.i
+
+.PHONY : tests/test_timed_cache.i
+
+# target to preprocess a source file
+tests/test_timed_cache.cpp.i:
+	$(MAKE) -f CMakeFiles/test_timed_cache.dir/build.make CMakeFiles/test_timed_cache.dir/tests/test_timed_cache.cpp.i
+.PHONY : tests/test_timed_cache.cpp.i
+
+tests/test_timed_cache.s: tests/test_timed_cache.cpp.s
+
+.PHONY : tests/test_timed_cache.s
+
+# target to generate assembly for a file
+tests/test_timed_cache.cpp.s:
+	$(MAKE) -f CMakeFiles/test_timed_cache.dir/build.make CMakeFiles/test_timed_cache.dir/tests/test_timed_cache.cpp.s
+.PHONY : tests/test_timed_cache.cpp.s
+
+tests/test_timed_lru_cache.o: tests/test_timed_lru_cache.cpp.o
+
+.PHONY : tests/test_timed_lru_cache.o
+
+# target to build an object file
+tests/test_timed_lru_cache.cpp.o:
+	$(MAKE) -f CMakeFiles/test_timed_lru_cache.dir/build.make CMakeFiles/test_timed_lru_cache.dir/tests/test_timed_lru_cache.cpp.o
+.PHONY : tests/test_timed_lru_cache.cpp.o
+
+tests/test_timed_lru_cache.i: tests/test_timed_lru_cache.cpp.i
+
+.PHONY : tests/test_timed_lru_cache.i
+
+# target to preprocess a source file
+tests/test_timed_lru_cache.cpp.i:
+	$(MAKE) -f CMakeFiles/test_timed_lru_cache.dir/build.make CMakeFiles/test_timed_lru_cache.dir/tests/test_timed_lru_cache.cpp.i
+.PHONY : tests/test_timed_lru_cache.cpp.i
+
+tests/test_timed_lru_cache.s: tests/test_timed_lru_cache.cpp.s
+
+.PHONY : tests/test_timed_lru_cache.s
+
+# target to generate assembly for a file
+tests/test_timed_lru_cache.cpp.s:
+	$(MAKE) -f CMakeFiles/test_timed_lru_cache.dir/build.make CMakeFiles/test_timed_lru_cache.dir/tests/test_timed_lru_cache.cpp.s
+.PHONY : tests/test_timed_lru_cache.cpp.s
 
 tests/test_uri.o: tests/test_uri.cpp.o
 
@@ -2320,7 +2400,9 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... bin_sylar"
+	@echo "... test_lru"
 	@echo "... test_fileop"
+	@echo "... test_timed_lru_cache"
 	@echo "... test_ws_client"
 	@echo "... echo_udp_client"
 	@echo "... echo_server_udp"
@@ -2328,21 +2410,20 @@ help:
 	@echo "... test_uri"
 	@echo "... test_env"
 	@echo "... test_http_connection"
-	@echo "... test_http_server"
+	@echo "... test_ws_server"
+	@echo "... test_scheduler"
 	@echo "... test_socket"
 	@echo "... edit_cache"
 	@echo "... test_util"
 	@echo "... test_thread"
 	@echo "... test_bytearray"
-	@echo "... my_http_server"
-	@echo "... test_config"
 	@echo "... test_fiber"
 	@echo "... sylar"
-	@echo "... test"
-	@echo "... test_ws_server"
-	@echo "... test_scheduler"
+	@echo "... my_http_server"
+	@echo "... test_config"
 	@echo "... test_daemon"
 	@echo "... test_iomanager"
+	@echo "... test_timed_cache"
 	@echo "... test_hook"
 	@echo "... test_address"
 	@echo "... test_application"
@@ -2350,6 +2431,7 @@ help:
 	@echo "... test_http"
 	@echo "... test_http_parser"
 	@echo "... echo_server"
+	@echo "... test_http_server"
 	@echo "... examples/echo_server.o"
 	@echo "... examples/echo_server.i"
 	@echo "... examples/echo_server.s"
@@ -2479,9 +2561,6 @@ help:
 	@echo "... sylar/worker.o"
 	@echo "... sylar/worker.i"
 	@echo "... sylar/worker.s"
-	@echo "... tests/test.o"
-	@echo "... tests/test.i"
-	@echo "... tests/test.s"
 	@echo "... tests/test_address.o"
 	@echo "... tests/test_address.i"
 	@echo "... tests/test_address.s"
@@ -2527,6 +2606,9 @@ help:
 	@echo "... tests/test_iomanager.o"
 	@echo "... tests/test_iomanager.i"
 	@echo "... tests/test_iomanager.s"
+	@echo "... tests/test_lru.o"
+	@echo "... tests/test_lru.i"
+	@echo "... tests/test_lru.s"
 	@echo "... tests/test_scheduler.o"
 	@echo "... tests/test_scheduler.i"
 	@echo "... tests/test_scheduler.s"
@@ -2539,6 +2621,12 @@ help:
 	@echo "... tests/test_thread.o"
 	@echo "... tests/test_thread.i"
 	@echo "... tests/test_thread.s"
+	@echo "... tests/test_timed_cache.o"
+	@echo "... tests/test_timed_cache.i"
+	@echo "... tests/test_timed_cache.s"
+	@echo "... tests/test_timed_lru_cache.o"
+	@echo "... tests/test_timed_lru_cache.i"
+	@echo "... tests/test_timed_lru_cache.s"
 	@echo "... tests/test_uri.o"
 	@echo "... tests/test_uri.i"
 	@echo "... tests/test_uri.s"

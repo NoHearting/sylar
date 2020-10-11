@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-21 19:33:44
  * @LastEditors: zsj
- * @LastEditTime: 2020-07-05 21:46:49
+ * @LastEditTime: 2020-10-10 11:05:57
  */ 
 #include"daemon.h"
 #include"log.h"
@@ -23,7 +23,7 @@ static ConfigVar<uint32_t>::ptr g_daemon_restart_interval =
     sylar::Config::Lookup("daemon.restart_interval",(uint32_t)5,"daemon restart interval");
 
 
-std::string ProcessInfo::toString()const{
+std::string ProcessInfo::toString() const{
     std::stringstream ss;
     ss <<"[ ProcessInfo parent_id="<<parent_id
        <<" main_id=" << main_id

@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-05 17:08:39
  * @LastEditors: zsj
- * @LastEditTime: 2020-07-05 14:06:25
+ * @LastEditTime: 2020-10-09 14:59:43
  */ 
 #ifndef __SYLAR__UTIL_H__
 #define __SYLAR__UTIL_H__
@@ -97,7 +97,7 @@ bool CheckGetParamValue(const Map & m,const K & k,V & v){
 
 class TypeUtil{
 public:
-    static int8_t toChar(const std::string & str);
+    static int8_t ToChar(const std::string & str);
     static int64_t Atoi(const std::string & str);
     static double Atof(const std::string & str);
     static int8_t ToChar(const char * str);
@@ -105,6 +105,81 @@ public:
     static double Atof(const char * str);
 };
 
-}
+
+
+class Atomic{
+public:
+    template<class T,class S>
+    static T addFetch(volatile T & t,S v = 1){
+        return __sync_add_and_fetch(&t,(T)v);
+    }
+
+    template<class T,class S>
+    static T subFetch(volatile T & t,S v = 1){
+        return __sync_sub_and_fetch(&t,(T)v);
+    }
+
+    template<class T,class S>
+    static T orFetch(volatile T & t,S v){
+        return __sync_or_and_fetch(&t,(T)v);
+    }
+
+    template<class T,class S>
+    static T xorFetch(volatile T & t,S v){
+        return __sync_xor_and_fetch(&t,(T)v);
+    }
+
+    template<class T,class S>
+    static T nandFetch(volatile T & t,S v){
+        return __sync_nand_and_fetch(&t,(T)v);
+    }
+
+    template<class T,class S>
+    static T fetchAdd(volatile T & t,S v = 1){
+        return __sync_fetch_and_add(&t,(T)v);
+    }
+
+    template<class T,class S>
+    static T fetchSub(volatile T & t,S v = 1){
+        return __sync_fetch_and_sub(&t,(T)v);
+    }
+
+    template<class T,class S>
+    static T fetchOr(volatile T & t,S v){
+        return __sync_fetch_and_or(&t,(T)v);
+    }
+    
+    template<class T,class S>
+    static T fetchAnd(volatile T & t,S v){
+        return __sync_fetch_and_and(&t,(T)v);
+    }
+
+    template<class T,class S>
+    static T fetchXor(volatile T & t,S v){
+        return __sync_fetch_and_xor(&t,(T)v);
+    }
+
+    template<class T,class S>
+    static T fetchNand(volatile T & t,S v){
+        return __sync_fetch_and_nand(&t,(T)v);
+    }
+    
+    template<class T,class S>
+    static T compareAndSwap(volatile T & t,S old_val,S new_val){
+        return __sync_val_compare_and_swap(&t,(T)old_val,(T)new_val);
+    }
+
+    template<class T,class S>
+    static bool compareAndSwapBool(volatile T & t,S old_val,S new_val){
+        return _sync_bool_compare_and_swap(&t,(T)old_val,(T)new_val);
+    }
+};
+
+
+} // namespace sylar
+
+
+
+
 
 #endif

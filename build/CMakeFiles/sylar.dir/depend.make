@@ -15888,6 +15888,7 @@ CMakeFiles/sylar.dir/sylar/mutex.cpp.o: /usr/local/include/yaml-cpp/yaml.h
 CMakeFiles/sylar.dir/sylar/scheduler.cpp.o: .././sylar/util/hash_util.h
 CMakeFiles/sylar.dir/sylar/scheduler.cpp.o: .././sylar/util/json_util.h
 CMakeFiles/sylar.dir/sylar/scheduler.cpp.o: ../sylar/fiber.h
+CMakeFiles/sylar.dir/sylar/scheduler.cpp.o: ../sylar/hook.h
 CMakeFiles/sylar.dir/sylar/scheduler.cpp.o: ../sylar/log.h
 CMakeFiles/sylar.dir/sylar/scheduler.cpp.o: ../sylar/macro.h
 CMakeFiles/sylar.dir/sylar/scheduler.cpp.o: ../sylar/mutex.h

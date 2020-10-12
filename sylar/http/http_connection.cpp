@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 16:52:50
  * @LastEditors: zsj
- * @LastEditTime: 2020-10-12 15:54:02
+ * @LastEditTime: 2020-10-12 17:29:03
  */
 #include "http_connection.h"
 
@@ -75,17 +75,17 @@ HttpResponse::ptr HttpConnection::recvResponse() {
     if (client_parser.chunked) {
         int len = offset;
         do {
-            // bool begin = true;
+            bool begin = true;
             do {
-                // if(!begin || len == 0){
-                int rt = read(data + len, buff_size - len);
-                if (rt <= 0) {
-                    close();
-                    SYLAR_LOG_ERROR(g_logger) << "failed";
-                    return nullptr;
+                if (!begin || len == 0) {
+                    int rt = read(data + len, buff_size - len);
+                    if (rt <= 0) {
+                        close();
+                        SYLAR_LOG_ERROR(g_logger) << "failed";
+                        return nullptr;
+                    }
+                    len += rt;
                 }
-                len += rt;
-                // }
 
                 data[len] = '\0';
                 size_t nparser = parser->execute(data, len, true);
@@ -100,9 +100,12 @@ HttpResponse::ptr HttpConnection::recvResponse() {
                     SYLAR_LOG_ERROR(g_logger) << "failed";
                     return nullptr;
                 }
-                // begin  = false;
+                begin = false;
             } while (!parser->isFinished());
             // len -= 2;
+
+            SYLAR_LOG_DEBUG(g_logger)
+                << "content_len=" << client_parser.content_len;
 
             if (client_parser.content_len + 2 <= len) {
                 body.append(data, client_parser.content_len);

@@ -335,6 +335,19 @@ test_bytearray/fast:
 .PHONY : test_bytearray/fast
 
 #=============================================================================
+# Target rules for targets named test_zlib_stream
+
+# Build rule for target.
+test_zlib_stream: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_zlib_stream
+.PHONY : test_zlib_stream
+
+# fast build rule for target.
+test_zlib_stream/fast:
+	$(MAKE) -f CMakeFiles/test_zlib_stream.dir/build.make CMakeFiles/test_zlib_stream.dir/build
+.PHONY : test_zlib_stream/fast
+
+#=============================================================================
 # Target rules for targets named test_fiber
 
 # Build rule for target.
@@ -1420,33 +1433,6 @@ sylar/socket.cpp.s:
 	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/socket.cpp.s
 .PHONY : sylar/socket.cpp.s
 
-sylar/socket_stream.o: sylar/socket_stream.cpp.o
-
-.PHONY : sylar/socket_stream.o
-
-# target to build an object file
-sylar/socket_stream.cpp.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/socket_stream.cpp.o
-.PHONY : sylar/socket_stream.cpp.o
-
-sylar/socket_stream.i: sylar/socket_stream.cpp.i
-
-.PHONY : sylar/socket_stream.i
-
-# target to preprocess a source file
-sylar/socket_stream.cpp.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/socket_stream.cpp.i
-.PHONY : sylar/socket_stream.cpp.i
-
-sylar/socket_stream.s: sylar/socket_stream.cpp.s
-
-.PHONY : sylar/socket_stream.s
-
-# target to generate assembly for a file
-sylar/socket_stream.cpp.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/socket_stream.cpp.s
-.PHONY : sylar/socket_stream.cpp.s
-
 sylar/stream.o: sylar/stream.cpp.o
 
 .PHONY : sylar/stream.o
@@ -1473,6 +1459,60 @@ sylar/stream.s: sylar/stream.cpp.s
 sylar/stream.cpp.s:
 	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/stream.cpp.s
 .PHONY : sylar/stream.cpp.s
+
+sylar/streams/socket_stream.o: sylar/streams/socket_stream.cpp.o
+
+.PHONY : sylar/streams/socket_stream.o
+
+# target to build an object file
+sylar/streams/socket_stream.cpp.o:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/streams/socket_stream.cpp.o
+.PHONY : sylar/streams/socket_stream.cpp.o
+
+sylar/streams/socket_stream.i: sylar/streams/socket_stream.cpp.i
+
+.PHONY : sylar/streams/socket_stream.i
+
+# target to preprocess a source file
+sylar/streams/socket_stream.cpp.i:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/streams/socket_stream.cpp.i
+.PHONY : sylar/streams/socket_stream.cpp.i
+
+sylar/streams/socket_stream.s: sylar/streams/socket_stream.cpp.s
+
+.PHONY : sylar/streams/socket_stream.s
+
+# target to generate assembly for a file
+sylar/streams/socket_stream.cpp.s:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/streams/socket_stream.cpp.s
+.PHONY : sylar/streams/socket_stream.cpp.s
+
+sylar/streams/zlib_stream.o: sylar/streams/zlib_stream.cpp.o
+
+.PHONY : sylar/streams/zlib_stream.o
+
+# target to build an object file
+sylar/streams/zlib_stream.cpp.o:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/streams/zlib_stream.cpp.o
+.PHONY : sylar/streams/zlib_stream.cpp.o
+
+sylar/streams/zlib_stream.i: sylar/streams/zlib_stream.cpp.i
+
+.PHONY : sylar/streams/zlib_stream.i
+
+# target to preprocess a source file
+sylar/streams/zlib_stream.cpp.i:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/streams/zlib_stream.cpp.i
+.PHONY : sylar/streams/zlib_stream.cpp.i
+
+sylar/streams/zlib_stream.s: sylar/streams/zlib_stream.cpp.s
+
+.PHONY : sylar/streams/zlib_stream.s
+
+# target to generate assembly for a file
+sylar/streams/zlib_stream.cpp.s:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/streams/zlib_stream.cpp.s
+.PHONY : sylar/streams/zlib_stream.cpp.s
 
 sylar/tcp_server.o: sylar/tcp_server.cpp.o
 
@@ -2392,6 +2432,33 @@ tests/test_ws_server.cpp.s:
 	$(MAKE) -f CMakeFiles/test_ws_server.dir/build.make CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.s
 .PHONY : tests/test_ws_server.cpp.s
 
+tests/test_zlib_stream.o: tests/test_zlib_stream.cpp.o
+
+.PHONY : tests/test_zlib_stream.o
+
+# target to build an object file
+tests/test_zlib_stream.cpp.o:
+	$(MAKE) -f CMakeFiles/test_zlib_stream.dir/build.make CMakeFiles/test_zlib_stream.dir/tests/test_zlib_stream.cpp.o
+.PHONY : tests/test_zlib_stream.cpp.o
+
+tests/test_zlib_stream.i: tests/test_zlib_stream.cpp.i
+
+.PHONY : tests/test_zlib_stream.i
+
+# target to preprocess a source file
+tests/test_zlib_stream.cpp.i:
+	$(MAKE) -f CMakeFiles/test_zlib_stream.dir/build.make CMakeFiles/test_zlib_stream.dir/tests/test_zlib_stream.cpp.i
+.PHONY : tests/test_zlib_stream.cpp.i
+
+tests/test_zlib_stream.s: tests/test_zlib_stream.cpp.s
+
+.PHONY : tests/test_zlib_stream.s
+
+# target to generate assembly for a file
+tests/test_zlib_stream.cpp.s:
+	$(MAKE) -f CMakeFiles/test_zlib_stream.dir/build.make CMakeFiles/test_zlib_stream.dir/tests/test_zlib_stream.cpp.s
+.PHONY : tests/test_zlib_stream.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -2417,6 +2484,7 @@ help:
 	@echo "... test_util"
 	@echo "... test_thread"
 	@echo "... test_bytearray"
+	@echo "... test_zlib_stream"
 	@echo "... test_fiber"
 	@echo "... sylar"
 	@echo "... my_http_server"
@@ -2531,12 +2599,15 @@ help:
 	@echo "... sylar/socket.o"
 	@echo "... sylar/socket.i"
 	@echo "... sylar/socket.s"
-	@echo "... sylar/socket_stream.o"
-	@echo "... sylar/socket_stream.i"
-	@echo "... sylar/socket_stream.s"
 	@echo "... sylar/stream.o"
 	@echo "... sylar/stream.i"
 	@echo "... sylar/stream.s"
+	@echo "... sylar/streams/socket_stream.o"
+	@echo "... sylar/streams/socket_stream.i"
+	@echo "... sylar/streams/socket_stream.s"
+	@echo "... sylar/streams/zlib_stream.o"
+	@echo "... sylar/streams/zlib_stream.i"
+	@echo "... sylar/streams/zlib_stream.s"
 	@echo "... sylar/tcp_server.o"
 	@echo "... sylar/tcp_server.i"
 	@echo "... sylar/tcp_server.s"
@@ -2639,6 +2710,9 @@ help:
 	@echo "... tests/test_ws_server.o"
 	@echo "... tests/test_ws_server.i"
 	@echo "... tests/test_ws_server.s"
+	@echo "... tests/test_zlib_stream.o"
+	@echo "... tests/test_zlib_stream.i"
+	@echo "... tests/test_zlib_stream.s"
 .PHONY : help
 
 

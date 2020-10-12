@@ -22,8 +22,8 @@ CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o
  .././sylar/scheduler.h
  .././sylar/singleton.h
  .././sylar/socket.h
- .././sylar/socket_stream.h
  .././sylar/stream.h
+ .././sylar/streams/socket_stream.h
  .././sylar/tcp_server.h
  .././sylar/thread.h
  .././sylar/timer.h

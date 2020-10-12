@@ -20,8 +20,8 @@ CMakeFiles/bin_sylar.dir/sylar/main.cpp.o: .././sylar/noncopyable.h
 CMakeFiles/bin_sylar.dir/sylar/main.cpp.o: .././sylar/scheduler.h
 CMakeFiles/bin_sylar.dir/sylar/main.cpp.o: .././sylar/singleton.h
 CMakeFiles/bin_sylar.dir/sylar/main.cpp.o: .././sylar/socket.h
-CMakeFiles/bin_sylar.dir/sylar/main.cpp.o: .././sylar/socket_stream.h
 CMakeFiles/bin_sylar.dir/sylar/main.cpp.o: .././sylar/stream.h
+CMakeFiles/bin_sylar.dir/sylar/main.cpp.o: .././sylar/streams/socket_stream.h
 CMakeFiles/bin_sylar.dir/sylar/main.cpp.o: .././sylar/tcp_server.h
 CMakeFiles/bin_sylar.dir/sylar/main.cpp.o: .././sylar/thread.h
 CMakeFiles/bin_sylar.dir/sylar/main.cpp.o: .././sylar/timer.h

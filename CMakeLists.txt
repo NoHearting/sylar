@@ -47,6 +47,8 @@ set(LIB_SRC
 	sylar/http/http.cpp
 	sylar/http/http11_parser.rl.cpp
 	sylar/http/httpclient_parser.rl.cpp
+	sylar/streams/socket_stream.cpp
+	sylar/streams/zlib_stream.cpp
 	sylar/util/hash_util.cpp
 	sylar/util/json_util.cpp
 	sylar/address.cpp
@@ -62,7 +64,6 @@ set(LIB_SRC
 	sylar/module.cpp
 	sylar/mutex.cpp
 	sylar/scheduler.cpp
-	sylar/socket_stream.cpp
 	sylar/socket.cpp
 	sylar/stream.cpp
 	sylar/util.cpp
@@ -89,10 +90,11 @@ find_library(JSONCPP jsoncpp)
 
 set(LIBS
 		sylar
-		dl
-		pthread
-		yaml-cpp
-		jsoncpp
+		dl			#动态加载so
+		pthread		#多线程
+		yaml-cpp	#yaml-cpp
+		jsoncpp	#jsoncpp
+		z	#zlib
 		${OPENSSL_LIBRARIES})	
 
 # message("***", ${LIBS})
@@ -132,6 +134,7 @@ sylar_add_executable(test_fileop "tests/test_fileop.cpp" sylar "${LIBS}")
 sylar_add_executable(test_timed_cache "tests/test_timed_cache.cpp" sylar "${LIBS}")
 sylar_add_executable(test_lru "tests/test_lru.cpp" sylar "${LIBS}")
 sylar_add_executable(test_timed_lru_cache "tests/test_timed_lru_cache.cpp" sylar "${LIBS}")
+sylar_add_executable(test_zlib_stream "tests/test_zlib_stream.cpp" sylar "${LIBS}")
 
 
 endif()

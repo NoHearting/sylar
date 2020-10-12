@@ -7,9 +7,12 @@ CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.o
  .././sylar/http/ws_session.h
  .././sylar/mutex.h
  .././sylar/singleton.h
+ .././sylar/socket.h
  .././sylar/stream.h
+ .././sylar/streams/socket_stream.h
  .././sylar/tcp_server.h
  .././sylar/thread.h
+ .././sylar/uri.h
  .././sylar/util/hash_util.h
  .././sylar/util/json_util.h
  /home/zsj/workspace/sylar/sylar/address.h
@@ -45,8 +48,8 @@ CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.o
  /home/zsj/workspace/sylar/sylar/scheduler.h
  /home/zsj/workspace/sylar/sylar/singleton.h
  /home/zsj/workspace/sylar/sylar/socket.h
- /home/zsj/workspace/sylar/sylar/socket_stream.h
  /home/zsj/workspace/sylar/sylar/stream.h
+ /home/zsj/workspace/sylar/sylar/streams/socket_stream.h
  /home/zsj/workspace/sylar/sylar/sylar.h
  /home/zsj/workspace/sylar/sylar/tcp_server.h
  /home/zsj/workspace/sylar/sylar/thread.h

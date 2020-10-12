@@ -69,6 +69,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/test_util.dir/DependInfo.cmake"
   "CMakeFiles/test_thread.dir/DependInfo.cmake"
   "CMakeFiles/test_bytearray.dir/DependInfo.cmake"
+  "CMakeFiles/test_zlib_stream.dir/DependInfo.cmake"
   "CMakeFiles/test_fiber.dir/DependInfo.cmake"
   "CMakeFiles/sylar.dir/DependInfo.cmake"
   "CMakeFiles/my_http_server.dir/DependInfo.cmake"

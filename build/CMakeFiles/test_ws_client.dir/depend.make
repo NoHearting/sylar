@@ -20,8 +20,8 @@ CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/noncopyable
 CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/scheduler.h
 CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/singleton.h
 CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/socket.h
-CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/socket_stream.h
 CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/stream.h
+CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/streams/socket_stream.h
 CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/thread.h
 CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/timer.h
 CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o: .././sylar/uri.h

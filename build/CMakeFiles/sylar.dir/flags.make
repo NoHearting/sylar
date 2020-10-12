@@ -32,6 +32,10 @@ CXX_INCLUDES = -I/home/zsj/workspace/sylar/. -I/usr/local/include
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/http/httpclient_parser.rl.cpp.o_DEFINES = __FILE__="sylar/http/httpclient_parser.rl.cpp";__FILE__="sylar/http/httpclient_parser.rl.cpp"
 
+# Custom defines: CMakeFiles/sylar.dir/sylar/streams/socket_stream.cpp.o_DEFINES = __FILE__="sylar/streams/socket_stream.cpp"
+
+# Custom defines: CMakeFiles/sylar.dir/sylar/streams/zlib_stream.cpp.o_DEFINES = __FILE__="sylar/streams/zlib_stream.cpp"
+
 # Custom defines: CMakeFiles/sylar.dir/sylar/util/hash_util.cpp.o_DEFINES = __FILE__="sylar/util/hash_util.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/util/json_util.cpp.o_DEFINES = __FILE__="sylar/util/json_util.cpp"
@@ -61,8 +65,6 @@ CXX_INCLUDES = -I/home/zsj/workspace/sylar/. -I/usr/local/include
 # Custom defines: CMakeFiles/sylar.dir/sylar/mutex.cpp.o_DEFINES = __FILE__="sylar/mutex.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/scheduler.cpp.o_DEFINES = __FILE__="sylar/scheduler.cpp"
-
-# Custom defines: CMakeFiles/sylar.dir/sylar/socket_stream.cpp.o_DEFINES = __FILE__="sylar/socket_stream.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/socket.cpp.o_DEFINES = __FILE__="sylar/socket.cpp"
 

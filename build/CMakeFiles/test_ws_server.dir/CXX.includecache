@@ -115,10 +115,10 @@ http11_common.h
 .././sylar/http/http11_common.h
 
 .././sylar/http/http_session.h
-../socket_stream.h
-.././sylar/socket_stream.h
 http.h
 .././sylar/http/http.h
+sylar/streams/socket_stream.h
+.././sylar/http/sylar/streams/socket_stream.h
 
 .././sylar/http/httpclient_parser.h
 http11_common.h
@@ -280,19 +280,19 @@ openssl/err.h
 openssl/ssl.h
 -
 
-.././sylar/socket_stream.h
-stream.h
-.././sylar/stream.h
-socket.h
-.././sylar/socket.h
-memory
--
-
 .././sylar/stream.h
 memory
 -
 bytearray.h
 .././sylar/bytearray.h
+
+.././sylar/streams/socket_stream.h
+memory
+-
+sylar/socket.h
+.././sylar/streams/sylar/socket.h
+sylar/stream.h
+.././sylar/streams/sylar/stream.h
 
 .././sylar/tcp_server.h
 memory

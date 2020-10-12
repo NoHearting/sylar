@@ -21,8 +21,8 @@ CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/noncopyable
 CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/scheduler.h
 CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/singleton.h
 CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/socket.h
-CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/socket_stream.h
 CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/stream.h
+CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/streams/socket_stream.h
 CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/tcp_server.h
 CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/thread.h
 CMakeFiles/test_ws_server.dir/tests/test_ws_server.cpp.o: .././sylar/timer.h

@@ -6,9 +6,12 @@ CMakeFiles/test_util.dir/tests/test_util.cpp.o: .././sylar/http/http_connection.
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: .././sylar/http/ws_session.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: .././sylar/mutex.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: .././sylar/singleton.h
+CMakeFiles/test_util.dir/tests/test_util.cpp.o: .././sylar/socket.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: .././sylar/stream.h
+CMakeFiles/test_util.dir/tests/test_util.cpp.o: .././sylar/streams/socket_stream.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: .././sylar/tcp_server.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: .././sylar/thread.h
+CMakeFiles/test_util.dir/tests/test_util.cpp.o: .././sylar/uri.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: .././sylar/util/hash_util.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: .././sylar/util/json_util.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: ../sylar/address.h
@@ -44,8 +47,8 @@ CMakeFiles/test_util.dir/tests/test_util.cpp.o: ../sylar/noncopyable.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: ../sylar/scheduler.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: ../sylar/singleton.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: ../sylar/socket.h
-CMakeFiles/test_util.dir/tests/test_util.cpp.o: ../sylar/socket_stream.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: ../sylar/stream.h
+CMakeFiles/test_util.dir/tests/test_util.cpp.o: ../sylar/streams/socket_stream.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: ../sylar/sylar.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: ../sylar/tcp_server.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: ../sylar/thread.h

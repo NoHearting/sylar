@@ -6,23 +6,7 @@
 
 #IncludeRegexTransform: 
 
-.././sylar/util/hash_util.h
-stdint.h
--
-string
--
-vector
--
-
-.././sylar/util/json_util.h
-string
--
-iostream
--
-jsoncpp/json/json.h
--
-
-/home/zsj/workspace/sylar/sylar/address.h
+.././sylar/address.h
 memory
 -
 string
@@ -50,7 +34,7 @@ vector
 map
 -
 
-/home/zsj/workspace/sylar/sylar/bytearray.h
+.././sylar/bytearray.h
 memory
 -
 stdint.h
@@ -62,7 +46,7 @@ sys/socket.h
 vector
 -
 
-/home/zsj/workspace/sylar/sylar/fiber.h
+.././sylar/fiber.h
 ucontext.h
 -
 memory
@@ -70,7 +54,7 @@ memory
 functional
 -
 
-/home/zsj/workspace/sylar/sylar/http/http.h
+.././sylar/http/http.h
 memory
 -
 string
@@ -86,47 +70,55 @@ cstring
 boost/lexical_cast.hpp
 -
 http11_parser.h
-/home/zsj/workspace/sylar/sylar/http/http11_parser.h
+.././sylar/http/http11_parser.h
 httpclient_parser.h
-/home/zsj/workspace/sylar/sylar/http/httpclient_parser.h
+.././sylar/http/httpclient_parser.h
 
-/home/zsj/workspace/sylar/sylar/http/http11_common.h
+.././sylar/http/http11_common.h
 sys/types.h
 -
 
-/home/zsj/workspace/sylar/sylar/http/http11_parser.h
+.././sylar/http/http11_parser.h
 http11_common.h
-/home/zsj/workspace/sylar/sylar/http/http11_common.h
+.././sylar/http/http11_common.h
 
-/home/zsj/workspace/sylar/sylar/http/http_connection.h
-../socket_stream.h
-/home/zsj/workspace/sylar/sylar/socket_stream.h
-http.h
-/home/zsj/workspace/sylar/sylar/http/http.h
-string
--
-../thread.h
-/home/zsj/workspace/sylar/sylar/thread.h
-../uri.h
-/home/zsj/workspace/sylar/sylar/uri.h
+.././sylar/http/http_connection.h
 atomic
 -
 list
 -
+string
+-
+http.h
+.././sylar/http/http.h
+sylar/streams/socket_stream.h
+.././sylar/http/sylar/streams/socket_stream.h
+sylar/thread.h
+.././sylar/http/sylar/thread.h
+sylar/uri.h
+.././sylar/http/sylar/uri.h
 
-/home/zsj/workspace/sylar/sylar/http/httpclient_parser.h
+.././sylar/http/http_parser.h
+http.h
+.././sylar/http/http.h
+httpclient_parser.h
+.././sylar/http/httpclient_parser.h
+http11_parser.h
+.././sylar/http/http11_parser.h
+
+.././sylar/http/httpclient_parser.h
 http11_common.h
-/home/zsj/workspace/sylar/sylar/http/http11_common.h
+.././sylar/http/http11_common.h
 
-/home/zsj/workspace/sylar/sylar/iomanager.h
+.././sylar/iomanager.h
 scheduler.h
-/home/zsj/workspace/sylar/sylar/scheduler.h
+.././sylar/scheduler.h
 time.h
-/home/zsj/workspace/sylar/sylar/time.h
+.././sylar/time.h
 timer.h
-/home/zsj/workspace/sylar/sylar/timer.h
+.././sylar/timer.h
 
-/home/zsj/workspace/sylar/sylar/log.h
+.././sylar/log.h
 string
 -
 iostream
@@ -162,13 +154,13 @@ stdarg.h
 yaml-cpp/yaml.h
 -
 thread.h
-/home/zsj/workspace/sylar/sylar/thread.h
+.././sylar/thread.h
 singleton.h
-/home/zsj/workspace/sylar/sylar/singleton.h
+.././sylar/singleton.h
 util.h
-/home/zsj/workspace/sylar/sylar/util.h
+.././sylar/util.h
 
-/home/zsj/workspace/sylar/sylar/mutex.h
+.././sylar/mutex.h
 pthread.h
 -
 thread
@@ -190,13 +182,13 @@ iostream
 list
 -
 fiber.h
-/home/zsj/workspace/sylar/sylar/fiber.h
+.././sylar/fiber.h
 noncopyable.h
-/home/zsj/workspace/sylar/sylar/noncopyable.h
+.././sylar/noncopyable.h
 
-/home/zsj/workspace/sylar/sylar/noncopyable.h
+.././sylar/noncopyable.h
 
-/home/zsj/workspace/sylar/sylar/scheduler.h
+.././sylar/scheduler.h
 memory
 -
 vector
@@ -210,43 +202,59 @@ atomic
 iostream
 -
 thread.h
-/home/zsj/workspace/sylar/sylar/thread.h
+.././sylar/thread.h
 fiber.h
-/home/zsj/workspace/sylar/sylar/fiber.h
+.././sylar/fiber.h
 log.h
-/home/zsj/workspace/sylar/sylar/log.h
+.././sylar/log.h
 
-/home/zsj/workspace/sylar/sylar/singleton.h
+.././sylar/singleton.h
 memory
 -
 
-/home/zsj/workspace/sylar/sylar/socket.h
+.././sylar/socket.h
 memory
 -
 address.h
-/home/zsj/workspace/sylar/sylar/address.h
+.././sylar/address.h
 noncopyable.h
-/home/zsj/workspace/sylar/sylar/noncopyable.h
+.././sylar/noncopyable.h
 openssl/err.h
 -
 openssl/ssl.h
 -
 
-/home/zsj/workspace/sylar/sylar/socket_stream.h
-stream.h
-/home/zsj/workspace/sylar/sylar/stream.h
-socket.h
-/home/zsj/workspace/sylar/sylar/socket.h
-memory
--
-
-/home/zsj/workspace/sylar/sylar/stream.h
+.././sylar/stream.h
 memory
 -
 bytearray.h
-/home/zsj/workspace/sylar/sylar/bytearray.h
+.././sylar/bytearray.h
 
-/home/zsj/workspace/sylar/sylar/thread.h
+.././sylar/streams/socket_stream.h
+memory
+-
+sylar/socket.h
+.././sylar/streams/sylar/socket.h
+sylar/stream.h
+.././sylar/streams/sylar/stream.h
+
+.././sylar/streams/zlib_stream.h
+stdint.h
+-
+sys/uio.h
+-
+zlib.h
+-
+memory
+-
+string
+-
+vector
+-
+sylar/stream.h
+.././sylar/streams/sylar/stream.h
+
+.././sylar/thread.h
 pthread.h
 -
 thread
@@ -266,9 +274,9 @@ atomic
 iostream
 -
 mutex.h
-/home/zsj/workspace/sylar/sylar/mutex.h
+.././sylar/mutex.h
 
-/home/zsj/workspace/sylar/sylar/timer.h
+.././sylar/timer.h
 memory
 -
 vector
@@ -276,9 +284,9 @@ vector
 set
 -
 thread.h
-/home/zsj/workspace/sylar/sylar/thread.h
+.././sylar/thread.h
 
-/home/zsj/workspace/sylar/sylar/uri.h
+.././sylar/uri.h
 memory
 -
 string
@@ -288,9 +296,9 @@ cstdint
 iostream
 -
 address.h
-/home/zsj/workspace/sylar/sylar/address.h
+.././sylar/address.h
 
-/home/zsj/workspace/sylar/sylar/util.h
+.././sylar/util.h
 pthread.h
 -
 unistd.h
@@ -310,19 +318,39 @@ iomanip
 boost/lexical_cast.hpp
 -
 sylar/util/hash_util.h
-/home/zsj/workspace/sylar/sylar/sylar/util/hash_util.h
+.././sylar/sylar/util/hash_util.h
 sylar/util/json_util.h
-/home/zsj/workspace/sylar/sylar/sylar/util/json_util.h
+.././sylar/sylar/util/json_util.h
 
-/home/zsj/workspace/sylar/tests/test_http_connection.cpp
-../sylar/http/http_connection.h
-/home/zsj/workspace/sylar/sylar/http/http_connection.h
+.././sylar/util/hash_util.h
+stdint.h
+-
+string
+-
+vector
+-
+
+.././sylar/util/json_util.h
+string
+-
 iostream
 -
-../sylar/log.h
-/home/zsj/workspace/sylar/sylar/log.h
-../sylar/iomanager.h
-/home/zsj/workspace/sylar/sylar/iomanager.h
+jsoncpp/json/json.h
+-
+
+/home/zsj/workspace/sylar/tests/test_http_connection.cpp
+iostream
+-
+sylar/http/http_connection.h
+/home/zsj/workspace/sylar/tests/sylar/http/http_connection.h
+sylar/http/http_parser.h
+/home/zsj/workspace/sylar/tests/sylar/http/http_parser.h
+sylar/iomanager.h
+/home/zsj/workspace/sylar/tests/sylar/iomanager.h
+sylar/log.h
+/home/zsj/workspace/sylar/tests/sylar/log.h
+sylar/streams/zlib_stream.h
+/home/zsj/workspace/sylar/tests/sylar/streams/zlib_stream.h
 
 /usr/local/include/boost/array.hpp
 boost/detail/workaround.hpp

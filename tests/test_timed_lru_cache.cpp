@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-10-11 10:53:23
  * @LastEditors: zsj
- * @LastEditTime: 2020-10-11 11:04:12
+ * @LastEditTime: 2020-10-12 17:04:48
  */
 #include "sylar/ds/timed_lru_cache.h"
 #include "sylar/log.h"
@@ -28,7 +28,7 @@ void test_timed_lru_cache() {
     cache.set(1000, 11, 1000 * 10);
     SYLAR_LOG_INFO(g_logger) << cache.toStatusString();
     sleep(2);
-    SYLAR_LOG_INFO(g_logger) << "check_timeout" << cache.checkTimeout();
+    SYLAR_LOG_INFO(g_logger) << "check_timeout:" << cache.checkTimeout();
     SYLAR_LOG_INFO(g_logger) << cache.toStatusString();
 }
 

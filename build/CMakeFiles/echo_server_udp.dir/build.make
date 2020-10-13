@@ -94,6 +94,7 @@ echo_server_udp_EXTERNAL_OBJECTS =
 ../bin/echo_server_udp: CMakeFiles/echo_server_udp.dir/examples/echo_server_udp.cpp.o
 ../bin/echo_server_udp: CMakeFiles/echo_server_udp.dir/build.make
 ../bin/echo_server_udp: ../lib/libsylar.so
+../bin/echo_server_udp: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/echo_server_udp: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/echo_server_udp: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/echo_server_udp: CMakeFiles/echo_server_udp.dir/link.txt

@@ -94,6 +94,7 @@ test_uri_EXTERNAL_OBJECTS =
 ../bin/test_uri: CMakeFiles/test_uri.dir/tests/test_uri.cpp.o
 ../bin/test_uri: CMakeFiles/test_uri.dir/build.make
 ../bin/test_uri: ../lib/libsylar.so
+../bin/test_uri: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_uri: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_uri: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_uri: CMakeFiles/test_uri.dir/link.txt

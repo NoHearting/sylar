@@ -34,6 +34,11 @@ if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
 endif()
 
+find_package(ZLIB REQUIRED)
+if(ZLIB_FOUND)
+	include_directories(${ZLIB_INCLUDE_DIRS})
+endif()
+
 set(LIB_SRC
 	sylar/http/http_connection.cpp
 	sylar/http/http_parser.cpp
@@ -62,6 +67,7 @@ set(LIB_SRC
 	sylar/iomanager.cpp
 	sylar/library.cpp
 	sylar/log.cpp
+	sylar/protocol.cpp
 	sylar/module.cpp
 	sylar/mutex.cpp
 	sylar/scheduler.cpp
@@ -95,8 +101,9 @@ set(LIBS
 		pthread		#多线程
 		yaml-cpp	#yaml-cpp
 		jsoncpp	#jsoncpp
-		z	#zlib
-		${OPENSSL_LIBRARIES})	
+		${ZLIB_LIBRARIES}	#zlib
+		${OPENSSL_LIBRARIES} #openssl
+	)	
 
 # message("***", ${LIBS})
 

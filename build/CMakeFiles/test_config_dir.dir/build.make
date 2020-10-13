@@ -94,6 +94,7 @@ test_config_dir_EXTERNAL_OBJECTS =
 ../bin/test_config_dir: CMakeFiles/test_config_dir.dir/tests/test_config_dir.cpp.o
 ../bin/test_config_dir: CMakeFiles/test_config_dir.dir/build.make
 ../bin/test_config_dir: ../lib/libsylar.so
+../bin/test_config_dir: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_config_dir: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_config_dir: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_config_dir: CMakeFiles/test_config_dir.dir/link.txt

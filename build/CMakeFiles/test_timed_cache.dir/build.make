@@ -94,6 +94,7 @@ test_timed_cache_EXTERNAL_OBJECTS =
 ../bin/test_timed_cache: CMakeFiles/test_timed_cache.dir/tests/test_timed_cache.cpp.o
 ../bin/test_timed_cache: CMakeFiles/test_timed_cache.dir/build.make
 ../bin/test_timed_cache: ../lib/libsylar.so
+../bin/test_timed_cache: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_timed_cache: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_timed_cache: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_timed_cache: CMakeFiles/test_timed_cache.dir/link.txt

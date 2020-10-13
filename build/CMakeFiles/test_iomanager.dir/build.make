@@ -94,6 +94,7 @@ test_iomanager_EXTERNAL_OBJECTS =
 ../bin/test_iomanager: CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.o
 ../bin/test_iomanager: CMakeFiles/test_iomanager.dir/build.make
 ../bin/test_iomanager: ../lib/libsylar.so
+../bin/test_iomanager: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_iomanager: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_iomanager: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_iomanager: CMakeFiles/test_iomanager.dir/link.txt

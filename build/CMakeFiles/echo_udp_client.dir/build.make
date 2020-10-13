@@ -94,6 +94,7 @@ echo_udp_client_EXTERNAL_OBJECTS =
 ../bin/echo_udp_client: CMakeFiles/echo_udp_client.dir/examples/echo_udp_client.cpp.o
 ../bin/echo_udp_client: CMakeFiles/echo_udp_client.dir/build.make
 ../bin/echo_udp_client: ../lib/libsylar.so
+../bin/echo_udp_client: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/echo_udp_client: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/echo_udp_client: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/echo_udp_client: CMakeFiles/echo_udp_client.dir/link.txt

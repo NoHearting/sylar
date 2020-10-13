@@ -94,6 +94,7 @@ test_fiber_EXTERNAL_OBJECTS =
 ../bin/test_fiber: CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o
 ../bin/test_fiber: CMakeFiles/test_fiber.dir/build.make
 ../bin/test_fiber: ../lib/libsylar.so
+../bin/test_fiber: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_fiber: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_fiber: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_fiber: CMakeFiles/test_fiber.dir/link.txt

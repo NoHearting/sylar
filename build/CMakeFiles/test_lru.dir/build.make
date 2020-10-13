@@ -94,6 +94,7 @@ test_lru_EXTERNAL_OBJECTS =
 ../bin/test_lru: CMakeFiles/test_lru.dir/tests/test_lru.cpp.o
 ../bin/test_lru: CMakeFiles/test_lru.dir/build.make
 ../bin/test_lru: ../lib/libsylar.so
+../bin/test_lru: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_lru: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_lru: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_lru: CMakeFiles/test_lru.dir/link.txt

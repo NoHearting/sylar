@@ -94,6 +94,7 @@ test_fileop_EXTERNAL_OBJECTS =
 ../bin/test_fileop: CMakeFiles/test_fileop.dir/tests/test_fileop.cpp.o
 ../bin/test_fileop: CMakeFiles/test_fileop.dir/build.make
 ../bin/test_fileop: ../lib/libsylar.so
+../bin/test_fileop: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_fileop: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_fileop: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_fileop: CMakeFiles/test_fileop.dir/link.txt

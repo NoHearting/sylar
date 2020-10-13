@@ -94,6 +94,7 @@ test_socket_EXTERNAL_OBJECTS =
 ../bin/test_socket: CMakeFiles/test_socket.dir/tests/test_socket.cpp.o
 ../bin/test_socket: CMakeFiles/test_socket.dir/build.make
 ../bin/test_socket: ../lib/libsylar.so
+../bin/test_socket: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_socket: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_socket: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_socket: CMakeFiles/test_socket.dir/link.txt

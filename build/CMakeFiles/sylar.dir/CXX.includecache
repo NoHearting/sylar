@@ -280,6 +280,14 @@ noncopyable.h
 
 .././sylar/noncopyable.h
 
+.././sylar/protocol.h
+memory
+-
+sylar/bytearray.h
+.././sylar/sylar/bytearray.h
+sylar/stream.h
+.././sylar/sylar/stream.h
+
 .././sylar/scheduler.h
 atomic
 -
@@ -1157,6 +1165,10 @@ noncopyable.h
 /home/zsj/workspace/sylar/sylar/noncopyable.h
 
 /home/zsj/workspace/sylar/sylar/noncopyable.h
+
+/home/zsj/workspace/sylar/sylar/protocol.cpp
+sylar/protocol.h
+/home/zsj/workspace/sylar/sylar/sylar/protocol.h
 
 /home/zsj/workspace/sylar/sylar/scheduler.cpp
 scheduler.h

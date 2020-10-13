@@ -1379,6 +1379,33 @@ sylar/mutex.cpp.s:
 	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/mutex.cpp.s
 .PHONY : sylar/mutex.cpp.s
 
+sylar/protocol.o: sylar/protocol.cpp.o
+
+.PHONY : sylar/protocol.o
+
+# target to build an object file
+sylar/protocol.cpp.o:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/protocol.cpp.o
+.PHONY : sylar/protocol.cpp.o
+
+sylar/protocol.i: sylar/protocol.cpp.i
+
+.PHONY : sylar/protocol.i
+
+# target to preprocess a source file
+sylar/protocol.cpp.i:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/protocol.cpp.i
+.PHONY : sylar/protocol.cpp.i
+
+sylar/protocol.s: sylar/protocol.cpp.s
+
+.PHONY : sylar/protocol.s
+
+# target to generate assembly for a file
+sylar/protocol.cpp.s:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/protocol.cpp.s
+.PHONY : sylar/protocol.cpp.s
+
 sylar/scheduler.o: sylar/scheduler.cpp.o
 
 .PHONY : sylar/scheduler.o
@@ -2620,6 +2647,9 @@ help:
 	@echo "... sylar/mutex.o"
 	@echo "... sylar/mutex.i"
 	@echo "... sylar/mutex.s"
+	@echo "... sylar/protocol.o"
+	@echo "... sylar/protocol.i"
+	@echo "... sylar/protocol.s"
 	@echo "... sylar/scheduler.o"
 	@echo "... sylar/scheduler.i"
 	@echo "... sylar/scheduler.s"

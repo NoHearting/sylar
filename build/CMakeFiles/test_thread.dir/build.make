@@ -94,6 +94,7 @@ test_thread_EXTERNAL_OBJECTS =
 ../bin/test_thread: CMakeFiles/test_thread.dir/tests/test_thread.cpp.o
 ../bin/test_thread: CMakeFiles/test_thread.dir/build.make
 ../bin/test_thread: ../lib/libsylar.so
+../bin/test_thread: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_thread: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_thread: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_thread: CMakeFiles/test_thread.dir/link.txt

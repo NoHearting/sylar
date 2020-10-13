@@ -94,6 +94,7 @@ test_hook_EXTERNAL_OBJECTS =
 ../bin/test_hook: CMakeFiles/test_hook.dir/tests/test_hook.cpp.o
 ../bin/test_hook: CMakeFiles/test_hook.dir/build.make
 ../bin/test_hook: ../lib/libsylar.so
+../bin/test_hook: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_hook: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_hook: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_hook: CMakeFiles/test_hook.dir/link.txt

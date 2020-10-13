@@ -94,6 +94,7 @@ test_http_server_EXTERNAL_OBJECTS =
 ../bin/test_http_server: CMakeFiles/test_http_server.dir/tests/test_http_server.cpp.o
 ../bin/test_http_server: CMakeFiles/test_http_server.dir/build.make
 ../bin/test_http_server: ../lib/libsylar.so
+../bin/test_http_server: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_http_server: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_http_server: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_http_server: CMakeFiles/test_http_server.dir/link.txt

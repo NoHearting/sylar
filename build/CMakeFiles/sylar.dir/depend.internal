@@ -15982,6 +15982,11 @@ CMakeFiles/sylar.dir/sylar/mutex.cpp.o
  /usr/local/include/yaml-cpp/stlemitter.h
  /usr/local/include/yaml-cpp/traits.h
  /usr/local/include/yaml-cpp/yaml.h
+CMakeFiles/sylar.dir/sylar/protocol.cpp.o
+ .././sylar/bytearray.h
+ .././sylar/protocol.h
+ .././sylar/stream.h
+ /home/zsj/workspace/sylar/sylar/protocol.cpp
 CMakeFiles/sylar.dir/sylar/scheduler.cpp.o
  .././sylar/util/hash_util.h
  .././sylar/util/json_util.h

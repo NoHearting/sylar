@@ -29,6 +29,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/sylar.dir/sylar/iomanager.cpp.o"
   "CMakeFiles/sylar.dir/sylar/library.cpp.o"
   "CMakeFiles/sylar.dir/sylar/log.cpp.o"
+  "CMakeFiles/sylar.dir/sylar/protocol.cpp.o"
   "CMakeFiles/sylar.dir/sylar/module.cpp.o"
   "CMakeFiles/sylar.dir/sylar/mutex.cpp.o"
   "CMakeFiles/sylar.dir/sylar/scheduler.cpp.o"

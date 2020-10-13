@@ -94,6 +94,7 @@ bin_sylar_EXTERNAL_OBJECTS =
 ../bin/sylar: CMakeFiles/bin_sylar.dir/sylar/main.cpp.o
 ../bin/sylar: CMakeFiles/bin_sylar.dir/build.make
 ../bin/sylar: ../lib/libsylar.so
+../bin/sylar: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/sylar: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/sylar: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/sylar: CMakeFiles/bin_sylar.dir/link.txt

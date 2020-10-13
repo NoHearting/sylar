@@ -30,6 +30,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/zsj/workspace/sylar/sylar/log.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/log.cpp.o"
   "/home/zsj/workspace/sylar/sylar/module.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/module.cpp.o"
   "/home/zsj/workspace/sylar/sylar/mutex.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/mutex.cpp.o"
+  "/home/zsj/workspace/sylar/sylar/protocol.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/protocol.cpp.o"
   "/home/zsj/workspace/sylar/sylar/scheduler.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/scheduler.cpp.o"
   "/home/zsj/workspace/sylar/sylar/socket.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/socket.cpp.o"
   "/home/zsj/workspace/sylar/sylar/stream.cpp" "/home/zsj/workspace/sylar/build/CMakeFiles/sylar.dir/sylar/stream.cpp.o"

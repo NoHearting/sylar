@@ -62,6 +62,8 @@ CXX_INCLUDES = -I/home/zsj/workspace/sylar/. -I/usr/local/include
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/log.cpp.o_DEFINES = __FILE__="sylar/log.cpp"
 
+# Custom defines: CMakeFiles/sylar.dir/sylar/protocol.cpp.o_DEFINES = __FILE__="sylar/protocol.cpp"
+
 # Custom defines: CMakeFiles/sylar.dir/sylar/module.cpp.o_DEFINES = __FILE__="sylar/module.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/mutex.cpp.o_DEFINES = __FILE__="sylar/mutex.cpp"

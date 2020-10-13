@@ -94,6 +94,7 @@ test_scheduler_EXTERNAL_OBJECTS =
 ../bin/test_scheduler: CMakeFiles/test_scheduler.dir/tests/test_scheduler.cpp.o
 ../bin/test_scheduler: CMakeFiles/test_scheduler.dir/build.make
 ../bin/test_scheduler: ../lib/libsylar.so
+../bin/test_scheduler: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_scheduler: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_scheduler: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_scheduler: CMakeFiles/test_scheduler.dir/link.txt

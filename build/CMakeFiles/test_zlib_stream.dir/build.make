@@ -94,6 +94,7 @@ test_zlib_stream_EXTERNAL_OBJECTS =
 ../bin/test_zlib_stream: CMakeFiles/test_zlib_stream.dir/tests/test_zlib_stream.cpp.o
 ../bin/test_zlib_stream: CMakeFiles/test_zlib_stream.dir/build.make
 ../bin/test_zlib_stream: ../lib/libsylar.so
+../bin/test_zlib_stream: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_zlib_stream: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_zlib_stream: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_zlib_stream: CMakeFiles/test_zlib_stream.dir/link.txt

@@ -94,6 +94,7 @@ test_timed_lru_cache_EXTERNAL_OBJECTS =
 ../bin/test_timed_lru_cache: CMakeFiles/test_timed_lru_cache.dir/tests/test_timed_lru_cache.cpp.o
 ../bin/test_timed_lru_cache: CMakeFiles/test_timed_lru_cache.dir/build.make
 ../bin/test_timed_lru_cache: ../lib/libsylar.so
+../bin/test_timed_lru_cache: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_timed_lru_cache: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_timed_lru_cache: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_timed_lru_cache: CMakeFiles/test_timed_lru_cache.dir/link.txt

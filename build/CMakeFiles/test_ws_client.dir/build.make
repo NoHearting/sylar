@@ -94,6 +94,7 @@ test_ws_client_EXTERNAL_OBJECTS =
 ../bin/test_ws_client: CMakeFiles/test_ws_client.dir/tests/test_ws_client.cpp.o
 ../bin/test_ws_client: CMakeFiles/test_ws_client.dir/build.make
 ../bin/test_ws_client: ../lib/libsylar.so
+../bin/test_ws_client: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_ws_client: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_ws_client: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_ws_client: CMakeFiles/test_ws_client.dir/link.txt

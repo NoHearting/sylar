@@ -94,6 +94,7 @@ test_http_parser_EXTERNAL_OBJECTS =
 ../bin/test_http_parser: CMakeFiles/test_http_parser.dir/tests/test_http_parser.cpp.o
 ../bin/test_http_parser: CMakeFiles/test_http_parser.dir/build.make
 ../bin/test_http_parser: ../lib/libsylar.so
+../bin/test_http_parser: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_http_parser: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_http_parser: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_http_parser: CMakeFiles/test_http_parser.dir/link.txt

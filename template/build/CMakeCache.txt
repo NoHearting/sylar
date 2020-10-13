@@ -196,6 +196,12 @@ OPENSSL_SSL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libssl.so
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=PKG_CONFIG_EXECUTABLE-NOTFOUND
 
+//Path to a library.
+PTHREAD:FILEPATH=/usr/lib/x86_64-linux-gnu/libpthread.so
+
+//Path to a library.
+YAMLCPP:FILEPATH=/usr/local/lib/libyaml-cpp.so
+
 //The directory containing a CMake configuration file for boost_headers.
 boost_headers_DIR:PATH=/usr/local/lib/cmake/boost_headers-1.73.0
 

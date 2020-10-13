@@ -14,6 +14,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/sylar.dir/sylar/http/http.cpp.o"
   "CMakeFiles/sylar.dir/sylar/http/http11_parser.rl.cpp.o"
   "CMakeFiles/sylar.dir/sylar/http/httpclient_parser.rl.cpp.o"
+  "CMakeFiles/sylar.dir/sylar/streams/async_socket_stream.cpp.o"
   "CMakeFiles/sylar.dir/sylar/streams/socket_stream.cpp.o"
   "CMakeFiles/sylar.dir/sylar/streams/zlib_stream.cpp.o"
   "CMakeFiles/sylar.dir/sylar/util/hash_util.cpp.o"

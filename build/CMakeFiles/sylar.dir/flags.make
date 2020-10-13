@@ -32,6 +32,8 @@ CXX_INCLUDES = -I/home/zsj/workspace/sylar/. -I/usr/local/include
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/http/httpclient_parser.rl.cpp.o_DEFINES = __FILE__="sylar/http/httpclient_parser.rl.cpp";__FILE__="sylar/http/httpclient_parser.rl.cpp"
 
+# Custom defines: CMakeFiles/sylar.dir/sylar/streams/async_socket_stream.cpp.o_DEFINES = __FILE__="sylar/streams/async_socket_stream.cpp"
+
 # Custom defines: CMakeFiles/sylar.dir/sylar/streams/socket_stream.cpp.o_DEFINES = __FILE__="sylar/streams/socket_stream.cpp"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/streams/zlib_stream.cpp.o_DEFINES = __FILE__="sylar/streams/zlib_stream.cpp"

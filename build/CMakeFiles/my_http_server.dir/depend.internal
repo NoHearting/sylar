@@ -6,6 +6,7 @@ CMakeFiles/my_http_server.dir/examples/my_http_server.cpp.o
  .././sylar/bytearray.h
  .././sylar/config.h
  .././sylar/iomanager.h
+ .././sylar/mutex.h
  .././sylar/noncopyable.h
  .././sylar/socket.h
  .././sylar/stream.h

@@ -4,6 +4,7 @@
 CMakeFiles/test_bytearray.dir/tests/test_bytearray.cpp.o: .././sylar/config.h
 CMakeFiles/test_bytearray.dir/tests/test_bytearray.cpp.o: .././sylar/http/http_connection.h
 CMakeFiles/test_bytearray.dir/tests/test_bytearray.cpp.o: .././sylar/http/ws_session.h
+CMakeFiles/test_bytearray.dir/tests/test_bytearray.cpp.o: .././sylar/iomanager.h
 CMakeFiles/test_bytearray.dir/tests/test_bytearray.cpp.o: .././sylar/mutex.h
 CMakeFiles/test_bytearray.dir/tests/test_bytearray.cpp.o: .././sylar/singleton.h
 CMakeFiles/test_bytearray.dir/tests/test_bytearray.cpp.o: .././sylar/socket.h

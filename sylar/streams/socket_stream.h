@@ -4,11 +4,13 @@
  * @Author: zsj
  * @Date: 2020-06-16 16:15:59
  * @LastEditors: zsj
- * @LastEditTime: 2020-10-12 15:42:31
+ * @LastEditTime: 2020-10-13 14:35:43
  */
 #pragma once
 #include <memory>
 
+#include "sylar/iomanager.h"
+#include "sylar/mutex.h"
 #include "sylar/socket.h"
 #include "sylar/stream.h"
 

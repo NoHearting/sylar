@@ -1460,6 +1460,33 @@ sylar/stream.cpp.s:
 	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/stream.cpp.s
 .PHONY : sylar/stream.cpp.s
 
+sylar/streams/async_socket_stream.o: sylar/streams/async_socket_stream.cpp.o
+
+.PHONY : sylar/streams/async_socket_stream.o
+
+# target to build an object file
+sylar/streams/async_socket_stream.cpp.o:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/streams/async_socket_stream.cpp.o
+.PHONY : sylar/streams/async_socket_stream.cpp.o
+
+sylar/streams/async_socket_stream.i: sylar/streams/async_socket_stream.cpp.i
+
+.PHONY : sylar/streams/async_socket_stream.i
+
+# target to preprocess a source file
+sylar/streams/async_socket_stream.cpp.i:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/streams/async_socket_stream.cpp.i
+.PHONY : sylar/streams/async_socket_stream.cpp.i
+
+sylar/streams/async_socket_stream.s: sylar/streams/async_socket_stream.cpp.s
+
+.PHONY : sylar/streams/async_socket_stream.s
+
+# target to generate assembly for a file
+sylar/streams/async_socket_stream.cpp.s:
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/streams/async_socket_stream.cpp.s
+.PHONY : sylar/streams/async_socket_stream.cpp.s
+
 sylar/streams/socket_stream.o: sylar/streams/socket_stream.cpp.o
 
 .PHONY : sylar/streams/socket_stream.o
@@ -2602,6 +2629,9 @@ help:
 	@echo "... sylar/stream.o"
 	@echo "... sylar/stream.i"
 	@echo "... sylar/stream.s"
+	@echo "... sylar/streams/async_socket_stream.o"
+	@echo "... sylar/streams/async_socket_stream.i"
+	@echo "... sylar/streams/async_socket_stream.s"
 	@echo "... sylar/streams/socket_stream.o"
 	@echo "... sylar/streams/socket_stream.i"
 	@echo "... sylar/streams/socket_stream.s"

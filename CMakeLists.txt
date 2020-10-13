@@ -47,6 +47,7 @@ set(LIB_SRC
 	sylar/http/http.cpp
 	sylar/http/http11_parser.rl.cpp
 	sylar/http/httpclient_parser.rl.cpp
+	sylar/streams/async_socket_stream.cpp
 	sylar/streams/socket_stream.cpp
 	sylar/streams/zlib_stream.cpp
 	sylar/util/hash_util.cpp

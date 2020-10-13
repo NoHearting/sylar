@@ -5,6 +5,7 @@ CMakeFiles/test_thread.dir/tests/test_thread.cpp.o
  .././sylar/config.h
  .././sylar/http/http_connection.h
  .././sylar/http/ws_session.h
+ .././sylar/iomanager.h
  .././sylar/mutex.h
  .././sylar/singleton.h
  .././sylar/socket.h

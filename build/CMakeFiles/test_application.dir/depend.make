@@ -4,8 +4,10 @@
 CMakeFiles/test_application.dir/tests/test_application.cpp.o: .././sylar/address.h
 CMakeFiles/test_application.dir/tests/test_application.cpp.o: .././sylar/bytearray.h
 CMakeFiles/test_application.dir/tests/test_application.cpp.o: .././sylar/config.h
+CMakeFiles/test_application.dir/tests/test_application.cpp.o: .././sylar/fiber.h
 CMakeFiles/test_application.dir/tests/test_application.cpp.o: .././sylar/iomanager.h
 CMakeFiles/test_application.dir/tests/test_application.cpp.o: .././sylar/log.h
+CMakeFiles/test_application.dir/tests/test_application.cpp.o: .././sylar/mutex.h
 CMakeFiles/test_application.dir/tests/test_application.cpp.o: .././sylar/noncopyable.h
 CMakeFiles/test_application.dir/tests/test_application.cpp.o: .././sylar/scheduler.h
 CMakeFiles/test_application.dir/tests/test_application.cpp.o: .././sylar/singleton.h
@@ -19,7 +21,6 @@ CMakeFiles/test_application.dir/tests/test_application.cpp.o: .././sylar/util.h
 CMakeFiles/test_application.dir/tests/test_application.cpp.o: .././sylar/util/hash_util.h
 CMakeFiles/test_application.dir/tests/test_application.cpp.o: .././sylar/util/json_util.h
 CMakeFiles/test_application.dir/tests/test_application.cpp.o: ../sylar/application.h
-CMakeFiles/test_application.dir/tests/test_application.cpp.o: ../sylar/fiber.h
 CMakeFiles/test_application.dir/tests/test_application.cpp.o: ../sylar/http/http.h
 CMakeFiles/test_application.dir/tests/test_application.cpp.o: ../sylar/http/http11_common.h
 CMakeFiles/test_application.dir/tests/test_application.cpp.o: ../sylar/http/http11_parser.h

@@ -32,3 +32,4 @@ depcomp
 /build/
 /bin/
 !/bin/conf/
+/lib/

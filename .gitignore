@@ -29,3 +29,6 @@ stamp-h1
 depcomp
 *.xcodeproj
 *.vscode
+/build/
+/bin/
+!/bin/conf/

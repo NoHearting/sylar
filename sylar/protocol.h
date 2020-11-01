@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-10-13 16:31:53
  * @LastEditors: zsj
- * @LastEditTime: 2020-10-13 17:01:01
+ * @LastEditTime: 2020-10-21 21:59:36
  */
 #pragma once
 
@@ -30,10 +30,11 @@ public:
     virtual int32_t getType() const = 0;
 };
 
-class MsgHeader {
+class MessageDecoder {
 public:
-    virtual ~MsgHeader() {}
-    virtual int32_t parseFrom(Stream::ptr stream) = 0;
+    typedef std::shared_ptr<MessageDecoder> ptr;
+    virtual ~MessageDecoder() {}
+    virtual Message::ptr parseFrom(Stream::ptr stream) = 0;
     virtual int32_t serializeTo(Stream::ptr stream, Message::ptr msg) = 0;
 };
 

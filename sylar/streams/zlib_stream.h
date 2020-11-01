@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-10-12 14:35:22
  * @LastEditors: zsj
- * @LastEditTime: 2020-10-12 17:03:46
+ * @LastEditTime: 2020-10-21 20:20:32
  */
 #pragma once
 
@@ -69,6 +69,7 @@ public:
 
     std::vector<iovec>& getBuffers() { return m_buffs; }
     std::string getResult() const;
+    sylar::ByteArray::ptr getByteArray();
 
 private:
     int init(Type type = DEFLATE, int level = DEFAULT_COMPRESSION,

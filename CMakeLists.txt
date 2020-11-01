@@ -23,6 +23,11 @@ set(BUILD_TEST ON)
 message("defined BUILD_TEST: ${BUILD_TEST}")
 
 
+find_package(Protobuf REQUIRED)
+if(Protobuf_FOUND)
+	include_directories(${Protobuf_INCLUDE_DIRS})
+endif()
+
 find_package(OpenSSL REQUIRED)
 if(OPENSSL_FOUND)
 	include_directories(${OPENSSL_INCLUDE_DIR})
@@ -57,6 +62,7 @@ set(LIB_SRC
 	sylar/streams/zlib_stream.cpp
 	sylar/util/hash_util.cpp
 	sylar/util/json_util.cpp
+	sylar/util/crypto_util.cpp
 	sylar/address.cpp
 	sylar/application.cpp
 	sylar/bytearray.cpp
@@ -67,9 +73,10 @@ set(LIB_SRC
 	sylar/iomanager.cpp
 	sylar/library.cpp
 	sylar/log.cpp
-	sylar/protocol.cpp
 	sylar/module.cpp
 	sylar/mutex.cpp
+	sylar/protocol.cpp
+	sylar/rock/rock_protocol.cpp
 	sylar/scheduler.cpp
 	sylar/socket.cpp
 	sylar/stream.cpp
@@ -103,6 +110,7 @@ set(LIBS
 		jsoncpp	#jsoncpp
 		${ZLIB_LIBRARIES}	#zlib
 		${OPENSSL_LIBRARIES} #openssl
+		${PROTOBUF_LIBRARIES}
 	)	
 
 # message("***", ${LIBS})
@@ -143,6 +151,7 @@ sylar_add_executable(test_timed_cache "tests/test_timed_cache.cpp" sylar "${LIBS
 sylar_add_executable(test_lru "tests/test_lru.cpp" sylar "${LIBS}")
 sylar_add_executable(test_timed_lru_cache "tests/test_timed_lru_cache.cpp" sylar "${LIBS}")
 sylar_add_executable(test_zlib_stream "tests/test_zlib_stream.cpp" sylar "${LIBS}")
+sylar_add_executable(test_crypto "tests/test_crypto.cpp" sylar "${LIBS}")
 
 
 endif()

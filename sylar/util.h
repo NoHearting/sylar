@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-05 17:08:39
  * @LastEditors: zsj
- * @LastEditTime: 2020-10-13 14:34:54
+ * @LastEditTime: 2020-10-21 20:19:54
  */
 #ifndef __SYLAR__UTIL_H__
 #define __SYLAR__UTIL_H__
@@ -20,6 +20,7 @@
 #include <string>
 #include <vector>
 
+#include "sylar/util/crypto_util.h"
 #include "sylar/util/hash_util.h"
 #include "sylar/util/json_util.h"
 

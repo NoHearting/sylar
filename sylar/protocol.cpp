@@ -4,9 +4,11 @@
  * @Author: zsj
  * @Date: 2020-10-13 16:46:20
  * @LastEditors: zsj
- * @LastEditTime: 2020-10-13 17:00:34
+ * @LastEditTime: 2020-10-21 22:01:25
  */
 #include "sylar/protocol.h"
+
+#include "sylar/util.h"
 
 namespace sylar {
 ByteArray::ptr Message::toByteArray() {

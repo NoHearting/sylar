@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-10-12 15:03:45
  * @LastEditors: zsj
- * @LastEditTime: 2020-10-12 17:05:39
+ * @LastEditTime: 2020-10-21 20:22:11
  */
 #include "zlib_stream.h"
 
@@ -194,6 +194,15 @@ std::string ZlibStream::getResult() const {
         rt.append((const char*)i.iov_base, i.iov_len);
     }
     return rt;
+}
+
+sylar::ByteArray::ptr ZlibStream::getByteArray() {
+    sylar::ByteArray::ptr ba(new sylar::ByteArray);
+    for (auto& i : m_buffs) {
+        ba->write(i.iov_base, i.iov_len);
+    }
+    ba->setPosition(0);
+    return ba;
 }
 
 }  // namespace sylar

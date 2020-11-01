@@ -4,7 +4,7 @@
  * @Author: zsj
  * @Date: 2020-06-16 17:30:29
  * @LastEditors: zsj
- * @LastEditTime: 2020-10-12 15:43:54
+ * @LastEditTime: 2020-10-13 19:48:45
  */
 #pragma once
 
@@ -27,7 +27,7 @@ public:
                sylar::IOManager* accept_worker = sylar::IOManager::GetThis());
 
 
-    ServletDispatch::ptr getDispatch() const { return m_dispatch; }
+    ServletDispatch::ptr getServletDispatch() const { return m_dispatch; }
     void setServletDispatch(ServletDispatch::ptr dispatch) {
         m_dispatch = dispatch;
     }
